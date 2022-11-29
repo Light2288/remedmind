@@ -2,7 +2,7 @@
 //  RemedmindApp.swift
 //  Remedmind
 //
-//  Created by Davide Aliti on 28/11/22.
+//  Created by Davide Aliti on 28/11/22
 //
 
 import SwiftUI
