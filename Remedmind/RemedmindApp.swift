@@ -13,7 +13,7 @@ struct RemedmindApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RemindersListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
