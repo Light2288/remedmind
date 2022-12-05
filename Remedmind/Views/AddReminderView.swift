@@ -9,16 +9,26 @@ import SwiftUI
 
 struct AddReminderView: View {
     // MARK: - Properties
+    @State var medicine: Medicine
     
     // MARK: - Body
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Form {
+                TextField("Nome", text: $medicine.name)
+            }
+            Spacer()
+        }
+        .navigationTitle("Nuovo Promemoria Medicina")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 // MARK: - Preview
 struct AddReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        AddReminderView()
+        NavigationView {
+            AddReminderView(medicine: Medicine(name: "", brand: "", description: "", image: "", notes: "", administrationFrequency: .daily, administrationQuantity: 1.5, packageQuantity: 30))
+        }
     }
 }
