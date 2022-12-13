@@ -13,8 +13,9 @@ struct RemedmindApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RemindersListView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            AddReminderView(reminder: Reminder())
+//            RemindersListView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
