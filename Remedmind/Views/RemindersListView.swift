@@ -15,6 +15,8 @@ struct RemindersListView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    
+    @State private var isAddReminderViewPresented: Bool = false
 
     var body: some View {
         NavigationView {
@@ -33,12 +35,19 @@ struct RemindersListView: View {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button {
+                        isAddReminderViewPresented.toggle()
+                    } label: {
                         Label("Add Item", systemImage: "plus")
                     }
+                    .sheet(isPresented: $isAddReminderViewPresented) {
+                        AddReminderView(reminder: Reminder(), showModal: $isAddReminderViewPresented)
+                    }
+
                 }
             }
-            Text("Select an item")
+            .navigationTitle("Promemoria medicine")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 
