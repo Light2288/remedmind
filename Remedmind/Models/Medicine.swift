@@ -7,14 +7,10 @@
 
 import Foundation
 
-struct Medicine: Identifiable {
-    let id = UUID()
-    
+struct MedicineModel {
     var name: String = ""
     var brand: String = ""
     var description: String = ""
-    var image: String = ""
-    var notes: String = ""
     
     var administrationFrequency: AdministrationFrequency = .daily
     var administrationQuantity: Float = 1.0

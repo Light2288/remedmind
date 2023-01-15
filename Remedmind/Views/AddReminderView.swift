@@ -9,7 +9,8 @@ import SwiftUI
 
 struct AddReminderView: View {
     // MARK: - Properties
-    @State var reminder: Reminder
+    @Environment(\.managedObjectContext) private var viewContext
+    @State var reminder = ReminderModel()
     @Binding var showModal: Bool
     
     // MARK: - Body
@@ -21,7 +22,7 @@ struct AddReminderView: View {
                         TextField("Nome", text: $reminder.medicine.name)
                         TextField("Marca", text: $reminder.medicine.brand)
                         TextField("Descrizione", text: $reminder.medicine.description)
-                        TextField("Note", text: $reminder.medicine.notes)
+                        TextField("Note", text: $reminder.notes)
                     } header: {
                         Text("Informazioni generali")
                     }
@@ -101,7 +102,30 @@ struct AddReminderView: View {
                     }
                 }
                 Button {
-                    print(reminder)
+                    let newReminder = Reminder(context: viewContext)
+                    newReminder.id = UUID()
+                    newReminder.medicineName = reminder.medicine.name
+                    newReminder.medicineBrand = reminder.medicine.brand
+                    newReminder.medicineDescription = reminder.medicine.description
+                    newReminder.image = reminder.image
+                    newReminder.notes = reminder.notes
+                    newReminder.administrationFrequency = reminder.medicine.administrationFrequency.rawValue
+                    // TODO: change to array of days
+                    newReminder.administrationDays = ""
+                    newReminder.numberOfAdministrations = Int32(reminder.medicine.numberOfAdministrations)
+                    newReminder.administrationQuantity = reminder.medicine.administrationQuantity
+                    newReminder.administrationType = reminder.medicine.administrationType.rawValue
+                    newReminder.activeAdministrationNotification = reminder.activeAdministrationNotification
+                    newReminder.activeRunningLowNotification = reminder.activeRunningLowNotification
+                    newReminder.packageQuantity = Int32(reminder.medicine.packageQuantity)
+                    newReminder.currentPackageQuantity = Int32(reminder.medicine.currentPackageQuantity)
+                    do {
+                        try viewContext.save()
+                        showModal = false
+                    } catch {
+                        let nsError = error as NSError
+                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                    }
                 } label: {
                     Text("Salva")
                         .font(.title3)
@@ -131,7 +155,7 @@ struct AddReminderView: View {
 struct AddReminderView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddReminderView(reminder: Reminder(medicine: Medicine(name: "", brand: "", description: "", image: "", notes: "", administrationFrequency: .daily, administrationQuantity: 0, numberOfAdministrations: 3, packageQuantity: 30, currentPackageQuantity: 10), activeAdministrationNotification: false, activeRunningLowNotification: false), showModal: .constant(true))
+            AddReminderView(showModal: .constant(true))
         }
     }
 }
