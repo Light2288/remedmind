@@ -109,9 +109,9 @@ struct AddReminderView: View {
                     newReminder.medicineDescription = reminder.medicine.description
                     newReminder.image = reminder.image
                     newReminder.notes = reminder.notes
+                    newReminder.startingDate = reminder.startingDate
                     newReminder.administrationFrequency = reminder.medicine.administrationFrequency.rawValue
-                    // TODO: change to array of days
-                    newReminder.administrationDays = ""
+                    newReminder.administrationDays = reminder.medicine.administrationDays as NSObject
                     newReminder.numberOfAdministrations = Int32(reminder.medicine.numberOfAdministrations)
                     newReminder.administrationQuantity = reminder.medicine.administrationQuantity
                     newReminder.administrationType = reminder.medicine.administrationType.rawValue

@@ -6,7 +6,7 @@
     <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
         <attribute name="activeAdministrationNotification" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="activeRunningLowNotification" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="administrationDays" optional="YES" attributeType="String"/>
+        <attribute name="administrationDays" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
         <attribute name="administrationFrequency" optional="YES" attributeType="String"/>
         <attribute name="administrationQuantity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="administrationType" optional="YES" attributeType="String"/>
@@ -19,5 +19,6 @@
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="numberOfAdministrations" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="packageQuantity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="startingDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
 </model>

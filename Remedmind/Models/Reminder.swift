@@ -14,4 +14,5 @@ struct ReminderModel: Identifiable {
     var notes: String = ""
     var activeAdministrationNotification: Bool = false
     var activeRunningLowNotification: Bool = false
+    var startingDate: Date = Date()
 }
