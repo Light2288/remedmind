@@ -10,52 +10,79 @@ import CoreData
 
 struct RemindersListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Reminder.startingDate, ascending: false)],
         animation: .default)
     private var reminders: FetchedResults<Reminder>
     
     @State private var isAddReminderViewPresented: Bool = false
-
+    @State private var animatingPlusButton: Bool = false
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(reminders) { reminder in
-                    NavigationLink {
-                        Text("Reminder for medicine \(reminder.medicineName!)")
-                    } label: {
-                        Text("\(reminder.id!) \(reminder.medicineName!) \(reminder.medicineBrand!)")
+            ZStack {
+                List {
+                    ForEach(reminders) { reminder in
+                        NavigationLink {
+                            Text("Reminder for medicine \(reminder.medicineName ?? "Unknown")")
+                        } label: {
+                            Text("\(reminder.id ?? UUID()) \(reminder.medicineName ?? "Unknown") \(reminder.medicineBrand ?? "Unknown")")
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
+                .sheet(isPresented: $isAddReminderViewPresented) {
+                    AddReminderView(showModal: $isAddReminderViewPresented)
+                        .environment(\.managedObjectContext, viewContext)
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                .navigationTitle("Promemoria medicine")
+                .navigationBarTitleDisplayMode(.large)
+            }
+            .onAppear {
+                animatingPlusButton = true
+            }
+            .overlay(
+                ZStack {
+                    Group {
+                        Circle()
+                            .fill(Color("SecondaryColor"))
+                            .opacity(animatingPlusButton ? 0.2 : 0)
+                            .scaleEffect(animatingPlusButton ? 1 : 0.1)
+                            .frame(width: 68, height: 68, alignment: .center)
+                        Circle()
+                            .fill(Color("SecondaryColor"))
+                            .opacity(animatingPlusButton ? 0.15 : 0)
+                            .scaleEffect(animatingPlusButton ? 1 : 0.1)
+                            .frame(width: 88, height: 88, alignment: .center)
+                    }
+                    .animation(.easeOut(duration: 2.5).repeatForever(autoreverses: true), value: animatingPlusButton)
+                    
                     Button {
                         isAddReminderViewPresented.toggle()
                     } label: {
-                        Label("Add Item", systemImage: "plus")
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(Color("SecondaryColor"))
+                            .background(Circle().fill(.white))
+                            .frame(width: 48, height: 48, alignment: .center)
                     }
-                    .sheet(isPresented: $isAddReminderViewPresented) {
-                        AddReminderView(showModal: $isAddReminderViewPresented)
-                            .environment(\.managedObjectContext, viewContext)
-                    }
-
                 }
-            }
-            .navigationTitle("Promemoria medicine")
-            .navigationBarTitleDisplayMode(.large)
+                , alignment: .bottomTrailing
+            )
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { reminders[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {
