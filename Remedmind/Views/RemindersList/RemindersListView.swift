@@ -17,6 +17,7 @@ struct RemindersListView: View {
     private var reminders: FetchedResults<Reminder>
     
     @State private var isAddReminderViewPresented: Bool = false
+    @State private var isSettingsViewPresented: Bool = false
     @State private var animatingPlusButton: Bool = false
     
     var body: some View {
@@ -36,10 +37,21 @@ struct RemindersListView: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         EditButton()
                     }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isSettingsViewPresented.toggle()
+                        } label: {
+                            Image(systemName: "gear")
+                        }
+
+                    }
                 }
                 .sheet(isPresented: $isAddReminderViewPresented) {
                     AddReminderView(showModal: $isAddReminderViewPresented)
                         .environment(\.managedObjectContext, viewContext)
+                }
+                .sheet(isPresented: $isSettingsViewPresented) {
+                    SettingsView(showSettingsModal: $isSettingsViewPresented)
                 }
                 .navigationTitle("Promemoria medicine")
                 .navigationBarTitleDisplayMode(.large)

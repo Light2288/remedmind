@@ -17,8 +17,10 @@
 		6B6A2C5F29356CFB00E72834 /* RemedmindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A2C5E29356CFB00E72834 /* RemedmindTests.swift */; };
 		6B6A2C6929356CFB00E72834 /* RemedmindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A2C6829356CFB00E72834 /* RemedmindUITests.swift */; };
 		6B6A2C6B29356CFB00E72834 /* RemedmindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A2C6A29356CFB00E72834 /* RemedmindUITestsLaunchTests.swift */; };
+		6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */; };
 		6BA7E774293D67BB00A3F3E4 /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7E773293D67BB00A3F3E4 /* Medicine.swift */; };
 		6BA7E776293D68F500A3F3E4 /* Administration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7E775293D68F500A3F3E4 /* Administration.swift */; };
+		6BB296BF29774AA000152A7B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB296BE29774AA000152A7B /* SettingsView.swift */; };
 		6BCA9616293D5FE000C815E8 /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA9615293D5FE000C815E8 /* AddReminderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +56,10 @@
 		6B6A2C6429356CFB00E72834 /* RemedmindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemedmindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B6A2C6829356CFB00E72834 /* RemedmindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedmindUITests.swift; sourceTree = "<group>"; };
 		6B6A2C6A29356CFB00E72834 /* RemedmindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedmindUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
 		6BA7E773293D67BB00A3F3E4 /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
 		6BA7E775293D68F500A3F3E4 /* Administration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administration.swift; sourceTree = "<group>"; };
+		6BB296BE29774AA000152A7B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6BCA9615293D5FE000C815E8 /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,11 +148,37 @@
 			path = RemedmindUITests;
 			sourceTree = "<group>";
 		};
-		6BCA9614293D5F5600C815E8 /* Views */ = {
+		6BA00604297DE88B00435EAF /* RemindersList */ = {
 			isa = PBXGroup;
 			children = (
 				6B6A2C4929356CFA00E72834 /* RemindersListView.swift */,
+			);
+			path = RemindersList;
+			sourceTree = "<group>";
+		};
+		6BA00605297DE89800435EAF /* AddReminder */ = {
+			isa = PBXGroup;
+			children = (
 				6BCA9615293D5FE000C815E8 /* AddReminderView.swift */,
+			);
+			path = AddReminder;
+			sourceTree = "<group>";
+		};
+		6BA00606297DE8A100435EAF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6BB296BE29774AA000152A7B /* SettingsView.swift */,
+				6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6BCA9614293D5F5600C815E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6BA00604297DE88B00435EAF /* RemindersList */,
+				6BA00605297DE89800435EAF /* AddReminder */,
+				6BA00606297DE8A100435EAF /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,9 +326,11 @@
 				6B6A2C5129356CFB00E72834 /* Persistence.swift in Sources */,
 				6BA7E774293D67BB00A3F3E4 /* Medicine.swift in Sources */,
 				6BA7E776293D68F500A3F3E4 /* Administration.swift in Sources */,
+				6BB296BF29774AA000152A7B /* SettingsView.swift in Sources */,
 				6B07E1C0296CE1410058AE4B /* Remedmind.xcdatamodeld in Sources */,
 				6B6A2C4A29356CFA00E72834 /* RemindersListView.swift in Sources */,
 				6B6A2C4829356CFA00E72834 /* RemedmindApp.swift in Sources */,
+				6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */,
 				6BCA9616293D5FE000C815E8 /* AddReminderView.swift in Sources */,
 				6B5850942942A73200D561E8 /* Reminder.swift in Sources */,
 			);
@@ -471,7 +503,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limulus.Remedmind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -500,7 +532,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limulus.Remedmind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
