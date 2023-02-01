@@ -15,6 +15,8 @@ struct RemedmindApp: App {
         WindowGroup {
             RemindersListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(IconNames())
+                .environmentObject(ThemeSettings())
         }
     }
 }

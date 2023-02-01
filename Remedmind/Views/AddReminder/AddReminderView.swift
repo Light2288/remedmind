@@ -10,6 +10,7 @@ import SwiftUI
 struct AddReminderView: View {
     // MARK: - Properties
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var themeSettings: ThemeSettings
     @State var reminder = ReminderModel()
     @Binding var showModal: Bool
     
@@ -56,6 +57,7 @@ struct AddReminderView: View {
                                                     .font(.footnote)
                                             }
                                             .toggleStyle(.button)
+                                            .tint(themeSettings.selectedThemePrimaryColor)
                                     }
                                     Spacer()
                                 }
@@ -133,6 +135,7 @@ struct AddReminderView: View {
                         .frame(minWidth: 0, maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(themeSettings.selectedThemePrimaryColor)
                 .padding()
 
             }
@@ -148,6 +151,7 @@ struct AddReminderView: View {
             .navigationTitle("Nuovo Promemoria Medicina")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .tint(themeSettings.selectedThemePrimaryColor)
     }
 }
 
@@ -156,6 +160,7 @@ struct AddReminderView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             AddReminderView(showModal: .constant(true))
+                .environmentObject(ThemeSettings())
         }
     }
 }
