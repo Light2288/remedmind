@@ -14,12 +14,14 @@ struct SettingsFormRow: View {
     var content: String?
     var link: String?
     
+    @EnvironmentObject var themeSettings: ThemeSettings
+    
     // MARK: - Body
     var body: some View {
         HStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 6, style: .continuous)
-                    .fill(Color("SecondaryColor"))
+                    .fill(themeSettings.selectedThemeSecondaryColor)
                 Image(systemName: icon)
                     .resizable()
                     .scaledToFit()
@@ -52,9 +54,11 @@ struct SettingsFormRow_Previews: PreviewProvider {
             SettingsFormRow(icon: "gear", title: "Application", content: "Remedmind")
                 .previewLayout(.fixed(width: 375, height: 60))
             .padding()
+            .environmentObject(ThemeSettings())
             SettingsFormRow(icon: "link", title: "Developer website", link: "www.lightstimulus.com")
                 .previewLayout(.fixed(width: 375, height: 60))
             .padding()
+            .environmentObject(ThemeSettings())
         }
     }
 }

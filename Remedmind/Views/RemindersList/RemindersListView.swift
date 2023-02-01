@@ -10,7 +10,9 @@ import CoreData
 
 struct RemindersListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
+    @EnvironmentObject var iconSettings: IconNames
+    @EnvironmentObject var themeSettings: ThemeSettings
+
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Reminder.startingDate, ascending: false)],
         animation: .default)
@@ -49,9 +51,12 @@ struct RemindersListView: View {
                 .sheet(isPresented: $isAddReminderViewPresented) {
                     AddReminderView(showModal: $isAddReminderViewPresented)
                         .environment(\.managedObjectContext, viewContext)
+                        .environmentObject(self.themeSettings)
                 }
                 .sheet(isPresented: $isSettingsViewPresented) {
                     SettingsView(showSettingsModal: $isSettingsViewPresented)
+                        .environmentObject(self.iconSettings)
+                        .environmentObject(self.themeSettings)
                 }
                 .navigationTitle("Promemoria medicine")
                 .navigationBarTitleDisplayMode(.large)
@@ -63,12 +68,12 @@ struct RemindersListView: View {
                 ZStack {
                     Group {
                         Circle()
-                            .fill(Color("SecondaryColor"))
+                            .fill(themeSettings.selectedThemeSecondaryColor)
                             .opacity(animatingPlusButton ? 0.2 : 0)
                             .scaleEffect(animatingPlusButton ? 1 : 0.1)
                             .frame(width: 68, height: 68, alignment: .center)
                         Circle()
-                            .fill(Color("SecondaryColor"))
+                            .fill(themeSettings.selectedThemeSecondaryColor)
                             .opacity(animatingPlusButton ? 0.15 : 0)
                             .scaleEffect(animatingPlusButton ? 1 : 0.1)
                             .frame(width: 88, height: 88, alignment: .center)
@@ -81,7 +86,7 @@ struct RemindersListView: View {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
                             .scaledToFit()
-                            .foregroundColor(Color("SecondaryColor"))
+                            .foregroundColor(themeSettings.selectedThemeSecondaryColor)
                             .background(Circle().fill(.white))
                             .frame(width: 48, height: 48, alignment: .center)
                     }
@@ -89,6 +94,7 @@ struct RemindersListView: View {
                 , alignment: .bottomTrailing
             )
         }
+        .tint(themeSettings.selectedThemePrimaryColor)
     }
     
     private func deleteItems(offsets: IndexSet) {
@@ -110,5 +116,6 @@ struct RemindersListView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         RemindersListView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environmentObject(ThemeSettings())
     }
 }
