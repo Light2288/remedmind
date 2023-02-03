@@ -14,6 +14,9 @@ struct AddReminderView: View {
     @State var reminder = ReminderModel()
     @Binding var showModal: Bool
     
+    var localizedVeryShortWeekdaysSymbols: [String] { Array(Calendar.current.veryShortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.veryShortWeekdaySymbols.count] + Calendar.current.veryShortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
+    }
+    
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -53,7 +56,7 @@ struct AddReminderView: View {
     //                                        .toggleStyle(.button)
                                         Toggle(
                                             isOn: $reminder.medicine.administrationDays[index]) {
-                                                Text(Calendar.current.weekdaySymbols[index].prefix(1))
+                                                Text(localizedVeryShortWeekdaysSymbols[index].prefix(1))
                                                     .font(.footnote)
                                             }
                                             .toggleStyle(.button)
