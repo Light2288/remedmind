@@ -90,14 +90,28 @@ struct AddReminderView: View {
                     if reminder.medicine.administrationType == .pill || reminder.medicine.administrationType == .sachet {
                         Section {
                             Toggle(isOn: $reminder.activeRunningLowNotification) {
-                                Text("Ricevi una notifica per quando la confezione sta per esaurirsi")
+                                Text("Ricevi una notifica quando la confezione sta per esaurirsi")
                             }
                             if reminder.activeRunningLowNotification {
-                                Stepper("\(reminder.medicine.administrationType == .pill ? "Pillole" : "Bustine") in una confezione: \(reminder.medicine.packageQuantity)", value: $reminder.medicine.packageQuantity)
+                                HStack {
+                                    Text("\(reminder.medicine.administrationType == .pill ? "Pillole" : "Bustine") in una confezione:")
+                                    Spacer()
+                                    TextField("", value: $reminder.medicine.packageQuantity, formatter: NumberFormatter())
+                                        .keyboardType(.decimalPad)
+                                        .fixedSize()
+                                        .textFieldStyle(.roundedBorder)
+                                }
                                 VStack(alignment: .leading) {
                                     Text("Se hai una confezione già iniziata, indica qui quante \(reminder.medicine.administrationType == .pill ? "pillole" : "bustine") sono rimaste")
                                         .font(.footnote)
-                                    Stepper("\(reminder.medicine.administrationType == .pill ? "Pillole" : "Bustine") rimaste nella confezione attuale: \(reminder.medicine.currentPackageQuantity)", value: $reminder.medicine.currentPackageQuantity)
+                                    HStack {
+                                        Text("\(reminder.medicine.administrationType == .pill ? "Pillole" : "Bustine") rimaste nella confezione attuale:")
+                                        Spacer()
+                                        TextField("", value: $reminder.medicine.currentPackageQuantity, formatter: NumberFormatter())
+                                            .keyboardType(.decimalPad)
+                                            .fixedSize()
+                                            .textFieldStyle(.roundedBorder)
+                                    }
                                 }
                             }
                             
