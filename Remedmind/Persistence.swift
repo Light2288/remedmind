@@ -15,7 +15,8 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
             let newReminder = Reminder(context: viewContext)
-            newReminder.medicineName = "test \(Date())"
+            newReminder.medicineName = "Aspirina C"
+            newReminder.medicineBrand = "Bayern"
         }
         do {
             try viewContext.save()
