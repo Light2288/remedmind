@@ -28,7 +28,7 @@ struct RemindersListView: View {
                 List {
                     ForEach(reminders) { reminder in
                         NavigationLink {
-                            Text("Reminder for medicine \(reminder.medicineName ?? "Unknown")")
+                            ReminderDetailView(reminder: reminder)
                         } label: {
                             ReminderListRowView(reminder: reminder)
                                 .environmentObject(self.themeSettings)
