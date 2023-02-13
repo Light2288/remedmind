@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ReminderListRowView: View {
     // MARK: - Properties
-    @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var themeSettings: ThemeSettings
     
     var reminder: Reminder
