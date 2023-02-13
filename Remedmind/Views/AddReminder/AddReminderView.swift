@@ -14,8 +14,7 @@ struct AddReminderView: View {
     @State var reminder = ReminderModel()
     @Binding var showModal: Bool
     
-    var localizedVeryShortWeekdaysSymbols: [String] { Array(Calendar.current.veryShortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.veryShortWeekdaySymbols.count] + Calendar.current.veryShortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
-    }
+    var localizedVeryShortWeekdaysSymbols: [String] = Array(Calendar.current.veryShortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.veryShortWeekdaySymbols.count] + Calendar.current.veryShortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
     
     // MARK: - Body
     var body: some View {
@@ -137,7 +136,7 @@ struct AddReminderView: View {
                     newReminder.activeAdministrationNotification = reminder.activeAdministrationNotification
                     newReminder.activeRunningLowNotification = reminder.activeRunningLowNotification
                     newReminder.packageQuantity = Int32(reminder.medicine.packageQuantity)
-                    newReminder.currentPackageQuantity = Int32(reminder.medicine.currentPackageQuantity)
+                    newReminder.currentPackageQuantity = Float(reminder.medicine.currentPackageQuantity)
                     do {
                         try viewContext.save()
                         showModal = false

@@ -30,7 +30,8 @@ struct RemindersListView: View {
                         NavigationLink {
                             Text("Reminder for medicine \(reminder.medicineName ?? "Unknown")")
                         } label: {
-                            Text("\(reminder.id ?? UUID()) \(reminder.medicineName ?? "Unknown") \(reminder.medicineBrand ?? "Unknown")")
+                            ReminderListRowView(reminder: reminder)
+                                .environmentObject(self.themeSettings)
                         }
                     }
                     .onDelete(perform: deleteItems)
