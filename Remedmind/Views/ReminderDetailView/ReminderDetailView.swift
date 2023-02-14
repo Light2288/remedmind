@@ -13,7 +13,14 @@ struct ReminderDetailView: View {
     
     // MARK: - Body
     var body: some View {
-        Text(reminder.medicineName ?? "Unknown medicine brand")
+        VStack(alignment: .leading) {
+            Text(reminder.medicineName ?? "Unknown medicine name")
+                .font(.largeTitle)
+            RecapInfoView(reminder: reminder)
+            Spacer()
+        }
+        .padding()
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
