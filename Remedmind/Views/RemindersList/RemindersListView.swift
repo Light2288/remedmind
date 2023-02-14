@@ -59,9 +59,9 @@ struct RemindersListView: View {
                         .environmentObject(self.iconSettings)
                         .environmentObject(self.themeSettings)
                 }
-                .navigationTitle("Promemoria medicine")
-                .navigationBarTitleDisplayMode(.large)
             }
+            .navigationTitle("Promemoria medicine")
+            .navigationBarTitleDisplayMode(.large)
             .onAppear {
                 animatingPlusButton = true
             }
