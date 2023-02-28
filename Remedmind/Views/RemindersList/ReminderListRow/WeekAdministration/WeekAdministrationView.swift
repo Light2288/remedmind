@@ -10,13 +10,24 @@ import SwiftUI
 struct WeekAdministrationView: View {
     // MARK: - Properties
     @EnvironmentObject var themeSettings: ThemeSettings
-
-    var localizedVeryShortWeekdaysSymbols: [String] = Array(Calendar.current.veryShortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.veryShortWeekdaySymbols.count] + Calendar.current.veryShortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
-    var isCurrentDay: [Bool] {
-        Calendar.current.weekdaySymbols.enumerated().map { $0.0 == Calendar.current.component(.weekday, from: Date()) - 1}
+    var calendar = Calendar.current
+    
+    var localizedCalendar : Calendar {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
+        return calendar
     }
+    
+    var localizedVeryShortWeekdaysSymbols: [String] {
+        Array(localizedCalendar.veryShortWeekdaySymbols[localizedCalendar.firstWeekday - 1 ..< localizedCalendar.veryShortWeekdaySymbols.count] + localizedCalendar.veryShortWeekdaySymbols[0 ..< localizedCalendar.firstWeekday - 1])
+    }
+    
+    var isCurrentDay: [Bool] {
+        localizedCalendar.weekdaySymbols.enumerated().map { $0.0 == localizedCalendar.component(.weekday, from: Date()) - 1}
+    }
+    
     var localizedIsCurrentDay: [Bool] {
-        Array(isCurrentDay[Calendar.current.firstWeekday - 1 ..< Calendar.current.veryShortWeekdaySymbols.count] + isCurrentDay[0 ..< Calendar.current.firstWeekday - 1])
+        Array(isCurrentDay[localizedCalendar.firstWeekday - 1 ..< localizedCalendar.veryShortWeekdaySymbols.count] + isCurrentDay[0 ..< localizedCalendar.firstWeekday - 1])
     }
 
     
