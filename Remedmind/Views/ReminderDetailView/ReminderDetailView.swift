@@ -15,19 +15,18 @@ struct ReminderDetailView: View {
         calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
         return calendar
     }
+    @State var selectedDay = Date.now
     
     // MARK: - Body
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 10) {
-                Text(reminder.medicineName ?? "Unknown medicine name")
-                    .font(.largeTitle)
-                DailyIntakeView()
-                CalendarIntakeView(calendar: localizedCalendar)
+                TitleInfoView(title: reminder.medicineName)
+                DailyIntakeView(numberOfAdministrations: Int(reminder.numberOfAdministrations), selectedDay: $selectedDay)
+                CalendarIntakeView(calendar: localizedCalendar, selectedDay: $selectedDay)
                 RecapInfoView(reminder: reminder)
                 Spacer()
             }
-            .padding()
         .navigationBarTitleDisplayMode(.inline)
         }
     }
