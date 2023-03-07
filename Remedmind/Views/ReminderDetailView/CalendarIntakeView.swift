@@ -16,7 +16,7 @@ struct CalendarIntakeView: View {
         DateFormatter(dateFormat: "MMMM dd, yyyy", calendar: calendar)
     }
 
-    @Binding var selectedDay: Date
+    @State private var selectedDay = Self.now
     @State private var monthStart = Self.now
     private static var now = Date() // Cache now
     var days: [Date] {
@@ -25,6 +25,9 @@ struct CalendarIntakeView: View {
 
     var body: some View {
         VStack {
+            Text("Selected date: \(fullFormatter.string(from: selectedDay)) \(monthStart)")
+                .bold()
+                .foregroundColor(.red)
             VStack{
                 LazyVGrid(columns: Array(repeating: GridItem(), count: daysInWeek)) {
                     Section {
@@ -67,7 +70,7 @@ private extension CalendarIntakeView {
 // MARK: - Previews
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarIntakeView(calendar: Calendar(identifier: .gregorian), selectedDay: .constant(Date.now))
+        CalendarIntakeView(calendar: Calendar(identifier: .gregorian))
             .environmentObject(ThemeSettings())
     }
 }

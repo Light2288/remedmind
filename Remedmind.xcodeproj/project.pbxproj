@@ -20,13 +20,6 @@
 		6B4A4D8A29AD72610063D15E /* CalendarIntakeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A4D8929AD72610063D15E /* CalendarIntakeHeaderView.swift */; };
 		6B4A4D8E29AD728F0063D15E /* CalendarIntakeTrailingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A4D8D29AD728F0063D15E /* CalendarIntakeTrailingView.swift */; };
 		6B5850942942A73200D561E8 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850932942A73200D561E8 /* Reminder.swift */; };
-		6B64D7B129B0097D00D87319 /* TitleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B029B0097D00D87319 /* TitleInfoView.swift */; };
-		6B64D7B429B00C5500D87319 /* DailyIntakeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B329B00C5500D87319 /* DailyIntakeButtonView.swift */; };
-		6B64D7B629B1068C00D87319 /* DailyIntakeCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B529B1068C00D87319 /* DailyIntakeCapsuleView.swift */; };
-		6B64D7B829B1072300D87319 /* DailyIntakeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B729B1072300D87319 /* DailyIntakeButtonsView.swift */; };
-		6B64D7BA29B10AF200D87319 /* DailyIntakeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B929B10AF200D87319 /* DailyIntakeDetailView.swift */; };
-		6B64D7BD29B7F58300D87319 /* SizeCalculatorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7BC29B7F58300D87319 /* SizeCalculatorViewModifier.swift */; };
-		6B64D7BF29B7F5C000D87319 /* View+SaveSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7BE29B7F5C000D87319 /* View+SaveSize.swift */; };
 		6B6A2C4829356CFA00E72834 /* RemedmindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A2C4729356CFA00E72834 /* RemedmindApp.swift */; };
 		6B6A2C4A29356CFA00E72834 /* RemindersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A2C4929356CFA00E72834 /* RemindersListView.swift */; };
 		6B6A2C4C29356CFB00E72834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B6A2C4B29356CFB00E72834 /* Assets.xcassets */; };
@@ -86,13 +79,6 @@
 		6B4A4D8929AD72610063D15E /* CalendarIntakeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarIntakeHeaderView.swift; sourceTree = "<group>"; };
 		6B4A4D8D29AD728F0063D15E /* CalendarIntakeTrailingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarIntakeTrailingView.swift; sourceTree = "<group>"; };
 		6B5850932942A73200D561E8 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
-		6B64D7B029B0097D00D87319 /* TitleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInfoView.swift; sourceTree = "<group>"; };
-		6B64D7B329B00C5500D87319 /* DailyIntakeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeButtonView.swift; sourceTree = "<group>"; };
-		6B64D7B529B1068C00D87319 /* DailyIntakeCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeCapsuleView.swift; sourceTree = "<group>"; };
-		6B64D7B729B1072300D87319 /* DailyIntakeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeButtonsView.swift; sourceTree = "<group>"; };
-		6B64D7B929B10AF200D87319 /* DailyIntakeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeDetailView.swift; sourceTree = "<group>"; };
-		6B64D7BC29B7F58300D87319 /* SizeCalculatorViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCalculatorViewModifier.swift; sourceTree = "<group>"; };
-		6B64D7BE29B7F5C000D87319 /* View+SaveSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+SaveSize.swift"; sourceTree = "<group>"; };
 		6B6A2C4429356CFA00E72834 /* Remedmind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remedmind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B6A2C4729356CFA00E72834 /* RemedmindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedmindApp.swift; sourceTree = "<group>"; };
 		6B6A2C4929356CFA00E72834 /* RemindersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListView.swift; sourceTree = "<group>"; };
@@ -168,7 +154,6 @@
 				6B4A4D7E29AD6B0A0063D15E /* Calendar+Generate.swift */,
 				6B4A4D8029AD6B3A0063D15E /* Date+StartOfMonth.swift */,
 				6B4A4D8229AD6B630063D15E /* DateFormatter+Init.swift */,
-				6B64D7BE29B7F5C000D87319 /* View+SaveSize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -181,25 +166,6 @@
 				6B4A4D8D29AD728F0063D15E /* CalendarIntakeTrailingView.swift */,
 			);
 			path = CalendarIntake;
-			sourceTree = "<group>";
-		};
-		6B64D7B229B00C4200D87319 /* DailyIntakeView */ = {
-			isa = PBXGroup;
-			children = (
-				6B64D7B329B00C5500D87319 /* DailyIntakeButtonView.swift */,
-				6B64D7B529B1068C00D87319 /* DailyIntakeCapsuleView.swift */,
-				6B64D7B729B1072300D87319 /* DailyIntakeButtonsView.swift */,
-				6B64D7B929B10AF200D87319 /* DailyIntakeDetailView.swift */,
-			);
-			path = DailyIntakeView;
-			sourceTree = "<group>";
-		};
-		6B64D7BB29B7F53700D87319 /* ViewModifiers */ = {
-			isa = PBXGroup;
-			children = (
-				6B64D7BC29B7F58300D87319 /* SizeCalculatorViewModifier.swift */,
-			);
-			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		6B6A2C3B29356CFA00E72834 = {
@@ -228,12 +194,11 @@
 				6B4A4D7D29AD6A890063D15E /* Extensions */,
 				6BC7BFD32987238700E15743 /* Data */,
 				6BB07BE1297F52ED005A56D7 /* Icons */,
-				6BCA9617293D62CB00C815E8 /* Models */,
-				6BCA9614293D5F5600C815E8 /* Views */,
-				6B64D7BB29B7F53700D87319 /* ViewModifiers */,
-				6B6A2C4729356CFA00E72834 /* RemedmindApp.swift */,
-				6B6A2C4B29356CFB00E72834 /* Assets.xcassets */,
 				6B07E1BE296CE1410058AE4B /* Remedmind.xcdatamodeld */,
+				6BCA9617293D62CB00C815E8 /* Models */,
+				6B6A2C4729356CFA00E72834 /* RemedmindApp.swift */,
+				6BCA9614293D5F5600C815E8 /* Views */,
+				6B6A2C4B29356CFB00E72834 /* Assets.xcassets */,
 				6B6A2C5029356CFB00E72834 /* Persistence.swift */,
 				6B6A2C5529356CFB00E72834 /* Info.plist */,
 				6B6A2C4D29356CFB00E72834 /* Preview Content */,
@@ -296,13 +261,11 @@
 		6BA19A39299AED3300F8CF9E /* ReminderDetailView */ = {
 			isa = PBXGroup;
 			children = (
-				6B64D7B229B00C4200D87319 /* DailyIntakeView */,
 				6B4A4D8429AD6C100063D15E /* CalendarIntake */,
 				6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */,
 				6BFB24EB299C4E990092837A /* RecapInfoView.swift */,
 				6B08C45B299EED1A0050EBFF /* DailyIntakeView.swift */,
 				6B08C45D299EED290050EBFF /* CalendarIntakeView.swift */,
-				6B64D7B029B0097D00D87319 /* TitleInfoView.swift */,
 			);
 			path = ReminderDetailView;
 			sourceTree = "<group>";
@@ -522,13 +485,11 @@
 				6BA7E776293D68F500A3F3E4 /* Administration.swift in Sources */,
 				6B11D8BC29945853003BD412 /* MedicineImageView.swift in Sources */,
 				6BCA83F42995AF240090EB86 /* WeekAdministrationView.swift in Sources */,
-				6B64D7B829B1072300D87319 /* DailyIntakeButtonsView.swift in Sources */,
 				6BB296BF29774AA000152A7B /* SettingsView.swift in Sources */,
 				6B11D8C02994600E003BD412 /* AdministrationFrequencyView.swift in Sources */,
 				6B4A4D8A29AD72610063D15E /* CalendarIntakeHeaderView.swift in Sources */,
 				6BB07BEF2981C9BE005A56D7 /* IconNames.swift in Sources */,
 				6B07E1C0296CE1410058AE4B /* Remedmind.xcdatamodeld in Sources */,
-				6B64D7B629B1068C00D87319 /* DailyIntakeCapsuleView.swift in Sources */,
 				6B08C45C299EED1A0050EBFF /* DailyIntakeView.swift in Sources */,
 				6BA19A3B299AED4F00F8CF9E /* ReminderDetailView.swift in Sources */,
 				6B6A2C4A29356CFA00E72834 /* RemindersListView.swift in Sources */,
@@ -537,21 +498,16 @@
 				6BD15A672993060100576DD4 /* ReminderListRowView.swift in Sources */,
 				6BFB24EC299C4E990092837A /* RecapInfoView.swift in Sources */,
 				6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */,
-				6B64D7BA29B10AF200D87319 /* DailyIntakeDetailView.swift in Sources */,
 				6B4A4D8129AD6B3A0063D15E /* Date+StartOfMonth.swift in Sources */,
 				6B4A4D8329AD6B630063D15E /* DateFormatter+Init.swift in Sources */,
 				6B4A4D7F29AD6B0A0063D15E /* Calendar+Generate.swift in Sources */,
-				6B64D7B129B0097D00D87319 /* TitleInfoView.swift in Sources */,
-				6B64D7BD29B7F58300D87319 /* SizeCalculatorViewModifier.swift in Sources */,
 				6B4A4D8E29AD728F0063D15E /* CalendarIntakeTrailingView.swift in Sources */,
 				6BC7BFD22987231F00E15743 /* Theme.swift in Sources */,
 				6B11D8BE29945ADF003BD412 /* MedicineNameBrandView.swift in Sources */,
 				6BC7BFD82987241E00E15743 /* ThemeColors.swift in Sources */,
 				6BC7BFDA2987263800E15743 /* ThemeSettings.swift in Sources */,
 				6BCA9616293D5FE000C815E8 /* AddReminderView.swift in Sources */,
-				6B64D7BF29B7F5C000D87319 /* View+SaveSize.swift in Sources */,
 				6B5850942942A73200D561E8 /* Reminder.swift in Sources */,
-				6B64D7B429B00C5500D87319 /* DailyIntakeButtonView.swift in Sources */,
 				6B4A4D8629AD6C500063D15E /* CalendarIntakeDayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

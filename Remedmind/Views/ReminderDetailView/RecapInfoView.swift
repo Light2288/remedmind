@@ -32,7 +32,6 @@ struct RecapInfoView: View {
                 alignment: .leading
             )
         }
-        .padding()
     }
 }
 
