@@ -15,7 +15,12 @@ struct ReminderDetailView: View {
         calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
         return calendar
     }
+    
     @State var selectedDay = Date.now
+    @State private var isEditViewPresented: Bool = false
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var themeSettings: ThemeSettings
     
     // MARK: - Body
     var body: some View {
@@ -25,17 +30,35 @@ struct ReminderDetailView: View {
                 DailyIntakeView(numberOfAdministrations: Int(reminder.numberOfAdministrations), selectedDay: $selectedDay)
                 CalendarIntakeView(calendar: localizedCalendar, selectedDay: $selectedDay)
                 RecapInfoView(reminder: reminder)
+                NotificationsInfoView(reminder: reminder)
                 Spacer()
             }
-        .navigationBarTitleDisplayMode(.inline)
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    isEditViewPresented.toggle()
+                } label: {
+                    Image(systemName: "square.and.pencil")
+                }
+
+            }
+        }
+        .sheet(isPresented: $isEditViewPresented) {
+            AddEditReminderView(showModal: $isEditViewPresented)
+                .environment(\.managedObjectContext, viewContext)
+                .environmentObject(self.themeSettings)
+        }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 // MARK: - Preview
 struct ReminderDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderDetailView(reminder: Reminder(context: PersistenceController.preview.container.viewContext))
-            .environmentObject(ThemeSettings())
+        NavigationView {
+            ReminderDetailView(reminder: Reminder(context: PersistenceController.preview.container.viewContext))
+                .environmentObject(ThemeSettings())
+        }
     }
 }

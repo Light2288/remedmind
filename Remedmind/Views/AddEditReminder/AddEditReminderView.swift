@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddReminderView: View {
+struct AddEditReminderView: View {
     // MARK: - Properties
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var themeSettings: ThemeSettings
@@ -172,10 +172,10 @@ struct AddReminderView: View {
 }
 
 // MARK: - Preview
-struct AddReminderView_Previews: PreviewProvider {
+struct AddEditReminderView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddReminderView(showModal: .constant(true))
+            AddEditReminderView(showModal: .constant(true))
                 .environmentObject(ThemeSettings())
         }
     }
