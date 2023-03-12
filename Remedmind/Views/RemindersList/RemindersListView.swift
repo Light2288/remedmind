@@ -50,7 +50,7 @@ struct RemindersListView: View {
                     }
                 }
                 .sheet(isPresented: $isAddReminderViewPresented) {
-                    AddReminderView(showModal: $isAddReminderViewPresented)
+                    AddEditReminderView(showModal: $isAddReminderViewPresented)
                         .environment(\.managedObjectContext, viewContext)
                         .environmentObject(self.themeSettings)
                 }
