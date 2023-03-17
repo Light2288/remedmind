@@ -17,10 +17,13 @@ struct CalendarIntakeTrailingView: View {
         DateFormatter(dateFormat: "d", calendar: calendar)
     }
     
+    @EnvironmentObject var themeSettings: ThemeSettings
+    
     // MARK: - Body
     var body: some View {
         Text(dayFormatter.string(from: day))
-            .foregroundColor(.secondary)
+            .foregroundColor(calendar.isDateInToday(day) ? themeSettings.selectedThemeSecondaryColor
+                             : .secondary)
             .frame(height: frameHeight)
     }
 }
@@ -29,5 +32,6 @@ struct CalendarIntakeTrailingView: View {
 struct CalendarIntakeTrailingView_Previews: PreviewProvider {
     static var previews: some View {
         CalendarIntakeTrailingView(calendar: Calendar(identifier: .gregorian), day: Date.now)
+            .environmentObject(ThemeSettings())
     }
 }

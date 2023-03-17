@@ -127,7 +127,7 @@ struct AddEditReminderView: View {
                     newReminder.medicineDescription = reminder.medicine.description
                     newReminder.image = reminder.image
                     newReminder.notes = reminder.notes
-                    newReminder.startingDate = reminder.startingDate
+                    newReminder.startDate = reminder.startDate
                     newReminder.administrationFrequency = reminder.medicine.administrationFrequency.rawValue
                     newReminder.administrationDays = reminder.medicine.administrationDays as NSObject
                     newReminder.numberOfAdministrations = Int32(reminder.medicine.numberOfAdministrations)
@@ -137,6 +137,7 @@ struct AddEditReminderView: View {
                     newReminder.activeRunningLowNotification = reminder.activeRunningLowNotification
                     newReminder.packageQuantity = Int32(reminder.medicine.packageQuantity)
                     newReminder.currentPackageQuantity = Float(reminder.medicine.currentPackageQuantity)
+                    newReminder.endDate = reminder.endDate
                     do {
                         try viewContext.save()
                         showModal = false
