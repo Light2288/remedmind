@@ -14,7 +14,7 @@ struct RemindersListView: View {
     @EnvironmentObject var themeSettings: ThemeSettings
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Reminder.startingDate, ascending: false)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Reminder.startDate, ascending: false)],
         animation: .default)
     private var reminders: FetchedResults<Reminder>
     

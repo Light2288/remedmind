@@ -28,7 +28,7 @@ struct ReminderDetailView: View {
             VStack(alignment: .center, spacing: 10) {
                 TitleInfoView(title: reminder.medicineName)
                 DailyIntakeView(numberOfAdministrations: Int(reminder.numberOfAdministrations), selectedDay: $selectedDay)
-                CalendarIntakeView(calendar: localizedCalendar, selectedDay: $selectedDay)
+                CalendarIntakeView(calendar: localizedCalendar, selectedDay: $selectedDay, startDate: reminder.startDate ?? Date.distantPast, endDate: reminder.endDate ?? Date.distantFuture)
                 RecapInfoView(reminder: reminder)
                 NotificationsInfoView(reminder: reminder)
                 Spacer()

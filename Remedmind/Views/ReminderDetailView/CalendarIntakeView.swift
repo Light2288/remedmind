@@ -22,6 +22,12 @@ struct CalendarIntakeView: View {
     var days: [Date] {
         makeDays()
     }
+    var startDate: Date
+    var endDate: Date
+
+    func isValidDate(day: Date) -> Bool {
+        return day > startDate && day < endDate && day < Date()
+    }
 
     var body: some View {
         VStack {
@@ -32,7 +38,7 @@ struct CalendarIntakeView: View {
                             Text(weekDayFormatter.string(from: day))
                         }
                         ForEach(days, id: \.self) { day in
-                            if calendar.isDate(day, equalTo: monthStart, toGranularity: .month) && day < Date() {
+                            if calendar.isDate(day, equalTo: monthStart, toGranularity: .month) && isValidDate(day: day) {
                                 CalendarIntakeDayView(calendar: calendar, day: day, selectedDay: $selectedDay)
                             } else {
                                 CalendarIntakeTrailingView(calendar: calendar, day: day)
@@ -67,7 +73,7 @@ private extension CalendarIntakeView {
 // MARK: - Previews
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarIntakeView(calendar: Calendar(identifier: .gregorian), selectedDay: .constant(Date.now))
+        CalendarIntakeView(calendar: Calendar(identifier: .gregorian), selectedDay: .constant(Date.now), startDate: Date(timeIntervalSinceNow: -5616000), endDate: Date(timeIntervalSinceNow: -345600))
             .environmentObject(ThemeSettings())
     }
 }
