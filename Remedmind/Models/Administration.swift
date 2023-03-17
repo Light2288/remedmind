@@ -9,6 +9,7 @@ import Foundation
 
 enum AdministrationFrequency: String, CaseIterable {
     case daily
+    case everyOtherDay
     case weekly
 }
 
