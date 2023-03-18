@@ -51,8 +51,6 @@ struct AddEditReminderView: View {
                                 HStack {
                                     Spacer()
                                     ForEach(Array(reminder.medicine.administrationDays.enumerated()), id: \.offset) { index, _ in
-    //                                    Toggle(Calendar.current.weekdaySymbols[index].prefix(1), isOn: $reminder.medicine.administrationDays[index])
-    //                                        .toggleStyle(.button)
                                         Toggle(
                                             isOn: $reminder.medicine.administrationDays[index]) {
                                                 Text(localizedVeryShortWeekdaysSymbols[index].prefix(1))
@@ -66,6 +64,14 @@ struct AddEditReminderView: View {
                             }
                         }
                         Stepper("Dosi giornaliere: \(reminder.medicine.numberOfAdministrations)", value: $reminder.medicine.numberOfAdministrations)
+                            .onChange(of: reminder.medicine.numberOfAdministrations) { newValue in
+                                if reminder.administrationNotificationTimes.count < newValue {
+                                    let newNotificationTimes = Array(repeating: Date.now, count: newValue - reminder.administrationNotificationTimes.count)
+                                    reminder.administrationNotificationTimes.append(contentsOf: newNotificationTimes)
+                                } else {
+                                    reminder.administrationNotificationTimes.removeLast(reminder.administrationNotificationTimes.count - newValue)
+                                }
+                            }
                         Stepper(value: $reminder.medicine.administrationQuantity, in: 0 ... .infinity, step: 0.5) {
                             HStack(spacing: 0) {
                                 Text("Dose: \(reminder.medicine.administrationQuantity.description)")
@@ -82,6 +88,11 @@ struct AddEditReminderView: View {
                         Toggle(isOn: $reminder.activeAdministrationNotification) {
                             Text("Ricevi una notifica per ricordarti di assumere la medicina")
                         }
+                        if reminder.activeAdministrationNotification {
+                            ForEach(Array(reminder.administrationNotificationTimes.enumerated()), id: \.offset) { index, _ in
+                                DatePicker("Orario della notifica per la dose \(index+1)", selection: $reminder.administrationNotificationTimes[index], displayedComponents: .hourAndMinute)
+                            }
+                        }
                     } header: {
                         Text("Frequenza somministrazione e dosaggio")
                     }
@@ -92,6 +103,7 @@ struct AddEditReminderView: View {
                                 Text("Ricevi una notifica quando la confezione sta per esaurirsi")
                             }
                             if reminder.activeRunningLowNotification {
+                                DatePicker("Orario della notifica", selection: $reminder.runningLowNotificationTime, displayedComponents: .hourAndMinute)
                                 HStack {
                                     Text("\(reminder.medicine.administrationType == .pill ? "Pillole" : "Bustine") in una confezione:")
                                     Spacer()
@@ -134,7 +146,9 @@ struct AddEditReminderView: View {
                     newReminder.administrationQuantity = reminder.medicine.administrationQuantity
                     newReminder.administrationType = reminder.medicine.administrationType.rawValue
                     newReminder.activeAdministrationNotification = reminder.activeAdministrationNotification
-                    newReminder.activeRunningLowNotification = reminder.activeRunningLowNotification
+                    newReminder.administrationNotificationTimes = reminder.administrationNotificationTimes as NSObject
+                    newReminder.activeRunningLowNotification =  reminder.activeRunningLowNotification
+                    newReminder.runningLowNotificationTime = reminder.runningLowNotificationTime
                     newReminder.packageQuantity = Int32(reminder.medicine.packageQuantity)
                     newReminder.currentPackageQuantity = Float(reminder.medicine.currentPackageQuantity)
                     newReminder.endDate = reminder.endDate
