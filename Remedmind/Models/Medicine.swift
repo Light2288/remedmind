@@ -15,7 +15,7 @@ struct MedicineModel {
     var administrationFrequency: AdministrationFrequency = .daily
     var administrationQuantity: Float = 1.0
     var administrationType: AdministrationType = .pill
-    var numberOfAdministrations: Int = 0
+    var numberOfAdministrations: Int = 1
     
     var administrationDays: Array<Bool> = Array.init(repeating: true, count: 7)
     
