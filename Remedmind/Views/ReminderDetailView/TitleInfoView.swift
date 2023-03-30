@@ -9,11 +9,11 @@ import SwiftUI
 
 struct TitleInfoView: View {
     // MARK: - Properties
-    var title: String?
+    var title: String
     
     // MARK: - Body
     var body: some View {
-        Text(title ?? "Unknown medicine name")
+        Text(title)
             .font(.largeTitle)
             .frame(
                 minWidth: 0,
@@ -29,6 +29,6 @@ struct TitleInfoView: View {
 // MARK: - Preview
 struct TitleInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        TitleInfoView()
+        TitleInfoView(title: "Aspirina")
     }
 }

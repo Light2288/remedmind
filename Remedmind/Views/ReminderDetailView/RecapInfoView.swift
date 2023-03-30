@@ -9,21 +9,33 @@ import SwiftUI
 
 struct RecapInfoView: View {
     // MARK: - Properties
-    var reminder: Reminder
+    @ObservedObject var reminder: Reminder
     @State private var isExpanded: Bool = false
+    
+    var dateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        return dateFormatter
+    }
     
     // MARK: - Body
     var body: some View {
         DisclosureGroup("Informazioni generali", isExpanded: $isExpanded) {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Marca: \(reminder.medicineBrand ?? "Unknown medicine brand")")
-                    .font(.headline)
-                    .padding(.top, 8)
-                Text("Descrizione: \(reminder.medicineDescription ?? "No description")")
-                    .font(.subheadline)
-                Text("Note: \(reminder.notes ?? "No notes")")
-                    .font(.subheadline)
+                Text("Marca: \(reminder.medicineBrand)")
+                .padding(.top, 8)
+                Text("Descrizione: \(reminder.medicineDescription)")
+                Text("Note: \(reminder.notes)")
+                Text("Tipologia medicina: \(reminder.administrationType)")
+                Text("Quantità per ogni assunzione: \(reminder.administrationQuantity.formatted(.number))")
+                Text("Dosi giornaliere: \(reminder.numberOfAdministrations)")
+                Text("Frequenza di assunzione: \(reminder.administrationFrequency)")
+                Text("Data di inizio: \(dateFormatter.string(from: reminder.startDate))")
+                if reminder.endDate != Date.distantFuture {
+                    Text("Data di fine: \(reminder.endDate)")
+                }
             }
+            .font(.subheadline)
             .frame(
                 minWidth: 0,
                 maxWidth: .infinity,

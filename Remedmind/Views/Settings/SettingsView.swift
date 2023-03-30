@@ -124,7 +124,7 @@ struct SettingsView: View {
                     Button {
                         showSettingsModal = false
                     } label: {
-                        Label("Close", systemImage: "xmark.circle.fill")
+                        Label("Close", systemImage: "xmark.circle")
                     }
                 }
             }

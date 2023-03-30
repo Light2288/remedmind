@@ -3,11 +3,11 @@
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES">
         <attribute name="activeAdministrationNotification" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="activeRunningLowNotification" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="administrationDays" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
-        <attribute name="administrationFrequency" optional="YES" attributeType="String"/>
+        <attribute name="administrationFrequency" attributeType="String" defaultValueString=""/>
         <attribute name="administrationNotificationTimes" optional="YES" attributeType="Transformable"/>
         <attribute name="administrationQuantity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="administrationType" optional="YES" attributeType="String"/>

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReminderDetailView: View {
     // MARK: - Properties
-    var reminder: Reminder
+    @State var reminder: Reminder
     var localizedCalendar: Calendar {
         var calendar = Calendar(identifier: .gregorian)
         calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
@@ -28,7 +28,7 @@ struct ReminderDetailView: View {
             VStack(alignment: .center, spacing: 10) {
                 TitleInfoView(title: reminder.medicineName)
                 DailyIntakeView(numberOfAdministrations: Int(reminder.numberOfAdministrations), selectedDay: $selectedDay)
-                CalendarIntakeView(calendar: localizedCalendar, selectedDay: $selectedDay, startDate: reminder.startDate ?? Date.distantPast, endDate: reminder.endDate ?? Date.distantFuture)
+                CalendarIntakeView(calendar: localizedCalendar, selectedDay: $selectedDay, startDate: reminder.startDate, endDate: reminder.endDate)
                 RecapInfoView(reminder: reminder)
                 NotificationsInfoView(reminder: reminder)
                 Spacer()
@@ -36,16 +36,25 @@ struct ReminderDetailView: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    isEditViewPresented.toggle()
-                } label: {
-                    Image(systemName: "square.and.pencil")
-                }
+                Menu {
+                    Button {
+                        isEditViewPresented.toggle()
+                    } label: {
+                        Label("Edit", systemImage: "square.and.pencil")
+                    }
+                    Button(role: .destructive) {
+                        
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
 
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                }
             }
         }
         .sheet(isPresented: $isEditViewPresented) {
-            AddEditReminderView(showModal: $isEditViewPresented)
+            AddEditReminderView(showModal: $isEditViewPresented, reminderToEdit: $reminder)
                 .environment(\.managedObjectContext, viewContext)
                 .environmentObject(self.themeSettings)
         }

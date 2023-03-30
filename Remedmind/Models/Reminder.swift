@@ -8,7 +8,7 @@
 import Foundation
 
 struct ReminderModel: Identifiable {
-    let id = UUID()
+    var id: UUID = UUID()
     var medicine: MedicineModel = MedicineModel()
     var image: String = ""
     var notes: String = ""
@@ -18,4 +18,19 @@ struct ReminderModel: Identifiable {
     var runningLowNotificationTime: Date = Date.now
     var startDate: Date = Date.now
     var endDate: Date = Date.distantFuture
+}
+
+extension ReminderModel {
+    mutating func update(from reminder: Reminder) {
+        self.id = reminder.id
+        self.image = reminder.image
+        self.notes = reminder.notes
+        self.startDate = reminder.startDate
+        self.activeAdministrationNotification = reminder.activeAdministrationNotification
+        self.administrationNotificationTimes = reminder.administrationNotificationTimes
+        self.activeRunningLowNotification =  reminder.activeRunningLowNotification
+        self.runningLowNotificationTime = reminder.runningLowNotificationTime
+        self.endDate = reminder.endDate
+        self.medicine.update(from: reminder)
+    }
 }
