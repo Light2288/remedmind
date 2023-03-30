@@ -26,7 +26,10 @@ struct CalendarIntakeView: View {
     var endDate: Date
 
     func isValidDate(day: Date) -> Bool {
-        return day > startDate && day < endDate && day < Date()
+        let isAfterOrEqualToStartDate = calendar.compare(day, to: startDate, toGranularity: .day) != .orderedAscending
+        let isBeforeOrEqualToEndDate = calendar.compare(day, to: endDate, toGranularity: .day) != .orderedDescending
+        let isBeforeOrEqualToToday = calendar.compare(day, to: Date.now, toGranularity: .day) != .orderedDescending
+        return isAfterOrEqualToStartDate && isBeforeOrEqualToToday && isBeforeOrEqualToEndDate
     }
 
     var body: some View {

@@ -11,7 +11,7 @@ struct ReminderListRowView: View {
     // MARK: - Properties
     @EnvironmentObject var themeSettings: ThemeSettings
     
-    var reminder: Reminder
+    @ObservedObject var reminder: Reminder
     
     // MARK: - Body
     var body: some View {
@@ -20,7 +20,7 @@ struct ReminderListRowView: View {
                 MedicineImageView()
                 MedicineNameBrandView(medicineName: reminder.medicineName, medicineBrand: reminder.medicineBrand)
                 Spacer()
-                AdministrationFrequencyView(administrationQuantity: reminder.administrationQuantity, administrationType: reminder.administrationType, numberOfAdministrations: reminder.numberOfAdministrations)
+                AdministrationFrequencyView(administrationQuantity: reminder.administrationQuantity, administrationType: reminder.administrationType, numberOfAdministrations: reminder.numberOfAdministrations, administrationFrequency: reminder.administrationFrequency)
             }
             WeekAdministrationView()
                 .environmentObject(self.themeSettings)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NotificationsInfoView: View {
     // MARK: - Properties
-    var reminder: Reminder
+    @ObservedObject var reminder: Reminder
     @State private var isExpanded: Bool = false
     
     // MARK: - Body
@@ -17,17 +17,14 @@ struct NotificationsInfoView: View {
         DisclosureGroup("Notifiche", isExpanded: $isExpanded) {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Notifiche assunzione: \(reminder.activeAdministrationNotification ? "Attive" : "Non attive")")
-                    .font(.subheadline)
                     .padding(.top, 8)
                 Text("Notifiche esaurimento confezione: \(reminder.activeRunningLowNotification ? "Attive" : "Non attive")")
-                    .font(.subheadline)
                 if reminder.activeRunningLowNotification {
                     Text("Pillole in una confezione: \(reminder.packageQuantity)")
-                        .font(.subheadline)
-                    Text("Pillole rimanenti nella confezione attuale: \(reminder.currentPackageQuantity)")
-                        .font(.subheadline)
+                    Text("Pillole rimanenti nella confezione attuale: \(reminder.currentPackageQuantity.formatted(.number))")
                 }
             }
+            .font(.subheadline)
             .frame(
                 minWidth: 0,
                 maxWidth: .infinity,
