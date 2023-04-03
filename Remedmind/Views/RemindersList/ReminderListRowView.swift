@@ -18,14 +18,14 @@ struct ReminderListRowView: View {
         VStack() {
             HStack {
                 MedicineImageView()
-                MedicineNameBrandView(medicineName: reminder.medicineName, medicineBrand: reminder.medicineBrand)
+                MedicineNameBrandView(medicineName: reminder.medicineName ?? "No medicine name", medicineBrand: reminder.medicineBrand ?? "No medicine brand")
                 Spacer()
-                AdministrationFrequencyView(administrationQuantity: reminder.administrationQuantity, administrationType: reminder.administrationType, numberOfAdministrations: reminder.numberOfAdministrations, administrationFrequency: reminder.administrationFrequency)
+                AdministrationFrequencyView(administrationQuantity: reminder.administrationQuantity, administrationType: reminder.administrationType ?? "pill", numberOfAdministrations: reminder.numberOfAdministrations, administrationFrequency: reminder.administrationFrequency ?? "daily")
             }
             WeekAdministrationView()
                 .environmentObject(self.themeSettings)
                 .padding(.vertical, 3)
-            PackageRemainderView(currentPackageQuantity: reminder.currentPackageQuantity, administrationType: reminder.administrationType)
+            PackageRemainderView(currentPackageQuantity: reminder.currentPackageQuantity, administrationType: reminder.administrationType ?? "pill")
         }
         .padding()
     }

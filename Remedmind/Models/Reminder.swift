@@ -22,15 +22,15 @@ struct ReminderModel: Identifiable {
 
 extension ReminderModel {
     mutating func update(from reminder: Reminder) {
-        self.id = reminder.id
-        self.image = reminder.image
-        self.notes = reminder.notes
-        self.startDate = reminder.startDate
+        self.id = reminder.id ?? UUID()
+        self.image = reminder.image ?? ""
+        self.notes = reminder.notes ?? "No notes"
+        self.startDate = reminder.startDate ?? Date.now
         self.activeAdministrationNotification = reminder.activeAdministrationNotification
-        self.administrationNotificationTimes = reminder.administrationNotificationTimes
+        self.administrationNotificationTimes = reminder.administrationNotificationTimes ?? []
         self.activeRunningLowNotification =  reminder.activeRunningLowNotification
-        self.runningLowNotificationTime = reminder.runningLowNotificationTime
-        self.endDate = reminder.endDate
+        self.runningLowNotificationTime = reminder.runningLowNotificationTime ?? Date.now
+        self.endDate = reminder.endDate ?? Date.now
         self.medicine.update(from: reminder)
     }
 }

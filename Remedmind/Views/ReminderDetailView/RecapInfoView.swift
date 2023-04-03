@@ -22,17 +22,17 @@ struct RecapInfoView: View {
     var body: some View {
         DisclosureGroup("Informazioni generali", isExpanded: $isExpanded) {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Marca: \(reminder.medicineBrand)")
+                Text("Marca: \(reminder.medicineBrand ?? "No medicine brand")")
                 .padding(.top, 8)
-                Text("Descrizione: \(reminder.medicineDescription)")
-                Text("Note: \(reminder.notes)")
-                Text("Tipologia medicina: \(reminder.administrationType)")
+                Text("Descrizione: \(reminder.medicineDescription ?? "No medicine description")")
+                Text("Note: \(reminder.notes ?? "No medicine notes")")
+                Text("Tipologia medicina: \(reminder.administrationType ?? "pill")")
                 Text("Quantità per ogni assunzione: \(reminder.administrationQuantity.formatted(.number))")
                 Text("Dosi giornaliere: \(reminder.numberOfAdministrations)")
-                Text("Frequenza di assunzione: \(reminder.administrationFrequency)")
-                Text("Data di inizio: \(dateFormatter.string(from: reminder.startDate))")
+                Text("Frequenza di assunzione: \(reminder.administrationFrequency ?? "daily")")
+                Text("Data di inizio: \(dateFormatter.string(from: reminder.startDate ?? Date.now))")
                 if reminder.endDate != Date.distantFuture {
-                    Text("Data di fine: \(reminder.endDate)")
+                    Text("Data di fine: \(reminder.endDate ?? Date.distantFuture)")
                 }
             }
             .font(.subheadline)
