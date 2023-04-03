@@ -22,12 +22,12 @@ struct CalendarIntakeView: View {
     var days: [Date] {
         makeDays()
     }
-    var startDate: Date
-    var endDate: Date
+    var startDate: Date?
+    var endDate: Date?
 
     func isValidDate(day: Date) -> Bool {
-        let isAfterOrEqualToStartDate = calendar.compare(day, to: startDate, toGranularity: .day) != .orderedAscending
-        let isBeforeOrEqualToEndDate = calendar.compare(day, to: endDate, toGranularity: .day) != .orderedDescending
+        let isAfterOrEqualToStartDate = calendar.compare(day, to: startDate ?? Date.now, toGranularity: .day) != .orderedAscending
+        let isBeforeOrEqualToEndDate = calendar.compare(day, to: endDate ?? Date.distantFuture, toGranularity: .day) != .orderedDescending
         let isBeforeOrEqualToToday = calendar.compare(day, to: Date.now, toGranularity: .day) != .orderedDescending
         return isAfterOrEqualToStartDate && isBeforeOrEqualToToday && isBeforeOrEqualToEndDate
     }

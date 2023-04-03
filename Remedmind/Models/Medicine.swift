@@ -25,14 +25,14 @@ struct MedicineModel {
 
 extension MedicineModel {
     mutating func update(from reminder: Reminder) {
-        self.name = reminder.medicineName
-        self.brand = reminder.medicineBrand
-        self.description = reminder.medicineDescription
-        self.administrationFrequency = AdministrationFrequency(rawValue: reminder.administrationFrequency) ?? .daily
+        self.name = reminder.medicineName ?? "No medicine name"
+        self.brand = reminder.medicineBrand ?? "No medicine brand"
+        self.description = reminder.medicineDescription ?? "No medicine description"
+        self.administrationFrequency = AdministrationFrequency(rawValue: reminder.administrationFrequency ?? "daily") ?? .daily
         self.administrationDays = reminder.administrationDays
         self.numberOfAdministrations = reminder.numberOfAdministrations
         self.administrationQuantity = reminder.administrationQuantity
-        self.administrationType = AdministrationType(rawValue: reminder.administrationType) ?? .pill
+        self.administrationType = AdministrationType(rawValue: reminder.administrationType ?? "pill") ?? .pill
         self.packageQuantity = reminder.packageQuantity
         self.currentPackageQuantity = reminder.currentPackageQuantity
     }

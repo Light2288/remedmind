@@ -9,11 +9,11 @@ import SwiftUI
 
 struct TitleInfoView: View {
     // MARK: - Properties
-    var title: String
+    var title: String?
     
     // MARK: - Body
     var body: some View {
-        Text(title)
+        Text(title ?? "No medicine name")
             .font(.largeTitle)
             .frame(
                 minWidth: 0,

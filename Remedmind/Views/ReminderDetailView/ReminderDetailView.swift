@@ -10,6 +10,7 @@ import SwiftUI
 struct ReminderDetailView: View {
     // MARK: - Properties
     @State var reminder: Reminder
+    @State var showDeleteReminderAlert: Bool = false
     var localizedCalendar: Calendar {
         var calendar = Calendar(identifier: .gregorian)
         calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
@@ -20,6 +21,7 @@ struct ReminderDetailView: View {
     @State private var isEditViewPresented: Bool = false
     
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var themeSettings: ThemeSettings
     
     // MARK: - Body
@@ -43,11 +45,11 @@ struct ReminderDetailView: View {
                         Label("Edit", systemImage: "square.and.pencil")
                     }
                     Button(role: .destructive) {
-                        
+                        showDeleteReminderAlert = true
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
-
+                    
                 } label: {
                     Image(systemName: "ellipsis.circle")
                 }
@@ -58,6 +60,23 @@ struct ReminderDetailView: View {
                 .environment(\.managedObjectContext, viewContext)
                 .environmentObject(self.themeSettings)
         }
+        .alert("Eliminazione promemoria", isPresented: $showDeleteReminderAlert, actions: {
+            Button("Elimina promemoria", role: .destructive) {
+                presentationMode.wrappedValue.dismiss()
+                DispatchQueue.main.async {
+                    viewContext.delete(reminder)
+                    do {
+                        try viewContext.save()
+                    }catch{
+                        let nsError = error as NSError
+                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                    }
+                }
+            }
+            Button("Annulla", role: .cancel) { }
+        }, message: {
+            Text("Sei sicuro di voler eliminare questo promemoria?")
+        })
         .navigationBarTitleDisplayMode(.inline)
     }
 }
