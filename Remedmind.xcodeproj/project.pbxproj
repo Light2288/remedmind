@@ -45,6 +45,7 @@
 		6B6A2C5F29356CFB00E72834 /* RemedmindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A2C5E29356CFB00E72834 /* RemedmindTests.swift */; };
 		6B6A2C6929356CFB00E72834 /* RemedmindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A2C6829356CFB00E72834 /* RemedmindUITests.swift */; };
 		6B6A2C6B29356CFB00E72834 /* RemedmindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A2C6A29356CFB00E72834 /* RemedmindUITestsLaunchTests.swift */; };
+		6B827FA329DF5C00008FC8EC /* AddReminderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B827FA229DF5C00008FC8EC /* AddReminderButton.swift */; };
 		6B9FB1A929BE0F8800D39B7F /* NotificationsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9FB1A829BE0F8800D39B7F /* NotificationsInfoView.swift */; };
 		6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */; };
 		6BA19A3B299AED4F00F8CF9E /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */; };
@@ -129,6 +130,7 @@
 		6B6A2C6429356CFB00E72834 /* RemedmindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemedmindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B6A2C6829356CFB00E72834 /* RemedmindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedmindUITests.swift; sourceTree = "<group>"; };
 		6B6A2C6A29356CFB00E72834 /* RemedmindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedmindUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6B827FA229DF5C00008FC8EC /* AddReminderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderButton.swift; sourceTree = "<group>"; };
 		6B9FB1A829BE0F8800D39B7F /* NotificationsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInfoView.swift; sourceTree = "<group>"; };
 		6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
 		6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailView.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				6B6A2C4929356CFA00E72834 /* RemindersListView.swift */,
 				6BD15A662993060100576DD4 /* ReminderListRowView.swift */,
 				6B11D8BA299457CF003BD412 /* ReminderListRow */,
+				6B827FA229DF5C00008FC8EC /* AddReminderButton.swift */,
 			);
 			path = RemindersList;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				6B6A2C4829356CFA00E72834 /* RemedmindApp.swift in Sources */,
 				6B08C45E299EED290050EBFF /* CalendarIntakeView.swift in Sources */,
 				6BD15A672993060100576DD4 /* ReminderListRowView.swift in Sources */,
+				6B827FA329DF5C00008FC8EC /* AddReminderButton.swift in Sources */,
 				6BFB24EC299C4E990092837A /* RecapInfoView.swift in Sources */,
 				6B0BEF4829D38FC400B823DA /* Reminder+ReminderModel.swift in Sources */,
 				6B0BEF4429D38AD700B823DA /* RunningLowNotificationSectionView.swift in Sources */,
