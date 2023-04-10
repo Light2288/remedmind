@@ -20,89 +20,104 @@ struct RemindersListView: View {
     
     @State var isAddReminderViewPresented: Bool = false
     @State var isSettingsViewPresented: Bool = false
-    @State var addButtonOffset = CGSize(width: 100, height: 0)
+    @State var addButtonOffset = CGSize(width: 100, height: -50)
     @State var addButtonOpacity = 1.0
     @State var addButtonPlusSymbolOpacity = 1.0
     @State var navigationBarAddButtonOpacity = 0.0
     @State var addButtonPlusSymbolColor = Color(.systemBackground)
     @State var addButtonPlusSymbolScale = CGSize(width: 0.75, height: 0.75)
-    
-    let buttonSize: CGFloat = 70 //Constant to move the button to the toolbar leading element position
+    @State var tag = 0
     
     var body: some View {
-        GeometryReader { proxy in
-            NavigationView {
-                ZStack {
-                    List {
-                        ForEach(reminders) { reminder in
-                            NavigationLink {
-                                ReminderDetailView(reminder: reminder)
-                            } label: {
-                                ReminderListRowView(reminder: reminder)
-                                    .environmentObject(self.themeSettings)
-                            }
+        NavigationView {
+//            ZStack {
+                List {
+                    ForEach(reminders) { reminder in
+                        NavigationLink {
+                            ReminderDetailView(reminder: reminder)
+                        } label: {
+                            ReminderListRowView(reminder: reminder)
+                                .environmentObject(self.themeSettings)
                         }
-                        .onDelete(perform: deleteItems)
                     }
-                    .gesture(
-                        DragGesture().onChanged { value in
-                            withAnimation(.easeIn(duration: 0.8)) {
+                    .onDelete(perform: deleteItems)
+                }
+//                .onTapGesture {
+//
+//                }
+                .simultaneousGesture(
+                    DragGesture(minimumDistance: 25).onChanged { value in
+                        print(value.translation)
+//                        if abs(value.startLocation.y - value.predictedEndLocation.y) > 5 {
+                            withAnimation(.easeOut(duration: 0.8)) {
+                                self.tag = 1
                                 addButtonOffset = CGSize(
-                                    width: -proxy.size.width + buttonSize - proxy.safeAreaInsets.leading,
-                                    height: -proxy.size.height + proxy.safeAreaInsets.top)
+                                    width: 0,
+                                    height: 0)
                                 addButtonOpacity = 0.0
                                 addButtonPlusSymbolColor = ThemeSettings().selectedThemePrimaryColor
                                 addButtonPlusSymbolScale = CGSize(width: 0.66, height: 0.66)
                                 
                             }
                             
-                            withAnimation(.easeOut(duration: 0.03).delay(0.78)) {
+                            withAnimation(.easeIn(duration: 0.1).delay(0.7)) {
                                 addButtonPlusSymbolOpacity = 0.0
                             }
                             
-                            withAnimation(.default.delay(0.8)) {
+                            withAnimation(.default.delay(0.7)) {
                                 navigationBarAddButtonOpacity = 1.0
                             }
                         }
-                    )
-                    .toolbar {
-                            ToolbarItem(placement: .navigationBarLeading) {
-                                Button {
-                                    isAddReminderViewPresented.toggle()
-                                } label: {
-                                    Image(systemName: "plus")
-                                }
-                                .opacity(navigationBarAddButtonOpacity)
-                                
-                            }
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                isSettingsViewPresented.toggle()
-                            } label: {
-                                Image(systemName: "gear")
-                            }
-                            
+//                    }
+                )
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            isAddReminderViewPresented.toggle()
+                        } label: {
+                            Image(systemName: "plus")
                         }
+                        .background(PositionReader(tag: 1, value: .center))
+                        .opacity(navigationBarAddButtonOpacity)
+                        .onAppear {
+                            _ = self.tag(1)
+                        }
+                        
                     }
-                    .sheet(isPresented: $isAddReminderViewPresented) {
-                        AddEditReminderView(showModal: $isAddReminderViewPresented)
-                            .environment(\.managedObjectContext, viewContext)
-                            .environmentObject(self.themeSettings)
-                    }
-                    .sheet(isPresented: $isSettingsViewPresented) {
-                        SettingsView(showSettingsModal: $isSettingsViewPresented)
-                            .environmentObject(self.iconSettings)
-                            .environmentObject(self.themeSettings)
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isSettingsViewPresented.toggle()
+                        } label: {
+                            Image(systemName: "gear")
+                        }
+                        
                     }
                 }
-                .navigationTitle("Promemoria medicine")
-                .navigationBarTitleDisplayMode(.large)
-                .overlay(alignment: .bottomTrailing, content: {
+                .sheet(isPresented: $isAddReminderViewPresented) {
+                    AddEditReminderView(showModal: $isAddReminderViewPresented)
+                        .environment(\.managedObjectContext, viewContext)
+                        .environmentObject(self.themeSettings)
+                }
+                .sheet(isPresented: $isSettingsViewPresented) {
+                    SettingsView(showSettingsModal: $isSettingsViewPresented)
+                        .environmentObject(self.iconSettings)
+                        .environmentObject(self.themeSettings)
+                }
+//            }
+            .background(PositionReader(tag: 0, value: .bottomTrailing))
+            .navigationTitle("Promemoria medicine")
+            .navigationBarTitleDisplayMode(.large)
+            .overlayPreferenceValue(Positions.self) { preferences in
+                GeometryReader { proxy in
+                    let position = self.getPosition(proxy: proxy, tag: self.tag, preferences: preferences)
                     AddReminderButton(isAddReminderViewPresented: $isAddReminderViewPresented, offset: $addButtonOffset, buttonOpacity: $addButtonOpacity, plusSymbolColor: $addButtonPlusSymbolColor, plusSymbolScale: $addButtonPlusSymbolScale, plusSymbolOpacity: $addButtonPlusSymbolOpacity)
-                })
+                        .position( x: position.x - 2, y: position.y + 3)
+                    
+                }
             }
-            .tint(themeSettings.selectedThemePrimaryColor)
         }
+        
+        .tint(themeSettings.selectedThemePrimaryColor)
     }
     
     private func deleteItems(offsets: IndexSet) {
