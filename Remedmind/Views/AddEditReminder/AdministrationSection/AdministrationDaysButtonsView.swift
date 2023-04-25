@@ -12,7 +12,11 @@ struct AdministrationDaysButtonsView: View {
     @Binding var reminder: ReminderModel
     @EnvironmentObject var themeSettings: ThemeSettings
     
-    var localizedVeryShortWeekdaysSymbols: [String] = Array(Calendar.current.veryShortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.veryShortWeekdaySymbols.count] + Calendar.current.veryShortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
+    var localizedVeryShortWeekdaysSymbols: [String] {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
+        return Array(calendar.veryShortWeekdaySymbols[calendar.firstWeekday - 1 ..< calendar.veryShortWeekdaySymbols.count] + calendar.veryShortWeekdaySymbols[0 ..< calendar.firstWeekday - 1])
+    }
     
     // MARK: - Body
     var body: some View {

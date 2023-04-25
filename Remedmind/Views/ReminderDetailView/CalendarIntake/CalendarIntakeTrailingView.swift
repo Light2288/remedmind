@@ -21,10 +21,18 @@ struct CalendarIntakeTrailingView: View {
     
     // MARK: - Body
     var body: some View {
-        Text(dayFormatter.string(from: day))
-            .foregroundColor(calendar.isDateInToday(day) ? themeSettings.selectedThemeSecondaryColor
-                             : .secondary)
-            .frame(height: frameHeight)
+        ZStack {
+            Text(dayFormatter.string(from: day))
+                .foregroundColor(.secondary)
+                .frame(height: frameHeight)
+            if calendar.isDateInToday(day) {
+                Circle()
+                    .foregroundColor(themeSettings.selectedThemePrimaryColor)
+                    .frame(width: 4, height: 4)
+                    .offset(x: 0, y: 10)
+            }
+        }
+        
     }
 }
 

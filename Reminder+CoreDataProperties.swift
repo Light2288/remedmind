@@ -2,7 +2,7 @@
 //  Reminder+CoreDataProperties.swift
 //  Remedmind
 //
-//  Created by Davide Aliti on 22/03/23.
+//  Created by Davide Aliti on 11/04/23.
 //
 //
 
@@ -35,6 +35,24 @@ extension Reminder {
     @NSManaged public var packageQuantity: Int32
     @NSManaged public var runningLowNotificationTime: Date?
     @NSManaged public var startDate: Date?
+    @NSManaged public var dailyIntakes: Set<DailyIntake>?
+
+}
+
+// MARK: Generated accessors for dailyIntakes
+extension Reminder {
+
+    @objc(addDailyIntakesObject:)
+    @NSManaged public func addToDailyIntakes(_ value: DailyIntake)
+
+    @objc(removeDailyIntakesObject:)
+    @NSManaged public func removeFromDailyIntakes(_ value: DailyIntake)
+
+    @objc(addDailyIntakes:)
+    @NSManaged public func addToDailyIntakes(_ values: Set<DailyIntake>)
+
+    @objc(removeDailyIntakes:)
+    @NSManaged public func removeFromDailyIntakes(_ values: Set<DailyIntake>)
 
 }
 

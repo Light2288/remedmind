@@ -24,12 +24,27 @@ struct CalendarIntakeView: View {
     }
     var startDate: Date?
     var endDate: Date?
-
-    func isValidDate(day: Date) -> Bool {
-        let isAfterOrEqualToStartDate = calendar.compare(day, to: startDate ?? Date.now, toGranularity: .day) != .orderedAscending
-        let isBeforeOrEqualToEndDate = calendar.compare(day, to: endDate ?? Date.distantFuture, toGranularity: .day) != .orderedDescending
-        let isBeforeOrEqualToToday = calendar.compare(day, to: Date.now, toGranularity: .day) != .orderedDescending
-        return isAfterOrEqualToStartDate && isBeforeOrEqualToToday && isBeforeOrEqualToEndDate
+    
+    @State var reminder: Reminder
+    
+    func takenIntakes(for day: Date) -> Int32? {
+        return reminder.dailyIntakes?.filter({ dailyIntake in
+            calendar.isDate(dailyIntake.date!, inSameDayAs: day)
+        }).first?.takenDailyIntakes
+    }
+    
+    func dayTotalIntakes(for day: Date) -> Int32? {
+        return reminder.dailyIntakes?.filter({ dailyIntake in
+            calendar.isDate(dailyIntake.date!, inSameDayAs: day)
+        }).first?.todayTotalIntakes
+    }
+    
+    func isIntakeDay(for day: Date) -> Bool {
+        let totalIntakes = reminder.dailyIntakes?.filter({ dailyIntake in
+            calendar.isDate(dailyIntake.date!, inSameDayAs: day)
+        }).first?.todayTotalIntakes ?? 0
+        
+        return totalIntakes > 0
     }
 
     var body: some View {
@@ -41,8 +56,8 @@ struct CalendarIntakeView: View {
                             Text(weekDayFormatter.string(from: day))
                         }
                         ForEach(days, id: \.self) { day in
-                            if calendar.isDate(day, equalTo: monthStart, toGranularity: .month) && isValidDate(day: day) {
-                                CalendarIntakeDayView(calendar: calendar, day: day, selectedDay: $selectedDay)
+                            if calendar.isDate(day, equalTo: monthStart, toGranularity: .month) && isIntakeDay(for: day) {
+                                CalendarIntakeDayView(calendar: calendar, day: day, selectedDay: $selectedDay, reminder: reminder)
                             } else {
                                 CalendarIntakeTrailingView(calendar: calendar, day: day)
                             }
@@ -76,7 +91,7 @@ private extension CalendarIntakeView {
 // MARK: - Previews
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarIntakeView(calendar: Calendar(identifier: .gregorian), selectedDay: .constant(Date.now), startDate: Date(timeIntervalSinceNow: -5616000), endDate: Date(timeIntervalSinceNow: -345600))
+        CalendarIntakeView(calendar: Calendar(identifier: .gregorian), selectedDay: .constant(Date.now), startDate: Date(timeIntervalSinceNow: -5616000), endDate: Date(timeIntervalSinceNow: -345600), reminder: Reminder(context: PersistenceController.preview.container.viewContext))
             .environmentObject(ThemeSettings())
     }
 }

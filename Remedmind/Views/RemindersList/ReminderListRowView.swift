@@ -22,7 +22,7 @@ struct ReminderListRowView: View {
                 Spacer()
                 AdministrationFrequencyView(administrationQuantity: reminder.administrationQuantity, administrationType: reminder.administrationType ?? "pill", numberOfAdministrations: reminder.numberOfAdministrations, administrationFrequency: reminder.administrationFrequency ?? "daily")
             }
-            WeekAdministrationView()
+            WeekAdministrationView(reminder: reminder)
                 .environmentObject(self.themeSettings)
                 .padding(.vertical, 3)
             PackageRemainderView(currentPackageQuantity: reminder.currentPackageQuantity, administrationType: reminder.administrationType ?? "pill")
