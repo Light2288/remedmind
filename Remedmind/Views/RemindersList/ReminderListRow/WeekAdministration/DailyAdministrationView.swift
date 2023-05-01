@@ -18,51 +18,22 @@ struct DailyAdministrationView: View {
     
     @EnvironmentObject var themeSettings: ThemeSettings
     
-    var localizedCalendar : Calendar {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
-        return calendar
-    }
-    
-    var takenIntakes: Int32? {
-        return reminder.dailyIntakes?.filter({ dailyIntake in
-            localizedCalendar.isDate(dailyIntake.date!, inSameDayAs: currentWeekday)
-        }).first?.takenDailyIntakes
-    }
-    
-    
-    var dayTotalIntakes: Int32? {
-        return reminder.dailyIntakes?.filter({ dailyIntake in
-            localizedCalendar.isDate(dailyIntake.date!, inSameDayAs: currentWeekday)
-        }).first?.todayTotalIntakes
-    }
-    
-    var fraction: Double {
-        guard let takenIntakes = takenIntakes, let dayTotalIntakes = dayTotalIntakes else { return 0 }
-        return Double(takenIntakes)/Double(dayTotalIntakes)
-    }
-    
-    var isIntakeDay: Bool {
-        guard let dayTotalIntakes = dayTotalIntakes, dayTotalIntakes != 0 else { return false }
-        return true
-    }
-    
     var textColor: Color {
-        guard isIntakeDay else {
+        guard reminder.isIntakeDay(for: currentWeekday) else {
             return Color(.systemGray)
         }
         return isCurrentDay ? themeSettings.selectedThemeSecondaryColor : Color(.label)
     }
     
     var outerCircleColor: Color {
-        guard let dayTotalIntakes = dayTotalIntakes, dayTotalIntakes != 0 else {
+        guard let totalIntakes = reminder.getTotalIntakes(for: currentWeekday), totalIntakes != 0 else {
             return Color(.clear)
         }
         return themeSettings.selectedThemePrimaryColor
     }
     
     var outerCircleStroke: (strokeColor: Color, strokeWidth: Double) {
-        guard let dayTotalIntakes = dayTotalIntakes, dayTotalIntakes != 0 else {
+        guard let totalIntakes = reminder.getTotalIntakes(for: currentWeekday), totalIntakes != 0 else {
             return (strokeColor: Color(.systemGray), strokeWidth: 1)
         }
         return (strokeColor: Color(.clear), strokeWidth: 0)
@@ -74,8 +45,8 @@ struct DailyAdministrationView: View {
             OuterCircleEmpty(fillColor: outerCircleColor.opacity(0.25), strokeBorder: outerCircleStroke.strokeColor, strokeWidth: outerCircleStroke.strokeWidth)
                 .frame(width: outerCircleDiameter, height: outerCircleDiameter, alignment: .center)
             
-            if isIntakeDay {
-                OuterCirclePieChart(fraction: fraction, fillColor: outerCircleColor, strokeBorder: outerCircleStroke.strokeColor, strokeWidth: outerCircleStroke.strokeWidth)
+            if reminder.isIntakeDay(for: currentWeekday) {
+                OuterCirclePieChart(fraction: reminder.getFractionOfTakenIntakes(for: currentWeekday), fillColor: outerCircleColor, strokeBorder: outerCircleStroke.strokeColor, strokeWidth: outerCircleStroke.strokeWidth)
                     .frame(width: outerCircleDiameter, height: outerCircleDiameter, alignment: .center)
             }
             Circle()

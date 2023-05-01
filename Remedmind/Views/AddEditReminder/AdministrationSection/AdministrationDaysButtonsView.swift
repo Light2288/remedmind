@@ -12,12 +12,6 @@ struct AdministrationDaysButtonsView: View {
     @Binding var reminder: ReminderModel
     @EnvironmentObject var themeSettings: ThemeSettings
     
-    var localizedVeryShortWeekdaysSymbols: [String] {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
-        return Array(calendar.veryShortWeekdaySymbols[calendar.firstWeekday - 1 ..< calendar.veryShortWeekdaySymbols.count] + calendar.veryShortWeekdaySymbols[0 ..< calendar.firstWeekday - 1])
-    }
-    
     // MARK: - Body
     var body: some View {
         VStack {
@@ -28,7 +22,7 @@ struct AdministrationDaysButtonsView: View {
                 ForEach(Array(reminder.medicine.administrationDays.enumerated()), id: \.offset) { index, _ in
                     Toggle(
                         isOn: $reminder.medicine.administrationDays[index]) {
-                            Text(localizedVeryShortWeekdaysSymbols[index].prefix(1))
+                            Text(Calendar.localizedVeryShortWeekdaysSymbols[index].prefix(1))
                                 .font(.footnote)
                         }
                         .toggleStyle(.button)

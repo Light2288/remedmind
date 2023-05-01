@@ -7,15 +7,6 @@ struct CalendarIntakeView: View {
     
     var calendar: Calendar
 
-    private var weekDayFormatter: DateFormatter {
-        let dateFormatter = DateFormatter(dateFormat: "EEEEE", calendar: calendar)
-        dateFormatter.locale = Locale(identifier: Locale.preferredLanguages[0])
-        return dateFormatter
-    }
-    private var fullFormatter: DateFormatter {
-        DateFormatter(dateFormat: "MMMM dd, yyyy", calendar: calendar)
-    }
-
     @Binding var selectedDay: Date
     @State private var monthStart = Self.now
     private static var now = Date() // Cache now
@@ -26,26 +17,6 @@ struct CalendarIntakeView: View {
     var endDate: Date?
     
     @State var reminder: Reminder
-    
-    func takenIntakes(for day: Date) -> Int32? {
-        return reminder.dailyIntakes?.filter({ dailyIntake in
-            calendar.isDate(dailyIntake.date!, inSameDayAs: day)
-        }).first?.takenDailyIntakes
-    }
-    
-    func dayTotalIntakes(for day: Date) -> Int32? {
-        return reminder.dailyIntakes?.filter({ dailyIntake in
-            calendar.isDate(dailyIntake.date!, inSameDayAs: day)
-        }).first?.todayTotalIntakes
-    }
-    
-    func isIntakeDay(for day: Date) -> Bool {
-        let totalIntakes = reminder.dailyIntakes?.filter({ dailyIntake in
-            calendar.isDate(dailyIntake.date!, inSameDayAs: day)
-        }).first?.todayTotalIntakes ?? 0
-        
-        return totalIntakes > 0
-    }
 
     var body: some View {
         VStack {
@@ -53,10 +24,10 @@ struct CalendarIntakeView: View {
                 LazyVGrid(columns: Array(repeating: GridItem(), count: daysInWeek)) {
                     Section {
                         ForEach(days.prefix(daysInWeek), id: \.self) { day in
-                            Text(weekDayFormatter.string(from: day))
+                            Text(DateFormatter.weekDayFormatter.string(from: day))
                         }
                         ForEach(days, id: \.self) { day in
-                            if calendar.isDate(day, equalTo: monthStart, toGranularity: .month) && isIntakeDay(for: day) {
+                            if calendar.isDate(day, equalTo: monthStart, toGranularity: .month) && reminder.isIntakeDay(for: day) {
                                 CalendarIntakeDayView(calendar: calendar, day: day, selectedDay: $selectedDay, reminder: reminder)
                             } else {
                                 CalendarIntakeTrailingView(calendar: calendar, day: day)

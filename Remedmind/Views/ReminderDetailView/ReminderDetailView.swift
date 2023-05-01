@@ -11,12 +11,6 @@ struct ReminderDetailView: View {
     // MARK: - Properties
     @State var reminder: Reminder
     @State var showDeleteReminderAlert: Bool = false
-    var localizedCalendar: Calendar {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
-        return calendar
-    }
-    
     @State var selectedDay = Date.now
     @State private var isEditViewPresented: Bool = false
     
@@ -24,28 +18,20 @@ struct ReminderDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var themeSettings: ThemeSettings
     
-    func isIntakeDay(for day: Date) -> Bool {
-        let totalIntakes = reminder.dailyIntakes?.filter({ dailyIntake in
-            localizedCalendar.isDate(dailyIntake.date!, inSameDayAs: day)
-        }).first?.todayTotalIntakes ?? 0
-        
-        return totalIntakes > 0
-    }
-    
     // MARK: - Body
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 10) {
                 TitleInfoView(title: reminder.medicineName)
-                DailyIntakeView(numberOfAdministrations: Int(reminder.numberOfAdministrations), selectedDay: $selectedDay, reminder: $reminder)
-                CalendarIntakeView(calendar: localizedCalendar, selectedDay: $selectedDay, startDate: reminder.startDate, endDate: reminder.endDate, reminder: reminder)
+                DailyIntakeView(selectedDay: $selectedDay, reminder: $reminder)
+                CalendarIntakeView(calendar: Calendar.customLocalizedCalendar, selectedDay: $selectedDay, startDate: reminder.startDate, endDate: reminder.endDate, reminder: reminder)
                 RecapInfoView(reminder: reminder)
                 NotificationsInfoView(reminder: reminder)
                 Spacer()
             }
         }
         .onAppear {
-            selectedDay = isIntakeDay(for: Date.now) ? Date.now : (reminder.dailyIntakes?.filter({ $0.todayTotalIntakes > 0}).sorted(by: { $0.date!.compare($1.date!) == .orderedAscending }).last?.date ?? Date.now)
+            selectedDay = reminder.isIntakeDay(for: Date.now) ? Date.now : (reminder.lastDayWithIntakes ?? Date.now)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

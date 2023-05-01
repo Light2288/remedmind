@@ -12,12 +12,6 @@ struct RecapInfoView: View {
     @ObservedObject var reminder: Reminder
     @State private var isExpanded: Bool = false
     
-    var dateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        return dateFormatter
-    }
-    
     // MARK: - Body
     var body: some View {
         DisclosureGroup("Informazioni generali", isExpanded: $isExpanded) {
@@ -30,7 +24,7 @@ struct RecapInfoView: View {
                 Text("Quantità per ogni assunzione: \(reminder.administrationQuantity.formatted(.number))")
                 Text("Dosi giornaliere: \(reminder.numberOfAdministrations)")
                 Text("Frequenza di assunzione: \(reminder.administrationFrequency ?? "daily")")
-                Text("Data di inizio: \(dateFormatter.string(from: reminder.startDate ?? Date.now))")
+                Text("Data di inizio: \(DateFormatter.dayMonthYearFormatter.string(from: reminder.startDate ?? Date.now))")
                 if reminder.endDate != Date.distantFuture {
                     Text("Data di fine: \(reminder.endDate ?? Date.distantFuture)")
                 }

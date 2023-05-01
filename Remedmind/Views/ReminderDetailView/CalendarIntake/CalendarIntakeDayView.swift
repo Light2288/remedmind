@@ -18,40 +18,18 @@ struct CalendarIntakeDayView: View {
     
     @ObservedObject var reminder: Reminder
     
-    private var dayFormatter: DateFormatter {
-        DateFormatter(dateFormat: "d", calendar: calendar)
-    }
-    
     var outerCircleColor: Color {
-        guard let dayTotalIntakes = dayTotalIntakes, dayTotalIntakes != 0 else {
+        guard let totalIntakes = reminder.getTotalIntakes(for: day), totalIntakes != 0 else {
             return Color(.clear)
         }
         return themeSettings.selectedThemePrimaryColor
     }
     
     var outerCircleStroke: (strokeColor: Color, strokeWidth: Double) {
-        guard let dayTotalIntakes = dayTotalIntakes, dayTotalIntakes != 0 else {
+        guard let totalIntakes = reminder.getTotalIntakes(for: day), totalIntakes != 0 else {
             return (strokeColor: Color(.systemGray), strokeWidth: 1)
         }
         return (strokeColor: Color(.clear), strokeWidth: 0)
-    }
-    
-    var takenIntakes: Int32? {
-        return reminder.dailyIntakes?.filter({ dailyIntake in
-            calendar.isDate(dailyIntake.date!, inSameDayAs: day)
-        }).first?.takenDailyIntakes
-    }
-    
-    
-    var dayTotalIntakes: Int32? {
-        return reminder.dailyIntakes?.filter({ dailyIntake in
-            calendar.isDate(dailyIntake.date!, inSameDayAs: day)
-        }).first?.todayTotalIntakes
-    }
-    
-    var fraction: Double {
-        guard let takenIntakes = takenIntakes, let dayTotalIntakes = dayTotalIntakes else { return 0 }
-        return Double(takenIntakes)/Double(dayTotalIntakes)
     }
     
     @EnvironmentObject var themeSettings: ThemeSettings
@@ -65,13 +43,13 @@ struct CalendarIntakeDayView: View {
                 Group {
                     OuterCircleEmpty(fillColor: outerCircleColor.opacity(0.25), strokeBorder: outerCircleStroke.strokeColor, strokeWidth: outerCircleStroke.strokeWidth)
                         .frame(width: outerCircleDiameter, height: outerCircleDiameter, alignment: .center)
-                    OuterCirclePieChart(fraction: fraction, fillColor: outerCircleColor, strokeBorder: outerCircleStroke.strokeColor, strokeWidth: outerCircleStroke.strokeWidth)
+                    OuterCirclePieChart(fraction: reminder.getFractionOfTakenIntakes(for: day), fillColor: outerCircleColor, strokeBorder: outerCircleStroke.strokeColor, strokeWidth: outerCircleStroke.strokeWidth)
                             .frame(width: outerCircleDiameter, height: outerCircleDiameter, alignment: .center)
                     Circle()
                         .fill(Color(.systemBackground))
                         .frame(width: innerCircleDiameter, height: innerCircleDiameter, alignment: .center)
                 }
-                Text(dayFormatter.string(from: day))
+                Text(DateFormatter.dayFormatter.string(from: day))
                     .foregroundColor(
                         calendar.isDate(day, inSameDayAs: selectedDay) ? themeSettings.selectedThemeSecondaryColor
                         : Color(.label)

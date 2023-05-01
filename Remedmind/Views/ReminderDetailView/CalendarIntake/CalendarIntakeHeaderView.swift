@@ -10,15 +10,13 @@ import SwiftUI
 struct CalendarIntakeHeaderView: View {
     // MARK: - Properties
     var calendar: Calendar
-    var monthYearFormatter: DateFormatter {
-        DateFormatter(dateFormat: "MMMM yyyy", calendar: calendar)
-    }
+
     @Binding var monthStart: Date
     
     // MARK: - Body
     var body: some View {
         HStack {
-            Text(monthYearFormatter.string(from: monthStart))
+            Text(DateFormatter.monthYearFormatter.string(from: monthStart))
                 .font(.headline)
                 .padding()
             Spacer()

@@ -31,20 +31,16 @@ struct AddEditReminderView: View {
                 Button {
                     let newReminder = reminderToEdit?.wrappedValue ?? Reminder(context: viewContext)
                     newReminder.update(from: reminder)
-                    if let dailyIntakes = newReminder.dailyIntakes,
-                       dailyIntakes.isEmpty {
+                    guard let dailyIntakes = newReminder.dailyIntakes else { return }
+                    if dailyIntakes.isEmpty {
                         let dailyIntake = DailyIntake(context: viewContext)
                         dailyIntake.id = UUID()
                         dailyIntake.date = Date.now
                         dailyIntake.takenDailyIntakes = 0
-                        dailyIntake.todayTotalIntakes = dailyIntake.getTodayTotalIntakes(from: newReminder)
+                        dailyIntake.todayTotalIntakes = dailyIntake.getTotalIntakes(from: newReminder)
                         newReminder.addToDailyIntakes(dailyIntake)
-                        
-//                        print("Daily intake id: \(newReminder.dailyIntakes?.first?.id)")
-//                        print("Daily intake date: \(newReminder.dailyIntakes?.first?.date)")
-//                        print("Daily intake today total intakes: \(newReminder.dailyIntakes?.first?.todayTotalIntakes)")
-//                        print("Daily intakes: \(newReminder.dailyIntakes)")
-//                        print("Daily intake medicine name: \(dailyIntake.reminder?.medicineName)")
+                    } else {
+                        newReminder.updateTotalDailyIntakes(for: Date.now, context: viewContext)
                     }
                     do {
                         try viewContext.save()

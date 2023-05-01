@@ -28,24 +28,6 @@ struct RemindersListView: View {
     @State var addButtonPlusSymbolScale = CGSize(width: 0.75, height: 0.75)
     @State var tag = 0
     
-    func addMissingDailyIntakes(for reminders: FetchedResults<Reminder>) {
-        reminders.forEach { reminder in
-            let missingDailyIntakes = reminder.createMissingDailyIntakes(context: viewContext)
-            let missingDailyIntakesSet: Set<DailyIntake> = Set(missingDailyIntakes)
-//                    print("Set created")
-            reminder.addToDailyIntakes(missingDailyIntakesSet)
-//                    print("Set added")
-//                    print(reminder.medicineName)
-//                    print(reminder.dailyIntakes)
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-    
     var body: some View {
         NavigationView {
             List {
@@ -60,11 +42,12 @@ struct RemindersListView: View {
                 .onDelete(perform: deleteItems)
             }
             .onAppear(perform: {
-                addMissingDailyIntakes(for: reminders)
+                reminders.forEach { reminder in
+                    reminder.addMissingDailyIntakes(context: viewContext)
+                }
             })
             .simultaneousGesture(
                 DragGesture(minimumDistance: 25).onChanged { value in
-//                    print(value.translation)
                     withAnimation(.easeOut(duration: 0.8)) {
                         self.tag = 1
                         addButtonOffset = CGSize(
@@ -109,7 +92,9 @@ struct RemindersListView: View {
                 }
             }
             .sheet(isPresented: $isAddReminderViewPresented, onDismiss: {
-                addMissingDailyIntakes(for: reminders)
+                reminders.forEach { reminder in
+                    reminder.addMissingDailyIntakes(context: viewContext)
+                }
             }) {
                 AddEditReminderView(showModal: $isAddReminderViewPresented)
                     .environment(\.managedObjectContext, viewContext)

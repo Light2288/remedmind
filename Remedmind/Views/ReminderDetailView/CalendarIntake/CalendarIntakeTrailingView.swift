@@ -13,16 +13,12 @@ struct CalendarIntakeTrailingView: View {
     var calendar: Calendar
     var day: Date
     
-    var dayFormatter: DateFormatter {
-        DateFormatter(dateFormat: "d", calendar: calendar)
-    }
-    
     @EnvironmentObject var themeSettings: ThemeSettings
     
     // MARK: - Body
     var body: some View {
         ZStack {
-            Text(dayFormatter.string(from: day))
+            Text(DateFormatter.dayFormatter.string(from: day))
                 .foregroundColor(.secondary)
                 .frame(height: frameHeight)
             if calendar.isDateInToday(day) {
