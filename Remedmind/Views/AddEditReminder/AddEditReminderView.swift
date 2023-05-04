@@ -29,9 +29,19 @@ struct AddEditReminderView: View {
                     }
                 }
                 Button {
-//                    _ = Reminder(from: reminder, insertIntoManagedObjectContext: viewContext)
                     let newReminder = reminderToEdit?.wrappedValue ?? Reminder(context: viewContext)
                     newReminder.update(from: reminder)
+                    guard let dailyIntakes = newReminder.dailyIntakes else { return }
+                    if dailyIntakes.isEmpty {
+                        let dailyIntake = DailyIntake(context: viewContext)
+                        dailyIntake.id = UUID()
+                        dailyIntake.date = Date.now
+                        dailyIntake.takenDailyIntakes = 0
+                        dailyIntake.todayTotalIntakes = dailyIntake.getTotalIntakes(from: newReminder)
+                        newReminder.addToDailyIntakes(dailyIntake)
+                    } else {
+                        newReminder.updateTotalDailyIntakes(for: Date.now, context: viewContext)
+                    }
                     do {
                         try viewContext.save()
                         showModal = false

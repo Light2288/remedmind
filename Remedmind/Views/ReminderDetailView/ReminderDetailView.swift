@@ -11,12 +11,6 @@ struct ReminderDetailView: View {
     // MARK: - Properties
     @State var reminder: Reminder
     @State var showDeleteReminderAlert: Bool = false
-    var localizedCalendar: Calendar {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
-        return calendar
-    }
-    
     @State var selectedDay = Date.now
     @State private var isEditViewPresented: Bool = false
     
@@ -29,12 +23,19 @@ struct ReminderDetailView: View {
         ScrollView {
             VStack(alignment: .center, spacing: 10) {
                 TitleInfoView(title: reminder.medicineName)
-                DailyIntakeView(numberOfAdministrations: Int(reminder.numberOfAdministrations), selectedDay: $selectedDay)
-                CalendarIntakeView(calendar: localizedCalendar, selectedDay: $selectedDay, startDate: reminder.startDate, endDate: reminder.endDate)
+                if reminder.getDailyIntake(for: selectedDay)?.todayTotalIntakes == 0 {
+                    Text("No intakes for today")
+                } else {
+                    DailyIntakeView(selectedDay: $selectedDay, reminder: $reminder)
+                }
+                CalendarIntakeView(startDate: reminder.startDate, endDate: reminder.endDate, selectedDay: $selectedDay, reminder: reminder)
                 RecapInfoView(reminder: reminder)
                 NotificationsInfoView(reminder: reminder)
                 Spacer()
             }
+        }
+        .onAppear {
+            selectedDay = reminder.isIntakeDay(for: Date.now) ? Date.now : (reminder.lastDayWithIntakes ?? Date.now)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

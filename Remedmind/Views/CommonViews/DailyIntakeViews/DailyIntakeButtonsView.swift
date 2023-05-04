@@ -9,14 +9,15 @@ import SwiftUI
 
 struct DailyIntakeButtonsView: View {
     // MARK: - Properties
-    @Binding var dailyIntake: Int
+    var minusButtonAction: () -> Void
+    var plusButtonAction: () -> Void
     
     // MARK: - Body
     var body: some View {
         HStack {
-            DailyIntakeButtonView(action: {dailyIntake -= 1}, icon: "minus")
+            DailyIntakeButtonView(action: minusButtonAction, icon: "minus")
             Spacer()
-            DailyIntakeButtonView(action: {dailyIntake += 1}, icon: "plus")
+            DailyIntakeButtonView(action: plusButtonAction, icon: "plus")
         }
         .padding()
     }
@@ -25,7 +26,7 @@ struct DailyIntakeButtonsView: View {
 // MARK: - Preview
 struct DailyIntakeButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyIntakeButtonsView(dailyIntake: .constant(0))
+        DailyIntakeButtonsView(minusButtonAction: { return }, plusButtonAction: { return })
             .environmentObject(ThemeSettings())
     }
 }

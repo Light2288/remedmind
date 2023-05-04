@@ -4,47 +4,32 @@ struct CalendarIntakeView: View {
     let outerCircleDiameter: CGFloat = 35
     let innerCircleDiameter: CGFloat = 28
     let daysInWeek = 7
-    
-    var calendar: Calendar
-
-    private var weekDayFormatter: DateFormatter {
-        let dateFormatter = DateFormatter(dateFormat: "EEEEE", calendar: calendar)
-        dateFormatter.locale = Locale(identifier: Locale.preferredLanguages[0])
-        return dateFormatter
-    }
-    private var fullFormatter: DateFormatter {
-        DateFormatter(dateFormat: "MMMM dd, yyyy", calendar: calendar)
-    }
-
-    @Binding var selectedDay: Date
-    @State private var monthStart = Self.now
-    private static var now = Date() // Cache now
-    var days: [Date] {
-        makeDays()
-    }
+    let calendar: Calendar = Calendar.customLocalizedCalendar
     var startDate: Date?
     var endDate: Date?
 
-    func isValidDate(day: Date) -> Bool {
-        let isAfterOrEqualToStartDate = calendar.compare(day, to: startDate ?? Date.now, toGranularity: .day) != .orderedAscending
-        let isBeforeOrEqualToEndDate = calendar.compare(day, to: endDate ?? Date.distantFuture, toGranularity: .day) != .orderedDescending
-        let isBeforeOrEqualToToday = calendar.compare(day, to: Date.now, toGranularity: .day) != .orderedDescending
-        return isAfterOrEqualToStartDate && isBeforeOrEqualToToday && isBeforeOrEqualToEndDate
+    @Binding var selectedDay: Date
+    @State private var monthStart = Date.now
+    @State var reminder: Reminder
+    @EnvironmentObject var themeSettings: ThemeSettings
+    
+    var days: [Date] {
+        makeDays()
     }
-
+    
     var body: some View {
         VStack {
             VStack{
                 LazyVGrid(columns: Array(repeating: GridItem(), count: daysInWeek)) {
                     Section {
                         ForEach(days.prefix(daysInWeek), id: \.self) { day in
-                            Text(weekDayFormatter.string(from: day))
+                            Text(DateFormatter.weekDayFormatter.string(from: day))
                         }
                         ForEach(days, id: \.self) { day in
-                            if calendar.isDate(day, equalTo: monthStart, toGranularity: .month) && isValidDate(day: day) {
-                                CalendarIntakeDayView(calendar: calendar, day: day, selectedDay: $selectedDay)
+                            if calendar.isDate(day, equalTo: monthStart, toGranularity: .month) && reminder.isIntakeDay(for: day) {
+                                IntakeDayView(text: DateFormatter.dayFormatter.string(from: day), outerCircleDiameter: outerCircleDiameter, innerCircleDiameter: innerCircleDiameter, day: day, onButtonTap: { selectedDay = day }, selectedDayTextColor: themeSettings.selectedThemeSecondaryColor, selectedDay: $selectedDay, reminder: reminder)
                             } else {
-                                CalendarIntakeTrailingView(calendar: calendar, day: day)
+                                NoIntakeDayView(text: DateFormatter.dayFormatter.string(from: day), frameSize: outerCircleDiameter, day: day)
                             }
                         }
                     } header: {
@@ -54,6 +39,9 @@ struct CalendarIntakeView: View {
             }
         }
         .padding()
+        .onAppear {
+            monthStart = selectedDay
+        }
     }
 }
 
@@ -76,7 +64,7 @@ private extension CalendarIntakeView {
 // MARK: - Previews
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarIntakeView(calendar: Calendar(identifier: .gregorian), selectedDay: .constant(Date.now), startDate: Date(timeIntervalSinceNow: -5616000), endDate: Date(timeIntervalSinceNow: -345600))
+        CalendarIntakeView(startDate: Date(timeIntervalSinceNow: -5616000), endDate: Date(timeIntervalSinceNow: -345600), selectedDay: .constant(Date.now), reminder: Reminder(context: PersistenceController.preview.container.viewContext))
             .environmentObject(ThemeSettings())
     }
 }

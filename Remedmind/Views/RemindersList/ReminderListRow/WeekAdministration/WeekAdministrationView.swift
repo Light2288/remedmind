@@ -10,34 +10,30 @@ import SwiftUI
 struct WeekAdministrationView: View {
     // MARK: - Properties
     @EnvironmentObject var themeSettings: ThemeSettings
-    var calendar = Calendar.current
-    
-    var localizedCalendar : Calendar {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: Locale.preferredLanguages[0])
-        return calendar
-    }
-    
-    var localizedVeryShortWeekdaysSymbols: [String] {
-        Array(localizedCalendar.veryShortWeekdaySymbols[localizedCalendar.firstWeekday - 1 ..< localizedCalendar.veryShortWeekdaySymbols.count] + localizedCalendar.veryShortWeekdaySymbols[0 ..< localizedCalendar.firstWeekday - 1])
-    }
-    
-    var isCurrentDay: [Bool] {
-        localizedCalendar.weekdaySymbols.enumerated().map { $0.0 == localizedCalendar.component(.weekday, from: Date()) - 1}
-    }
-    
-    var localizedIsCurrentDay: [Bool] {
-        Array(isCurrentDay[localizedCalendar.firstWeekday - 1 ..< localizedCalendar.veryShortWeekdaySymbols.count] + isCurrentDay[0 ..< localizedCalendar.firstWeekday - 1])
-    }
-
+    @State var reminder: Reminder
+    @Binding var selectedDay: Date
+    @Binding var selectedReminder: Reminder?
+    @Binding var showAddIntakeOverlayView: Bool
     
     // MARK: - Body
     var body: some View {
         HStack {
-            ForEach(0..<7, id: \.self) { index in
-                DailyAdministrationView(daySymbol: localizedVeryShortWeekdaysSymbols[index], isCurrentDay: localizedIsCurrentDay[index])
-                    .environmentObject(self.themeSettings)
+            ForEach(Calendar.customLocalizedCalendar.currentWeekDays, id: \.self) { day in
+                if reminder.isIntakeDay(for: day) {
+                    IntakeDayView(text: DateFormatter.weekDayFormatter.string(from: day), outerCircleDiameter: 35, innerCircleDiameter: 28, day: day, onButtonTap: {}, selectedDayTextColor: Color(.label), selectedDay: $selectedDay, reminder: reminder)
+                        .onLongPressGesture {
+                            selectedDay = day
+                            selectedReminder = reminder
+                            showAddIntakeOverlayView.toggle()
+                        }
+                } else {
+                    NoIntakeDayView(text: DateFormatter.weekDayFormatter.string(from: day), frameSize: 35, day: day)
+                }
             }
+//            ForEach(0..<7, id: \.self) { index in
+//                DailyAdministrationView(daySymbol: Calendar.localizedVeryShortWeekdaysSymbols[index], isCurrentDay: Calendar.customLocalizedCalendar.localizedIsCurrentDayArray[index], reminder: reminder, currentWeekday: Calendar.customLocalizedCalendar.currentWeekDays[index])
+//                    .environmentObject(self.themeSettings)
+//            }
         }
     }
 }
@@ -45,7 +41,7 @@ struct WeekAdministrationView: View {
 // MARK: - Preview
 struct WeekAdministrationView_Previews: PreviewProvider {
     static var previews: some View {
-        WeekAdministrationView()
+        WeekAdministrationView(reminder: Reminder(context: PersistenceController.preview.container.viewContext), selectedDay: .constant(Date.now), selectedReminder: .constant(Reminder(context: PersistenceController.preview.container.viewContext)), showAddIntakeOverlayView: .constant(false))
             .environmentObject(ThemeSettings())
             .previewLayout(.sizeThatFits)
     }
