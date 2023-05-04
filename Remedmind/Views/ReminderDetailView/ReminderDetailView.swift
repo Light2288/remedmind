@@ -23,8 +23,12 @@ struct ReminderDetailView: View {
         ScrollView {
             VStack(alignment: .center, spacing: 10) {
                 TitleInfoView(title: reminder.medicineName)
-                DailyIntakeView(selectedDay: $selectedDay, reminder: $reminder)
-                CalendarIntakeView(calendar: Calendar.customLocalizedCalendar, selectedDay: $selectedDay, startDate: reminder.startDate, endDate: reminder.endDate, reminder: reminder)
+                if reminder.getDailyIntake(for: selectedDay)?.todayTotalIntakes == 0 {
+                    Text("No intakes for today")
+                } else {
+                    DailyIntakeView(selectedDay: $selectedDay, reminder: $reminder)
+                }
+                CalendarIntakeView(startDate: reminder.startDate, endDate: reminder.endDate, selectedDay: $selectedDay, reminder: reminder)
                 RecapInfoView(reminder: reminder)
                 NotificationsInfoView(reminder: reminder)
                 Spacer()

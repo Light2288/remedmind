@@ -1,16 +1,16 @@
 //
-//  CalendarIntakeTrailingView.swift
+//  NoIntakeDayView.swift
 //  Remedmind
 //
-//  Created by Davide Aliti on 28/02/23.
+//  Created by Davide Aliti on 02/05/23.
 //
 
 import SwiftUI
 
-struct CalendarIntakeTrailingView: View {
+struct NoIntakeDayView: View {
     // MARK: - Properties
-    let frameHeight: CGFloat = 35
-    var calendar: Calendar
+    let text: String
+    let frameSize: CGFloat
     var day: Date
     
     @EnvironmentObject var themeSettings: ThemeSettings
@@ -18,10 +18,10 @@ struct CalendarIntakeTrailingView: View {
     // MARK: - Body
     var body: some View {
         ZStack {
-            Text(DateFormatter.dayFormatter.string(from: day))
+            Text(text)
                 .foregroundColor(.secondary)
-                .frame(height: frameHeight)
-            if calendar.isDateInToday(day) {
+                .frame(width: frameSize, height: frameSize)
+            if Calendar.customLocalizedCalendar.isDateInToday(day) {
                 Circle()
                     .foregroundColor(themeSettings.selectedThemePrimaryColor)
                     .frame(width: 4, height: 4)
@@ -33,9 +33,8 @@ struct CalendarIntakeTrailingView: View {
 }
 
 // MARK: - Preview
-struct CalendarIntakeTrailingView_Previews: PreviewProvider {
+struct NoIntakeDayView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarIntakeTrailingView(calendar: Calendar(identifier: .gregorian), day: Date.now)
-            .environmentObject(ThemeSettings())
+        NoIntakeDayView(text: DateFormatter.weekDayFormatter.string(from: Date.now), frameSize: 35, day: Date.now)
     }
 }

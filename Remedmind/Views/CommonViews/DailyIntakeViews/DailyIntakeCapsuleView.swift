@@ -11,13 +11,13 @@ struct DailyIntakeCapsuleView: View {
     // MARK: - Properties
     let height: CGFloat
     @EnvironmentObject var themeSettings: ThemeSettings
-
     
     // MARK: - Body
     var body: some View {
         Capsule(style: .continuous)
             .stroke(themeSettings.selectedThemePrimaryColor, style: StrokeStyle(lineWidth: 1))
             .frame(height: height)
+            .background(Capsule().fill(Color(.systemBackground)))
     }
 }
 

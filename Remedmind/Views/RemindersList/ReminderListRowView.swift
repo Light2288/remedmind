@@ -10,8 +10,10 @@ import SwiftUI
 struct ReminderListRowView: View {
     // MARK: - Properties
     @EnvironmentObject var themeSettings: ThemeSettings
-    
     @ObservedObject var reminder: Reminder
+    @Binding var selectedReminder: Reminder?
+    @Binding var selectedDay: Date
+    @Binding var showAddIntakeOverlayView: Bool
     
     // MARK: - Body
     var body: some View {
@@ -22,7 +24,7 @@ struct ReminderListRowView: View {
                 Spacer()
                 AdministrationFrequencyView(administrationQuantity: reminder.administrationQuantity, administrationType: reminder.administrationType ?? "pill", numberOfAdministrations: reminder.numberOfAdministrations, administrationFrequency: reminder.administrationFrequency ?? "daily")
             }
-            WeekAdministrationView(reminder: reminder)
+            WeekAdministrationView(reminder: reminder, selectedDay: $selectedDay, selectedReminder: $selectedReminder, showAddIntakeOverlayView: $showAddIntakeOverlayView)
                 .environmentObject(self.themeSettings)
                 .padding(.vertical, 3)
             PackageRemainderView(currentPackageQuantity: reminder.currentPackageQuantity, administrationType: reminder.administrationType ?? "pill")
@@ -34,7 +36,7 @@ struct ReminderListRowView: View {
 // MARK: - Preview
 struct ReminderListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderListRowView(reminder: Reminder(context: PersistenceController.preview.container.viewContext))
+        ReminderListRowView(reminder: Reminder(context: PersistenceController.preview.container.viewContext), selectedReminder: .constant(Reminder(context: PersistenceController.preview.container.viewContext)), selectedDay: .constant(Date.now), showAddIntakeOverlayView: .constant(false))
             .environmentObject(ThemeSettings())
             .previewLayout(.sizeThatFits)
             .padding()

@@ -4,20 +4,19 @@ struct CalendarIntakeView: View {
     let outerCircleDiameter: CGFloat = 35
     let innerCircleDiameter: CGFloat = 28
     let daysInWeek = 7
-    
-    var calendar: Calendar
+    let calendar: Calendar = Calendar.customLocalizedCalendar
+    var startDate: Date?
+    var endDate: Date?
 
     @Binding var selectedDay: Date
-    @State private var monthStart = Self.now
-    private static var now = Date() // Cache now
+    @State private var monthStart = Date.now
+    @State var reminder: Reminder
+    @EnvironmentObject var themeSettings: ThemeSettings
+    
     var days: [Date] {
         makeDays()
     }
-    var startDate: Date?
-    var endDate: Date?
     
-    @State var reminder: Reminder
-
     var body: some View {
         VStack {
             VStack{
@@ -28,9 +27,9 @@ struct CalendarIntakeView: View {
                         }
                         ForEach(days, id: \.self) { day in
                             if calendar.isDate(day, equalTo: monthStart, toGranularity: .month) && reminder.isIntakeDay(for: day) {
-                                CalendarIntakeDayView(calendar: calendar, day: day, selectedDay: $selectedDay, reminder: reminder)
+                                IntakeDayView(text: DateFormatter.dayFormatter.string(from: day), outerCircleDiameter: outerCircleDiameter, innerCircleDiameter: innerCircleDiameter, day: day, onButtonTap: { selectedDay = day }, selectedDayTextColor: themeSettings.selectedThemeSecondaryColor, selectedDay: $selectedDay, reminder: reminder)
                             } else {
-                                CalendarIntakeTrailingView(calendar: calendar, day: day)
+                                NoIntakeDayView(text: DateFormatter.dayFormatter.string(from: day), frameSize: outerCircleDiameter, day: day)
                             }
                         }
                     } header: {
@@ -40,6 +39,9 @@ struct CalendarIntakeView: View {
             }
         }
         .padding()
+        .onAppear {
+            monthStart = selectedDay
+        }
     }
 }
 
@@ -62,7 +64,7 @@ private extension CalendarIntakeView {
 // MARK: - Previews
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarIntakeView(calendar: Calendar(identifier: .gregorian), selectedDay: .constant(Date.now), startDate: Date(timeIntervalSinceNow: -5616000), endDate: Date(timeIntervalSinceNow: -345600), reminder: Reminder(context: PersistenceController.preview.container.viewContext))
+        CalendarIntakeView(startDate: Date(timeIntervalSinceNow: -5616000), endDate: Date(timeIntervalSinceNow: -345600), selectedDay: .constant(Date.now), reminder: Reminder(context: PersistenceController.preview.container.viewContext))
             .environmentObject(ThemeSettings())
     }
 }

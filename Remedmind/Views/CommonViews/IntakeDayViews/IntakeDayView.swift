@@ -1,22 +1,24 @@
 //
-//  CalendarIntakeDayView.swift
+//  IntakeDayView.swift
 //  Remedmind
 //
-//  Created by Davide Aliti on 27/02/23.
+//  Created by Davide Aliti on 02/05/23.
 //
 
 import SwiftUI
 
-struct CalendarIntakeDayView: View {
+struct IntakeDayView: View {
     // MARK: - Properties
-    let outerCircleDiameter: CGFloat = 35
-    let innerCircleDiameter: CGFloat = 28
-    
-    var calendar: Calendar
+    let text: String
+    let outerCircleDiameter: CGFloat
+    let innerCircleDiameter: CGFloat
     var day: Date
-    @Binding var selectedDay: Date
+    var onButtonTap: () -> Void
+    var selectedDayTextColor: Color
     
+    @Binding var selectedDay: Date
     @ObservedObject var reminder: Reminder
+    @EnvironmentObject var themeSettings: ThemeSettings
     
     var outerCircleColor: Color {
         guard let totalIntakes = reminder.getTotalIntakes(for: day), totalIntakes != 0 else {
@@ -32,12 +34,10 @@ struct CalendarIntakeDayView: View {
         return (strokeColor: Color(.clear), strokeWidth: 0)
     }
     
-    @EnvironmentObject var themeSettings: ThemeSettings
-    
     // MARK: - Body
     var body: some View {
         Button {
-            selectedDay = day
+            onButtonTap()
         } label: {
             ZStack {
                 Group {
@@ -49,12 +49,12 @@ struct CalendarIntakeDayView: View {
                         .fill(Color(.systemBackground))
                         .frame(width: innerCircleDiameter, height: innerCircleDiameter, alignment: .center)
                 }
-                Text(DateFormatter.dayFormatter.string(from: day))
+                Text(text)
                     .foregroundColor(
-                        calendar.isDate(day, inSameDayAs: selectedDay) ? themeSettings.selectedThemeSecondaryColor
+                        Calendar.customLocalizedCalendar.isDate(day, inSameDayAs: selectedDay) ? selectedDayTextColor
                         : Color(.label)
                     )
-                if calendar.isDateInToday(day) {
+                if Calendar.customLocalizedCalendar.isDateInToday(day) {
                     Circle()
                         .foregroundColor(themeSettings.selectedThemePrimaryColor)
                         .frame(width: 4, height: 4)
@@ -66,9 +66,8 @@ struct CalendarIntakeDayView: View {
 }
 
 // MARK: - Preview
-struct CalendarIntakeDayView_Previews: PreviewProvider {
+struct IntakeDayView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarIntakeDayView(calendar: Calendar(identifier: .gregorian), day: Date.now, selectedDay: .constant(Date.now), reminder: Reminder(context: PersistenceController.preview.container.viewContext))
-            .environmentObject(ThemeSettings())
+        IntakeDayView(text: DateFormatter.dayFormatter.string(from: Date.now), outerCircleDiameter: 35, innerCircleDiameter: 28, day: Date.now, onButtonTap: {print("Tapped")}, selectedDayTextColor: ThemeSettings().selectedThemeSecondaryColor, selectedDay: .constant(Date.now), reminder: Reminder(context: PersistenceController.preview.container.viewContext))
     }
 }

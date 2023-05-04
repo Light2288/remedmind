@@ -33,11 +33,11 @@ extension Calendar {
         let endOfCurrentWeek = self.date(byAdding: endOfWeekComponents, to: startOfCurrentWeek)!
         
         var tempDate = startOfCurrentWeek
-        var array = [tempDate]
+        var array: [Date] = []
         
         while tempDate < endOfCurrentWeek {
-            tempDate = self.date(byAdding: .day, value: 1, to: tempDate)!
             array.append(tempDate)
+            tempDate = self.date(byAdding: .day, value: 1, to: tempDate)!
         }
         
         return array
