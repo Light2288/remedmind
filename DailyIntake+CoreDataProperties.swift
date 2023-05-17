@@ -25,7 +25,7 @@ extension DailyIntake {
 }
 
 extension DailyIntake : Identifiable {
-    func getTotalIntakes(from reminder: Reminder, for date: Date = Date.now) -> Int32 {
+    static func getTotalIntakes(from reminder: Reminder, for date: Date = Date.now) -> Int32 {
         guard let administrationFrequency = reminder.administrationFrequencyEnumValue else
         { return 0 }
         
@@ -37,7 +37,7 @@ extension DailyIntake : Identifiable {
             return Calendar.customLocalizedCalendar.numberOfDaysBetween(reminder.startDate ?? Date.now, and: date) % 2 == 0 ? reminder.numberOfAdministrations : 0
         
         case .weekly:
-            return reminder.unlocalizedAdministrationDays[Calendar.customLocalizedCalendar.dateComponents([.weekday], from: self.date!).weekday! - 1] ? reminder.numberOfAdministrations : 0
+            return reminder.unlocalizedAdministrationDays[Calendar.customLocalizedCalendar.dateComponents([.weekday], from: date).weekday! - 1] ? reminder.numberOfAdministrations : 0
         }
     }
     
