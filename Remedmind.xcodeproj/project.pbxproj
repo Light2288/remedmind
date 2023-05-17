@@ -76,6 +76,7 @@
 		6BE3E6BD2A01B0B2006849FF /* IntakeDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E6BC2A01B0B2006849FF /* IntakeDayView.swift */; };
 		6BE3E6BF2A01B0C2006849FF /* NoIntakeDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E6BE2A01B0C2006849FF /* NoIntakeDayView.swift */; };
 		6BE3E6C12A02AE72006849FF /* ReminderListAddIntakeOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E6C02A02AE72006849FF /* ReminderListAddIntakeOverlayView.swift */; };
+		6BE3E6E72A0C3452006849FF /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E6E62A0C3452006849FF /* Notifications.swift */; };
 		6BEB790D29E8091900E0B20E /* Reminder+DailyIntakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB790C29E8091900E0B20E /* Reminder+DailyIntakes.swift */; };
 		6BEB790F29E95F8E00E0B20E /* Shape+FillStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB790E29E95F8E00E0B20E /* Shape+FillStroke.swift */; };
 		6BEB791429ED7C8D00E0B20E /* OuterCirclePieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB791329ED7C8D00E0B20E /* OuterCirclePieChart.swift */; };
@@ -176,6 +177,7 @@
 		6BE3E6BC2A01B0B2006849FF /* IntakeDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeDayView.swift; sourceTree = "<group>"; };
 		6BE3E6BE2A01B0C2006849FF /* NoIntakeDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoIntakeDayView.swift; sourceTree = "<group>"; };
 		6BE3E6C02A02AE72006849FF /* ReminderListAddIntakeOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListAddIntakeOverlayView.swift; sourceTree = "<group>"; };
+		6BE3E6E62A0C3452006849FF /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		6BEB790C29E8091900E0B20E /* Reminder+DailyIntakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+DailyIntakes.swift"; sourceTree = "<group>"; };
 		6BEB790E29E95F8E00E0B20E /* Shape+FillStroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+FillStroke.swift"; sourceTree = "<group>"; };
 		6BEB791329ED7C8D00E0B20E /* OuterCirclePieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterCirclePieChart.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 		6B6A2C4629356CFA00E72834 /* Remedmind */ = {
 			isa = PBXGroup;
 			children = (
+				6BE3E6E82A0C3480006849FF /* Notifications */,
 				6B4A4D7D29AD6A890063D15E /* Extensions */,
 				6BC7BFD32987238700E15743 /* Data */,
 				6BB07BE1297F52ED005A56D7 /* Icons */,
@@ -528,6 +531,14 @@
 			path = DailyIntakeViews;
 			sourceTree = "<group>";
 		};
+		6BE3E6E82A0C3480006849FF /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				6BE3E6E62A0C3452006849FF /* Notifications.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -710,6 +721,7 @@
 				6B64D7BA29B10AF200D87319 /* DailyIntakeDetailView.swift in Sources */,
 				6B827FB229E600DC008FC8EC /* Remedmind.xcdatamodeld in Sources */,
 				6B4A4D8129AD6B3A0063D15E /* Date+StartOfMonth.swift in Sources */,
+				6BE3E6E72A0C3452006849FF /* Notifications.swift in Sources */,
 				6B4A4D8329AD6B630063D15E /* DateFormatter+Init.swift in Sources */,
 				6B4A4D7F29AD6B0A0063D15E /* Calendar+Generate.swift in Sources */,
 				6B64D7B129B0097D00D87319 /* TitleInfoView.swift in Sources */,

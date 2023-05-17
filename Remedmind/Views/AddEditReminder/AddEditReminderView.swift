@@ -37,10 +37,13 @@ struct AddEditReminderView: View {
                         dailyIntake.id = UUID()
                         dailyIntake.date = Date.now
                         dailyIntake.takenDailyIntakes = 0
-                        dailyIntake.todayTotalIntakes = dailyIntake.getTotalIntakes(from: newReminder)
+                        dailyIntake.todayTotalIntakes = DailyIntake.getTotalIntakes(from: newReminder)
                         newReminder.addToDailyIntakes(dailyIntake)
                     } else {
                         newReminder.updateTotalDailyIntakes(for: Date.now, context: viewContext)
+                    }
+                    if reminderToEdit == nil && newReminder.activeAdministrationNotification {
+                        LocalNotifications.shared.deleteAndCreateNewNotificationRequests(for: newReminder)
                     }
                     do {
                         try viewContext.save()

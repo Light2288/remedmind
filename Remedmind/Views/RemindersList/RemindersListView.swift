@@ -48,6 +48,9 @@ struct RemindersListView: View {
                 .onAppear(perform: {
                     reminders.forEach { reminder in
                         reminder.addMissingDailyIntakes(context: viewContext)
+                        if reminder.activeAdministrationNotification {
+                            LocalNotifications.shared.deleteAndCreateNewNotificationRequests(for: reminder)
+                        }
                     }
                 })
                 .simultaneousGesture(
@@ -132,15 +135,20 @@ struct RemindersListView: View {
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { reminders[$0] }.forEach(viewContext.delete)
-            
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            offsets.map { reminders[$0] }.forEach { reminder in
+                LocalNotifications.shared.deleteAllNotificationRequests(for: reminder, { reminder in
+                    DispatchQueue.main.async{
+                        viewContext.delete(reminder)
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            // Replace this implementation with code to handle the error appropriately.
+                            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                            let nsError = error as NSError
+                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                        }
+                    }
+                })
             }
         }
     }

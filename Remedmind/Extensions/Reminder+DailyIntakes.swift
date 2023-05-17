@@ -27,8 +27,8 @@ extension Reminder {
     
     func getTakenIntakes(for day: Date = Date.now) -> Int32? {
         return self.dailyIntakes?.filter({ dailyIntake in
-                Calendar.customLocalizedCalendar.isDate(dailyIntake.date!, inSameDayAs: day)
-            }).first?.takenDailyIntakes
+            Calendar.customLocalizedCalendar.isDate(dailyIntake.date!, inSameDayAs: day)
+        }).first?.takenDailyIntakes
     }
     
     
@@ -48,19 +48,19 @@ extension Reminder {
         return totalIntakes > 0
     }
     
-    func createMissingDailyIntakes(context: NSManagedObjectContext) -> [DailyIntake] {
+    func createMissingDailyIntakes(context: NSManagedObjectContext, until endDate: Date = Date.now) -> [DailyIntake] {
         guard let lastDailyIntake = lastDailyIntake else { return [] }
         
         var missingDailyIntakes = [lastDailyIntake]
         
         var startDate = Calendar.customLocalizedCalendar.date(byAdding: .day, value: 1, to: lastDailyIntake.date!)!
         
-        while Calendar.customLocalizedCalendar.compare(startDate, to: Date.now, toGranularity: .day) != .orderedDescending {
+        while Calendar.customLocalizedCalendar.compare(startDate, to: endDate, toGranularity: .day) != .orderedDescending {
             let dailyIntake = DailyIntake(context: context)
             dailyIntake.id = UUID()
             dailyIntake.date = startDate
             dailyIntake.takenDailyIntakes = Int32.zero
-            dailyIntake.todayTotalIntakes = dailyIntake.getTotalIntakes(from: self, for: startDate)
+            dailyIntake.todayTotalIntakes = DailyIntake.getTotalIntakes(from: self, for: startDate)
             missingDailyIntakes.append(dailyIntake)
             startDate = Calendar.customLocalizedCalendar.date(byAdding: .day, value: 1, to: startDate)!
         }
@@ -94,7 +94,7 @@ extension Reminder {
     
     func updateTotalDailyIntakes(for day: Date, context: NSManagedObjectContext) {
         guard let dailyIntake = self.getDailyIntake(for: day) else { return }
-        dailyIntake.todayTotalIntakes = dailyIntake.getTotalIntakes(from: self, for: day)
+        dailyIntake.todayTotalIntakes = DailyIntake.getTotalIntakes(from: self, for: day)
         self.addToDailyIntakes(dailyIntake)
         do {
             try context.save()
@@ -102,5 +102,20 @@ extension Reminder {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
+    }
+    
+    func getFutureIntakeDates(from startDate: Date = Date.now, to endDate: Date) -> [Date] {
+        var futureIntakeDates: [Date] = []
+        var date = startDate
+                
+        while Calendar.customLocalizedCalendar.compare(date, to: endDate, toGranularity: .day) != .orderedDescending {
+            
+            if DailyIntake.getTotalIntakes(from: self, for: date) > 0 {
+                futureIntakeDates.append(date)
+            }
+            date = Calendar.customLocalizedCalendar.date(byAdding: .day, value: 1, to: date)!
+        }
+        
+        return futureIntakeDates
     }
 }
