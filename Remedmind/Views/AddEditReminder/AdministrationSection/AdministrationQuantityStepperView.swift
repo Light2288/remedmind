@@ -10,6 +10,7 @@ import SwiftUI
 struct AdministrationQuantityStepperView: View {
     // MARK: - Properties
     @Binding var reminder: ReminderModel
+    @FocusState var focusedField: Field?
     
     // MARK: - Body
     var body: some View {
@@ -23,8 +24,13 @@ struct AdministrationQuantityStepperView: View {
                     }
                 }
                 .labelsHidden()
+                .onChange(of: reminder.medicine.administrationType) { _ in
+                    focusedField = nil
+                }
             }
-            
+        }
+        .onChange(of: reminder.medicine.administrationQuantity) { _ in
+            focusedField = nil
         }
     }
 }
