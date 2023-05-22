@@ -10,6 +10,7 @@ import SwiftUI
 struct AdministrationFrequencyPickerView: View {
     // MARK: - Properties
     @Binding var reminder: ReminderModel
+    @FocusState var focusedField: Field?
     
     // MARK: - Body
     var body: some View {
@@ -24,6 +25,7 @@ struct AdministrationFrequencyPickerView: View {
             } else {
                 reminder.medicine.administrationDays.enumerated().forEach { index, _ in reminder.medicine.administrationDays[index] = false }
             }
+            focusedField = nil
         }
         .pickerStyle(SegmentedPickerStyle())
     }

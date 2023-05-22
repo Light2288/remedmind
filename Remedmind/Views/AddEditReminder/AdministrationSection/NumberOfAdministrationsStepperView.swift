@@ -10,6 +10,7 @@ import SwiftUI
 struct NumberOfAdministrationsStepperView: View {
     // MARK: - Properties
     @Binding var reminder: ReminderModel
+    @FocusState var focusedField: Field?
     
     // MARK: - Body
     var body: some View {
@@ -21,6 +22,7 @@ struct NumberOfAdministrationsStepperView: View {
                 } else {
                     reminder.administrationNotificationTimes.removeLast(reminder.administrationNotificationTimes.count - Int(newValue))
                 }
+                focusedField = nil
             }
     }
 }

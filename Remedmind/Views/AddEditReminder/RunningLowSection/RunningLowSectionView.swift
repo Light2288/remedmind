@@ -10,6 +10,7 @@ import SwiftUI
 struct RunningLowSectionView: View {
     // MARK: - Properties
     @Binding var reminder: ReminderModel
+    @FocusState var focusedField: Field?
     
     // MARK: - Body
     var body: some View {

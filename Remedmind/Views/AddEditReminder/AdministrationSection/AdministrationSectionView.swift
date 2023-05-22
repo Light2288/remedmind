@@ -11,21 +11,22 @@ struct AdministrationSectionView: View {
     // MARK: - Properties
     @Binding var reminder: ReminderModel
     @EnvironmentObject var themeSettings: ThemeSettings
+    @FocusState var focusedField: Field?
     
     // MARK: - Body
     var body: some View {
         Section {
-            AdministrationFrequencyPickerView(reminder: $reminder)
+            AdministrationFrequencyPickerView(reminder: $reminder, focusedField: _focusedField)
             
             if reminder.medicine.administrationFrequency == .weekly {
                 AdministrationDaysButtonsView(reminder: $reminder)
             }
             
-            NumberOfAdministrationsStepperView(reminder: $reminder)
+            NumberOfAdministrationsStepperView(reminder: $reminder, focusedField: _focusedField)
             
-            AdministrationQuantityStepperView(reminder: $reminder)
+            AdministrationQuantityStepperView(reminder: $reminder, focusedField: _focusedField)
             
-            AdministrationNotificationsSectionView(reminder: $reminder)
+            AdministrationNotificationsSectionView(reminder: $reminder, focusedField: _focusedField)
         } header: {
             Text("Frequenza somministrazione e dosaggio")
         }
