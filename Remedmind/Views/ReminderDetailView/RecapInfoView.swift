@@ -26,7 +26,7 @@ struct RecapInfoView: View {
                 Text("Frequenza di assunzione: \(reminder.administrationFrequency ?? "daily")")
                 Text("Data di inizio: \(DateFormatter.dayMonthYearFormatter.string(from: reminder.startDate ?? Date.now))")
                 if reminder.endDate != Date.distantFuture {
-                    Text("Data di fine: \(reminder.endDate ?? Date.distantFuture)")
+                    Text("Data di fine: \(DateFormatter.dayMonthYearFormatter.string(from:reminder.endDate ?? Date.distantFuture))")
                 }
             }
             .font(.subheadline)

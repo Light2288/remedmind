@@ -36,5 +36,6 @@ struct NoIntakeDayView: View {
 struct NoIntakeDayView_Previews: PreviewProvider {
     static var previews: some View {
         NoIntakeDayView(text: DateFormatter.weekDayFormatter.string(from: Date.now), frameSize: 35, day: Date.now)
+            .environmentObject(ThemeSettings())
     }
 }
