@@ -13,10 +13,40 @@ struct ReminderDetailView: View {
     @State var showDeleteReminderAlert: Bool = false
     @State var selectedDay = Date.now
     @State private var isEditViewPresented: Bool = false
+    @State private var showStopTrackingAlert: Bool = false
     
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var themeSettings: ThemeSettings
+    
+    func stopTracking(for reminder: Reminder) {
+        reminder.endDate = Date.now
+        reminder.deleteDailyIntake(for: Date.now, context: viewContext)
+        presentationMode.wrappedValue.dismiss()
+        LocalNotifications.shared.deleteAllNotificationRequests(for: reminder, { _ in })
+    }
+    
+    func resumeTracking(for reminder: Reminder) {
+        reminder.endDate = .distantFuture
+        let todayDailyIntake = DailyIntake.createDailyIntake(from: reminder, for: Date.now, context: viewContext)
+        reminder.addToDailyIntakes(Set([todayDailyIntake]))
+        presentationMode.wrappedValue.dismiss()
+    }
+    
+    func delete(_ reminder: Reminder) {
+        presentationMode.wrappedValue.dismiss()
+        LocalNotifications.shared.deleteAllNotificationRequests(for: reminder, { reminder in
+            DispatchQueue.main.async{
+                viewContext.delete(reminder)
+                do {
+                    try viewContext.save()
+                }catch{
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
+            }
+        })
+    }
     
     // MARK: - Body
     var body: some View {
@@ -40,10 +70,23 @@ struct ReminderDetailView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
-                    Button {
-                        isEditViewPresented.toggle()
-                    } label: {
-                        Label("Edit", systemImage: "square.and.pencil")
+                    if reminder.endDate == .distantFuture {
+                        Button {
+                            isEditViewPresented.toggle()
+                        } label: {
+                            Label("Edit", systemImage: "square.and.pencil")
+                        }
+                        Button(role: .destructive) {
+                            showStopTrackingAlert = true
+                        } label: {
+                            Label("Stop tracking", systemImage: "clock.badge.xmark")
+                        }
+                    } else {
+                        Button {
+                            resumeTracking(for: reminder)
+                        } label: {
+                            Label("Resume tracking", systemImage: "clock.badge.checkmark")
+                        }
                     }
                     Button(role: .destructive) {
                         showDeleteReminderAlert = true
@@ -61,18 +104,17 @@ struct ReminderDetailView: View {
                 .environment(\.managedObjectContext, viewContext)
                 .environmentObject(self.themeSettings)
         }
+        .alert("Stop tracking", isPresented: $showStopTrackingAlert, actions: {
+            Button("Stop tracking", role: .destructive) {
+                stopTracking(for: reminder)
+            }
+            Button("Annulla", role: .cancel) { }
+        }, message: {
+            Text("Sei sicuro di voler cancellare il tracciamento delle assunzioni di \(reminder.medicineName ?? "")? Il promemoria rimarrà presente nell'elenco ma non riceverai più notifiche di assunzione")
+        })
         .alert("Eliminazione promemoria", isPresented: $showDeleteReminderAlert, actions: {
             Button("Elimina promemoria", role: .destructive) {
-                presentationMode.wrappedValue.dismiss()
-                DispatchQueue.main.async {
-                    viewContext.delete(reminder)
-                    do {
-                        try viewContext.save()
-                    }catch{
-                        let nsError = error as NSError
-                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                    }
-                }
+                delete(reminder)
             }
             Button("Annulla", role: .cancel) { }
         }, message: {

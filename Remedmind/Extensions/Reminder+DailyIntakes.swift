@@ -56,11 +56,7 @@ extension Reminder {
         var startDate = Calendar.customLocalizedCalendar.date(byAdding: .day, value: 1, to: lastDailyIntake.date!)!
         
         while Calendar.customLocalizedCalendar.compare(startDate, to: endDate, toGranularity: .day) != .orderedDescending {
-            let dailyIntake = DailyIntake(context: context)
-            dailyIntake.id = UUID()
-            dailyIntake.date = startDate
-            dailyIntake.takenDailyIntakes = Int32.zero
-            dailyIntake.todayTotalIntakes = DailyIntake.getTotalIntakes(from: self, for: startDate)
+            let dailyIntake = DailyIntake.createDailyIntake(from: self, for: startDate, context: context)
             missingDailyIntakes.append(dailyIntake)
             startDate = Calendar.customLocalizedCalendar.date(byAdding: .day, value: 1, to: startDate)!
         }
@@ -108,7 +104,7 @@ extension Reminder {
         var futureIntakeDates: [Date] = []
         var date = startDate
                 
-        while Calendar.customLocalizedCalendar.compare(date, to: endDate, toGranularity: .day) != .orderedDescending {
+        while Calendar.customLocalizedCalendar.compare(date, to: endDate, toGranularity: .day) != .orderedDescending && Calendar.customLocalizedCalendar.compare(date, to: self.endDate ?? .distantFuture, toGranularity: .day) != .orderedDescending {
             
             if DailyIntake.getTotalIntakes(from: self, for: date) > 0 {
                 futureIntakeDates.append(date)
@@ -117,5 +113,16 @@ extension Reminder {
         }
         
         return futureIntakeDates
+    }
+    
+    func deleteDailyIntake(for day: Date, context: NSManagedObjectContext) {
+        guard let dailyIntake = self.getDailyIntake(for: day) else { return }
+        context.delete(dailyIntake)
+        do {
+            try context.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
     }
 }

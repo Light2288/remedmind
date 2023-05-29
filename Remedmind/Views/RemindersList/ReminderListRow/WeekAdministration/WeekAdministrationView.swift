@@ -10,7 +10,7 @@ import SwiftUI
 struct WeekAdministrationView: View {
     // MARK: - Properties
     @EnvironmentObject var themeSettings: ThemeSettings
-    @State var reminder: Reminder
+    @ObservedObject var reminder: Reminder
     @Binding var selectedDay: Date
     @Binding var selectedReminder: Reminder?
     @Binding var showAddIntakeOverlayView: Bool

@@ -69,5 +69,6 @@ struct IntakeDayView: View {
 struct IntakeDayView_Previews: PreviewProvider {
     static var previews: some View {
         IntakeDayView(text: DateFormatter.dayFormatter.string(from: Date.now), outerCircleDiameter: 35, innerCircleDiameter: 28, day: Date.now, onButtonTap: {print("Tapped")}, selectedDayTextColor: ThemeSettings().selectedThemeSecondaryColor, selectedDay: .constant(Date.now), reminder: Reminder(context: PersistenceController.preview.container.viewContext))
+            .environmentObject(ThemeSettings())
     }
 }

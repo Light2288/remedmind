@@ -117,6 +117,7 @@ class LocalNotifications {
     }
     
     func deleteAndCreateNewNotificationRequests(for reminder: Reminder) {
+        print("Deleting and creating notifications")
         deleteAllNotificationRequests(for: reminder) { reminder in
             self.createNotificationRequests(for: reminder)
         }
