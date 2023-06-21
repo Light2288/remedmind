@@ -66,7 +66,6 @@
 		6BC7BFDA2987263800E15743 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC7BFD92987263800E15743 /* ThemeSettings.swift */; };
 		6BCA83F12995A77A0090EB86 /* PackageRemainderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA83F02995A77A0090EB86 /* PackageRemainderView.swift */; };
 		6BCA83F42995AF240090EB86 /* WeekAdministrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA83F32995AF240090EB86 /* WeekAdministrationView.swift */; };
-		6BCA83F62995B01D0090EB86 /* DailyAdministrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA83F52995B01D0090EB86 /* DailyAdministrationView.swift */; };
 		6BCA9616293D5FE000C815E8 /* AddEditReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA9615293D5FE000C815E8 /* AddEditReminderView.swift */; };
 		6BD15A672993060100576DD4 /* ReminderListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD15A662993060100576DD4 /* ReminderListRowView.swift */; };
 		6BD38B7929D341A4009C1754 /* GeneralInfoSectionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD38B7829D341A4009C1754 /* GeneralInfoSectionInfoView.swift */; };
@@ -87,6 +86,11 @@
 		6BF6859229CA7A0E0019E707 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF6859029CA7A0E0019E707 /* Reminder+CoreDataClass.swift */; };
 		6BF6859329CA7A0E0019E707 /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF6859129CA7A0E0019E707 /* Reminder+CoreDataProperties.swift */; };
 		6BFB24EC299C4E990092837A /* RecapInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB24EB299C4E990092837A /* RecapInfoView.swift */; };
+		6BFB268E2A24C6FD00481BF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BFB26902A24C6FD00481BF3 /* Localizable.strings */; };
+		6BFB26992A262A1800481BF3 /* Reminder+OptionalProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB26982A262A1800481BF3 /* Reminder+OptionalProperties.swift */; };
+		6BFB269B2A2BA89500481BF3 /* AdministrationFrequency+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB269A2A2BA89400481BF3 /* AdministrationFrequency+Description.swift */; };
+		6BFB269D2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB269C2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift */; };
+		6BFB269F2A30CBB700481BF3 /* AdministrationType+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB269E2A30CBB700481BF3 /* AdministrationType+Description.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,7 +174,6 @@
 		6BC7BFD92987263800E15743 /* ThemeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettings.swift; sourceTree = "<group>"; };
 		6BCA83F02995A77A0090EB86 /* PackageRemainderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageRemainderView.swift; sourceTree = "<group>"; };
 		6BCA83F32995AF240090EB86 /* WeekAdministrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekAdministrationView.swift; sourceTree = "<group>"; };
-		6BCA83F52995B01D0090EB86 /* DailyAdministrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdministrationView.swift; sourceTree = "<group>"; };
 		6BCA9615293D5FE000C815E8 /* AddEditReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditReminderView.swift; sourceTree = "<group>"; };
 		6BD15A662993060100576DD4 /* ReminderListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListRowView.swift; sourceTree = "<group>"; };
 		6BD38B7829D341A4009C1754 /* GeneralInfoSectionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfoSectionInfoView.swift; sourceTree = "<group>"; };
@@ -191,6 +194,12 @@
 		6BF6859029CA7A0E0019E707 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6BF6859129CA7A0E0019E707 /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6BFB24EB299C4E990092837A /* RecapInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecapInfoView.swift; sourceTree = "<group>"; };
+		6BFB268F2A24C6FD00481BF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6BFB26912A24C70100481BF3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6BFB26982A262A1800481BF3 /* Reminder+OptionalProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+OptionalProperties.swift"; sourceTree = "<group>"; };
+		6BFB269A2A2BA89400481BF3 /* AdministrationFrequency+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdministrationFrequency+Description.swift"; sourceTree = "<group>"; };
+		6BFB269C2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizeFirstLetter.swift"; sourceTree = "<group>"; };
+		6BFB269E2A30CBB700481BF3 /* AdministrationType+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdministrationType+Description.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +279,10 @@
 				6BEB790E29E95F8E00E0B20E /* Shape+FillStroke.swift */,
 				6BE3E6EF2A157CCC006849FF /* View+HideKeyboard.swift */,
 				6BE3E6F32A1D6DE8006849FF /* DailyIntake+GetTotalIntakes.swift */,
+				6BFB26982A262A1800481BF3 /* Reminder+OptionalProperties.swift */,
+				6BFB269A2A2BA89400481BF3 /* AdministrationFrequency+Description.swift */,
+				6BFB269E2A30CBB700481BF3 /* AdministrationType+Description.swift */,
+				6BFB269C2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,6 +343,7 @@
 				6B6A2C5029356CFB00E72834 /* Persistence.swift */,
 				6B6A2C5529356CFB00E72834 /* Info.plist */,
 				6B6A2C4D29356CFB00E72834 /* Preview Content */,
+				6BFB26902A24C6FD00481BF3 /* Localizable.strings */,
 			);
 			path = Remedmind;
 			sourceTree = "<group>";
@@ -395,7 +409,6 @@
 				6B0BEF3329D3452B00B823DA /* AdministrationSection */,
 				6BD38B7729D3418A009C1754 /* GeneralInfoSection */,
 				6BCA9615293D5FE000C815E8 /* AddEditReminderView.swift */,
-				6BE3E6F12A157EB5006849FF /* AddEditReminderViewFields.swift */,
 			);
 			path = AddEditReminder;
 			sourceTree = "<group>";
@@ -470,7 +483,6 @@
 			isa = PBXGroup;
 			children = (
 				6BCA83F32995AF240090EB86 /* WeekAdministrationView.swift */,
-				6BCA83F52995B01D0090EB86 /* DailyAdministrationView.swift */,
 			);
 			path = WeekAdministration;
 			sourceTree = "<group>";
@@ -494,6 +506,7 @@
 				6B827FA429E4A144008FC8EC /* Positions */,
 				6BB07BED2981C9AC005A56D7 /* IconChange */,
 				6BC7BFD02987230B00E15743 /* Theme */,
+				6BE3E6F12A157EB5006849FF /* AddEditReminderViewFields.swift */,
 				6BA7E773293D67BB00A3F3E4 /* Medicine.swift */,
 				6BA7E775293D68F500A3F3E4 /* Administration.swift */,
 				6B5850932942A73200D561E8 /* Reminder.swift */,
@@ -633,6 +646,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				it,
 				Base,
 			);
 			mainGroup = 6B6A2C3B29356CFA00E72834;
@@ -652,6 +666,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BFB268E2A24C6FD00481BF3 /* Localizable.strings in Resources */,
 				6B6A2C4F29356CFB00E72834 /* Preview Assets.xcassets in Resources */,
 				6BB07BF32981D2AD005A56D7 /* Orange.png in Resources */,
 				6B6A2C4C29356CFB00E72834 /* Assets.xcassets in Resources */,
@@ -685,7 +700,6 @@
 				6BEB790F29E95F8E00E0B20E /* Shape+FillStroke.swift in Sources */,
 				6BF6859229CA7A0E0019E707 /* Reminder+CoreDataClass.swift in Sources */,
 				6BE3E6BF2A01B0C2006849FF /* NoIntakeDayView.swift in Sources */,
-				6BCA83F62995B01D0090EB86 /* DailyAdministrationView.swift in Sources */,
 				6BA7E774293D67BB00A3F3E4 /* Medicine.swift in Sources */,
 				6B827FB529E60184008FC8EC /* DailyIntake+CoreDataClass.swift in Sources */,
 				6BEB791629ED8ADF00E0B20E /* OuterCircleEmpty.swift in Sources */,
@@ -694,10 +708,12 @@
 				6BA7E776293D68F500A3F3E4 /* Administration.swift in Sources */,
 				6B11D8BC29945853003BD412 /* MedicineImageView.swift in Sources */,
 				6B827FB629E60184008FC8EC /* DailyIntake+CoreDataProperties.swift in Sources */,
+				6BFB26992A262A1800481BF3 /* Reminder+OptionalProperties.swift in Sources */,
 				6BCA83F42995AF240090EB86 /* WeekAdministrationView.swift in Sources */,
 				6B0BEF3F29D3894800B823DA /* AdministrationNotificationsSectionView.swift in Sources */,
 				6B64D7B829B1072300D87319 /* DailyIntakeButtonsView.swift in Sources */,
 				6B0BEF4629D38B5100B823DA /* PackageQuantitiesSectionView.swift in Sources */,
+				6BFB269F2A30CBB700481BF3 /* AdministrationType+Description.swift in Sources */,
 				6BB296BF29774AA000152A7B /* SettingsView.swift in Sources */,
 				6BE3E6BD2A01B0B2006849FF /* IntakeDayView.swift in Sources */,
 				6BF6859329CA7A0E0019E707 /* Reminder+CoreDataProperties.swift in Sources */,
@@ -728,6 +744,7 @@
 				6BEB791429ED7C8D00E0B20E /* OuterCirclePieChart.swift in Sources */,
 				6B0BEF4229D38A1600B823DA /* RunningLowSectionView.swift in Sources */,
 				6BE3E69629F88079006849FF /* Calendar+CustomLocalizedCalendar.swift in Sources */,
+				6BFB269B2A2BA89500481BF3 /* AdministrationFrequency+Description.swift in Sources */,
 				6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */,
 				6B64D7BA29B10AF200D87319 /* DailyIntakeDetailView.swift in Sources */,
 				6BE3E6F22A157EB5006849FF /* AddEditReminderViewFields.swift in Sources */,
@@ -753,6 +770,7 @@
 				6B0BEF3929D385AF00B823DA /* AdministrationDaysButtonsView.swift in Sources */,
 				6B64D7B429B00C5500D87319 /* DailyIntakeButtonView.swift in Sources */,
 				6B827FAD29E4AFB5008FC8EC /* View+If.swift in Sources */,
+				6BFB269D2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,6 +805,18 @@
 			targetProxy = 6B6A2C6529356CFB00E72834 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6BFB26902A24C6FD00481BF3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BFB268F2A24C6FD00481BF3 /* en */,
+				6BFB26912A24C70100481BF3 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6B6A2C6C29356CFB00E72834 /* Debug */ = {
@@ -845,6 +875,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -898,6 +929,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

@@ -8,6 +8,12 @@
 import Foundation
 
 extension Reminder {
-    var unlocalizedAdministrationDays: [Bool] { Array(self.administrationDays[Calendar.customLocalizedCalendar.veryShortWeekdaySymbols.count - Calendar.customLocalizedCalendar.firstWeekday + 1 ..< Calendar.customLocalizedCalendar.veryShortWeekdaySymbols.count] + self.administrationDays[0 ..< Calendar.customLocalizedCalendar.veryShortWeekdaySymbols.count - Calendar.customLocalizedCalendar.firstWeekday + 1])
+    
+    var localizedLongAdministrationDays: [String] {
+        let weekdays = Calendar.customLocalizedCalendar.weekdaySymbols
+        let zippedWeekdaysAndAdministrationDays = Array(zip(weekdays, self.administrationDays))
+        let localizedZipped = Array(zippedWeekdaysAndAdministrationDays[Calendar.customLocalizedCalendar.firstWeekday - 1 ..< Calendar.customLocalizedCalendar.veryShortWeekdaySymbols.count] + zippedWeekdaysAndAdministrationDays[0 ..< Calendar.customLocalizedCalendar.firstWeekday - 1])
+        let localizedAdministrationDays = localizedZipped.filter { $0.1 }.map { $0.0 }
+        return localizedAdministrationDays
     }
 }

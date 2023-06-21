@@ -16,11 +16,11 @@ struct AdministrationQuantityStepperView: View {
     var body: some View {
         Stepper(value: $reminder.medicine.administrationQuantity, in: 0 ... .infinity, step: 0.5) {
             HStack(spacing: 0) {
-                Text("Dose: \(reminder.medicine.administrationQuantity.description)")
+                Text("addEditReminderView.administration.administrationQuantity.label \(reminder.medicine.administrationQuantity.description)")
                 Picker("", selection: $reminder.medicine.administrationType) {
                     ForEach(AdministrationType.allCases, id: \.self)
                     { administrationType in
-                        Text(administrationType.rawValue).tag(administrationType)
+                        Text(reminder.medicine.administrationQuantity <= 1.0 ? administrationType.administrationTypeDescription : administrationType.administrationTypeDescriptionPlural).tag(administrationType)
                     }
                 }
                 .labelsHidden()

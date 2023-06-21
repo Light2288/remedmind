@@ -20,7 +20,7 @@ struct ReminderListAddIntakeOverlayView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.ultraThinMaterial)
             VStack {
-                Text(selectedReminder?.medicineName ?? "Unkown medicine name")
+                Text(selectedReminder?.medicineNameString ?? String(localized: "label.medicine.noName"))
                     .font(.largeTitle)
                 DailyIntakeView(selectedDay: $selectedDay, reminder: Binding($selectedReminder)!)
             }

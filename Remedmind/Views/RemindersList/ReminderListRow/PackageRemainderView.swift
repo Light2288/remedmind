@@ -14,7 +14,7 @@ struct PackageRemainderView: View {
     
     // MARK: - Body
     var body: some View {
-        Text("\(currentPackageQuantity.formatted(.number)) \(administrationType) rimanenti nella confezione")
+        Text("listView.row.packageRemaining \(currentPackageQuantity.formatted(.number)) \(administrationType)")
             .font(.footnote)
     }
 }

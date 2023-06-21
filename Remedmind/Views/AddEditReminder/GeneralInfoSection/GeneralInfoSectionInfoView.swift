@@ -15,16 +15,16 @@ struct GeneralInfoSectionView: View {
     // MARK: - Body
     var body: some View {
         Section {
-            TextField("Nome", text: $reminder.medicine.name)
+            TextField("addEditReminderView.generalInfo.label.medicineName", text: $reminder.medicine.name)
                 .focused($focusedField, equals: .medicineName)
-            TextField("Marca", text: $reminder.medicine.brand)
+            TextField("addEditReminderView.generalInfo.label.medicineBrand", text: $reminder.medicine.brand)
                 .focused($focusedField, equals: .medicineBrand)
-            TextField("Descrizione", text: $reminder.medicine.description)
+            TextField("addEditReminderView.generalInfo.label.medicineDescription", text: $reminder.medicine.description)
                 .focused($focusedField, equals: .medicineDescription)
-            TextField("Note", text: $reminder.notes)
+            TextField("addEditReminderView.generalInfo.label.notes", text: $reminder.notes)
                 .focused($focusedField, equals: .notes)
         } header: {
-            Text("Informazioni generali")
+            Text("addEditReminderView.generalInfo.title")
         }
         .onSubmit {
             switch focusedField {

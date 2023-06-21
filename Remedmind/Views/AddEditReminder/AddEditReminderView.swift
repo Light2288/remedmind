@@ -51,7 +51,7 @@ struct AddEditReminderView: View {
             showModal = false
         } catch {
             let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
         }
     }
     
@@ -76,7 +76,7 @@ struct AddEditReminderView: View {
                     }
                     updateReminderAndSave(from: reminder)                    
                 } label: {
-                    Text("Salva")
+                    Text("button.save.label")
                         .font(.title3)
                         .padding(.all, 8)
                         .frame(minWidth: 0, maxWidth: .infinity)
@@ -91,19 +91,19 @@ struct AddEditReminderView: View {
                     Button {
                         showModal = false
                     } label: {
-                        Label("Close", systemImage: "xmark.circle")
+                        Label("button.close.label", systemImage: "xmark.circle")
                     }
                 }
             }
-            .navigationTitle("Nuovo Promemoria Medicina")
+            .navigationTitle("addEditReminderView.navigation.title")
             .navigationBarTitleDisplayMode(.inline)
-            .alert("Attenzione", isPresented: $showConfirmationModal) {
-                Button("Continua") {
+            .alert("alert.noMedicineName.title", isPresented: $showConfirmationModal) {
+                Button("alert.noMedicineName.confirm") {
                     updateReminderAndSave(from: reminder)
                 }
-                Button("Annulla", role: .cancel) { }
+                Button("button.cancel.label", role: .cancel) { }
             } message: {
-                Text("Stai salvando un promemoria senza il nome della medicina; sei sicuro di voler procedere?")
+                Text("alert.noMedicineName.message")
             }
 
         }

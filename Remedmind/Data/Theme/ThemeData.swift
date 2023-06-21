@@ -8,8 +8,36 @@
 import SwiftUI
 
 let themeData: [Theme] = [
-    Theme(id: 0, themeName: "Default", themeColors: ThemeColors(primaryColor: Color("DarkCyan"), secondaryColor: Color("PrincetonOrange"))),
-    Theme(id: 1, themeName: "Mono Dark Cyan", themeColors: ThemeColors(primaryColor: Color("DarkCyan"), secondaryColor: Color("DarkCyan"))),
-    Theme(id: 2, themeName: "Mono Princeton Orange", themeColors: ThemeColors(primaryColor: Color("PrincetonOrange"), secondaryColor: Color("PrincetonOrange"))),
-    Theme(id: 3, themeName: "Monochrome", themeColors: ThemeColors(primaryColor: Color(.systemGray), secondaryColor: Color(.systemGray)))
+    Theme(
+        id: 0,
+        themeName: String(localized: "theme.name.default"),
+        themeColors: ThemeColors(
+            primaryColor: Color(String(localized: "theme.color.darkCyan")),
+            secondaryColor: Color(String(localized: "theme.color.princetonOrange"))
+        )
+    ),
+    Theme(
+        id: 1,
+        themeName: String(localized: "theme.name.darkCyan"),
+        themeColors: ThemeColors(
+            primaryColor: Color(String(localized: "theme.color.darkCyan")),
+            secondaryColor: Color(String(localized: "theme.color.darkCyan"))
+        )
+    ),
+    Theme(
+        id: 2,
+        themeName: String(localized: "theme.name.princetonOrange"),
+        themeColors: ThemeColors(
+            primaryColor: Color(String(localized: "theme.color.princetonOrange")),
+            secondaryColor: Color(String(localized: "theme.color.princetonOrange"))
+        )
+    ),
+    Theme(
+        id: 3,
+        themeName: String(localized: "theme.name.monochrome"),
+        themeColors: ThemeColors(
+            primaryColor: Color(.systemGray),
+            secondaryColor: Color(.systemGray)
+        )
+    )
 ]

@@ -20,7 +20,7 @@ extension Reminder {
         self.notes = reminderModel.notes
         self.startDate = reminderModel.startDate
         self.administrationFrequency = reminderModel.medicine.administrationFrequency.rawValue
-        self.administrationDays = reminderModel.medicine.administrationDays
+        self.administrationDays = reminderModel.medicine.unlocalizedAdministrationDays
         self.numberOfAdministrations = reminderModel.medicine.numberOfAdministrations
         self.administrationQuantity = reminderModel.medicine.administrationQuantity
         self.administrationType = reminderModel.medicine.administrationType.rawValue

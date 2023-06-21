@@ -14,9 +14,10 @@ struct MedicineNameBrandView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack(alignment: .leading) {
+        HStack(alignment: .firstTextBaseline) {
             Text(medicineName)
                 .font(.headline)
+            Spacer()
             Text(medicineBrand)
                 .font(.footnote)
         }

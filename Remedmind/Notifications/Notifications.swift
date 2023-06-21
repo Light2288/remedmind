@@ -96,7 +96,7 @@ class LocalNotifications {
         userNotificationCenter.getNotificationSettings { settings in
             let content = UNMutableNotificationContent()
             content.title = "Remedmind"
-                        content.body = "Remember to register your intake for \(reminder.medicineName ?? "unknown medicine")"
+            content.body = NSString.localizedUserNotificationString(forKey: "notification.body.content", arguments: [reminder.medicineName ?? "unknown medicine"])
             content.userInfo = ["reminderId": reminder.id?.uuidString as Any]
             
             if settings.soundSetting == .enabled {
@@ -117,7 +117,6 @@ class LocalNotifications {
     }
     
     func deleteAndCreateNewNotificationRequests(for reminder: Reminder) {
-        print("Deleting and creating notifications")
         deleteAllNotificationRequests(for: reminder) { reminder in
             self.createNotificationRequests(for: reminder)
         }

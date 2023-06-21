@@ -72,7 +72,7 @@ extension Reminder {
             try context.save()
         } catch {
             let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
         }
     }
     
@@ -84,7 +84,7 @@ extension Reminder {
             try context.save()
         } catch {
             let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
         }
     }
     
@@ -96,7 +96,7 @@ extension Reminder {
             try context.save()
         } catch {
             let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
         }
     }
     
@@ -122,7 +122,7 @@ extension Reminder {
             try context.save()
         } catch {
             let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
         }
     }
 }

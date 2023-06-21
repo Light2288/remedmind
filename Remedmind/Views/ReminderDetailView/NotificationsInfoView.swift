@@ -14,14 +14,18 @@ struct NotificationsInfoView: View {
     
     // MARK: - Body
     var body: some View {
-        DisclosureGroup("Notifiche", isExpanded: $isExpanded) {
+        DisclosureGroup("detailView.notifications.title", isExpanded: $isExpanded) {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Notifiche assunzione: \(reminder.activeAdministrationNotification ? "Attive" : "Non attive")")
+                Text("detailView.notifications.activeAdministrationNotifications \(reminder.activeAdministrationNotification ? String(localized: "label.active") : String(localized: "label.notActive"))")
                     .padding(.top, 8)
-                Text("Notifiche esaurimento confezione: \(reminder.activeRunningLowNotification ? "Attive" : "Non attive")")
+                if reminder.activeAdministrationNotification {
+                    Text("detailView.notifications.administrationNotificationsTimes \(reminder.administrationNotificationsTimesString)")
+                }
+                Text("detailView.notifications.activeRunningLowNotifications \(reminder.activeRunningLowNotification ? String(localized: "label.active") : String(localized: "label.notActive"))")
                 if reminder.activeRunningLowNotification {
-                    Text("Pillole in una confezione: \(reminder.packageQuantity)")
-                    Text("Pillole rimanenti nella confezione attuale: \(reminder.currentPackageQuantity.formatted(.number))")
+                    Text("detailView.notifications.runningLowNotificationsTime \(reminder.runningLowNotificationsTimeString)")
+                    Text("detailView.notifications.packageQuantity \(reminder.administrationTypeString.capitalizedFirstLetter) \(reminder.packageQuantity)")
+                    Text("detailView.notifications.currentPackageQuantity \(reminder.administrationTypeString.capitalizedFirstLetter) \(reminder.currentPackageQuantity.formatted(.number))")
                 }
             }
             .font(.subheadline)

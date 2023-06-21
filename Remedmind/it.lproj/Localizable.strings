@@ -1,0 +1,113 @@
+/* 
+  Localizable.strings
+  Remedmind
+
+  Created by Davide Aliti on 29/05/23.
+  
+*/
+
+"reminder.list.title" = "Promemoria";
+
+"error.coredata.saving %@ %@" = "Errore non risolvibile %@, %@";
+
+"notification.body.content" = "Ricordati di registrare la tua assunzione di %@";
+
+"administrationFrequency.daily" = "ogni giorno";
+"administrationFrequency.everyOtherDay" = "a giorni alterni";
+"administrationFrequency.weekly" = "ogni settimana";
+
+"administrationType.pill" = "pillola";
+"administrationType.sachet" = "bustina";
+"administrationType.drop" = "goccia";
+"administrationType.other" = "altro";
+
+"administrationType.pills" = "pillole";
+"administrationType.sachets" = "bustine";
+"administrationType.drops" = "gocce";
+
+"label.previous" = "Precedente";
+"label.next" = "Successivo";
+"label.noIntakes" = "Nessuna assunzione prevista per oggi";
+"label.edit" = "Modifica";
+"label.stopTracking" = "Interrompi tracciamento";
+"label.resumeTracking" = "Ripristina tracciamento";
+"label.delete" = "Elimina";
+"label.active" = "Attivo";
+"label.notActive" = "Non attivo";
+
+"label.medicine.noName" = "Nessun nome medicina";
+"label.medicine.noBrand" = "Nessuna marca";
+"label.medicine.noDescription" = "Nessuna descrizione";
+"label.medicine.noNotes" = "Nessuna nota";
+"label.medicine.noAdministrationType" = "N/A";
+"label.medicine.noAdministrationFrequency" = "N/A";
+
+"button.cancel.label" = "Annulla";
+"button.save.label" = "Salva";
+"button.close.label" = "Chiudi";
+
+"alert.noMedicineName.title" = "Nessun nome medicina";
+"alert.noMedicineName.confirm" = "Conferma";
+"alert.noMedicineName.message" = "Stai salvando un promemoria senza il nome della medicina; sei sicuro di voler procedere?";
+
+"alert.stopTracking.title" = "Interrompi tracciamento";
+"alert.stopTracking.stopButton" = "Interrompi";
+"alert.stopTracking.message %@" = "Sei sicuro di voler interrompere il tracciamento delle assunzioni di %@? Il promemoria rimarrà presente nell'elenco ma non riceverai più notifiche di assunzione e non potrai più tracciare le assunzioni.";
+
+"alert.deleteReminder.title" = "Cancella promemoria";
+"alert.deleteReminder.deleteButton" = "Cancella";
+"alert.deleteReminder.message" = "Sei sicuro di voler cancellare questo promemoria?";
+
+"detailView.generalInfo.title" = "Informazioni generali";
+"detailView.generalInfo.label.medicineBrand %@" = "Marca: %@";
+"detailView.generalInfo.label.medicineDescription %@" = "Descrizione: %@";
+"detailView.generalInfo.label.notes %@" = "Note: %@";
+"detailView.generalInfo.label.administrationType %@" = "Tipologia somministrazione: %@";
+"detailView.generalInfo.label.administrationQuantity %@" = "Quantità per ogni sommistrazione: %@";
+"detailView.generalInfo.label.numberOfAdministrations %d" = "Numero di somministrazioni per ogni giorno di assunzione: %d";
+"detailView.generalInfo.label.administrationFrequency %@" = "Frequenza di somministrazione: %@";
+"detailView.generalInfo.label.additionalAdministrationFrequency %@" = " %@";
+"detailView.generalInfo.label.startDate %@" = "Data di inizio: %@";
+"detailView.generalInfo.label.endDate %@" = "Data di fine: %@";
+
+"detailView.notifications.title" = "Notifiche";
+"detailView.notifications.activeAdministrationNotifications %@" = "Notifiche assunzione: %@";
+"detailView.notifications.administrationNotificationsTimes %@" = "Orari notifiche assunzione: %@";
+"detailView.notifications.activeRunningLowNotifications %@" = "Notifiche esaurimento confezione: %@";
+"detailView.notifications.runningLowNotificationsTime %@" = "Orario notifica esaurimento confezione: %@";
+"detailView.notifications.packageQuantity %@ %d" = "%@ in una confezione: %d";
+"detailView.notifications.currentPackageQuantity %@ %@" = "%@ rimanenti nella confezione corrente: %@";
+
+"listView.row.administrationFrequency %@ %@ %d %@" = "%@ %@, %d volte al giorno, %@";
+"listView.row.administrationFrequency.weekly %@" = "ogni %@";
+"listView.row.packageRemaining %@ %@" = "%@ %@ restanti nella confezione corrente";
+
+"addEditReminderView.navigation.title" = "Nuovo Promemoria Medicina";
+"addEditReminderView.packageExhaustion.title" = "Esaurimento confezione";
+"addEditReminderView.packageExhaustion.runningLowNotifications.label" = "Ricevi una notifica quando la confezione sta per esaurirsi";
+"addEditReminderView.packageExhaustion.runningLowNotifications.time.label" = "Orario della notifica";
+"addEditReminderView.packageExhaustion.packageQuantity %@" = "%@ in una confezione";
+"addEditReminderView.packageExhaustion.currentPackageQuantity.label %@ %@" = "Se hai una confezione già utilizzata, inserisci nel prossimo campo quante %@ sono rimaste nella confezione. Se stai iniziando una nuova confezione, lascia 0 nel prossimo campo o inserisci il numero totale di %@ in una confezione nuova.";
+"addEditReminderView.packageExhaustion.currentPackageQuantity %@" = "%@ rimanenti nella confezione attuale";
+
+"addEditReminderView.administration.title" = "Frequenza somministrazione e dosaggio";
+"addEditReminderView.administration.administrationFrequency.label" = "Frequenza somministrazione";
+"addEditReminderView.administration.selectAdministrationDays.label" = "Seleziona i giorni di assunzione";
+"addEditReminderView.administration.numberOfAdministrations.label %d" = "Dosi per giorno di assuzione: %d";
+"addEditReminderView.administration.administrationQuantity.label %@" = "Dose: %@";
+"addEditReminderView.administration.administrationNotifications.label" = "Ricevi una notifica per ricordarti di assumere la medicina";
+"addEditReminderView.administration.administrationNotificationsTimes.label %@" = "Orario della notifica per la %@ dose";
+
+"addEditReminderView.generalInfo.title" = "Informazioni generali";
+"addEditReminderView.generalInfo.label.medicineName" = "Nome";
+"addEditReminderView.generalInfo.label.medicineBrand" = "Marca";
+"addEditReminderView.generalInfo.label.medicineDescription" = "Descrizione";
+"addEditReminderView.generalInfo.label.notes" = "Note";
+
+"theme.name.default" = "Default";
+"theme.name.darkCyan" = "Mono Ciano";
+"theme.name.princetonOrange" = "Mono Arancione";
+"theme.name.monochrome" = "Monocromatico";
+"theme.color.darkCyan" = "DarkCyan";
+"theme.color.princetonOrange" = "PrincetonOrange";
+

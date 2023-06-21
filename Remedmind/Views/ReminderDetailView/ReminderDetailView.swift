@@ -42,7 +42,7 @@ struct ReminderDetailView: View {
                     try viewContext.save()
                 }catch{
                     let nsError = error as NSError
-                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                    fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
                 }
             }
         })
@@ -52,9 +52,9 @@ struct ReminderDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 10) {
-                TitleInfoView(title: reminder.medicineName)
+                TitleInfoView(title: reminder.medicineNameString)
                 if reminder.getDailyIntake(for: selectedDay)?.todayTotalIntakes == 0 {
-                    Text("No intakes for today")
+                    Text("label.noIntakes")
                 } else {
                     DailyIntakeView(selectedDay: $selectedDay, reminder: $reminder)
                 }
@@ -74,24 +74,24 @@ struct ReminderDetailView: View {
                         Button {
                             isEditViewPresented.toggle()
                         } label: {
-                            Label("Edit", systemImage: "square.and.pencil")
+                            Label("label.edit", systemImage: "square.and.pencil")
                         }
                         Button(role: .destructive) {
                             showStopTrackingAlert = true
                         } label: {
-                            Label("Stop tracking", systemImage: "clock.badge.xmark")
+                            Label("label.stopTracking", systemImage: "clock.badge.xmark")
                         }
                     } else {
                         Button {
                             resumeTracking(for: reminder)
                         } label: {
-                            Label("Resume tracking", systemImage: "clock.badge.checkmark")
+                            Label("label.resumeTracking", systemImage: "clock.badge.checkmark")
                         }
                     }
                     Button(role: .destructive) {
                         showDeleteReminderAlert = true
                     } label: {
-                        Label("Delete", systemImage: "trash")
+                        Label("label.delete", systemImage: "trash")
                     }
                     
                 } label: {
@@ -104,21 +104,21 @@ struct ReminderDetailView: View {
                 .environment(\.managedObjectContext, viewContext)
                 .environmentObject(self.themeSettings)
         }
-        .alert("Stop tracking", isPresented: $showStopTrackingAlert, actions: {
-            Button("Stop tracking", role: .destructive) {
+        .alert("alert.stopTracking.title", isPresented: $showStopTrackingAlert, actions: {
+            Button("alert.stopTracking.stopButton", role: .destructive) {
                 stopTracking(for: reminder)
             }
-            Button("Annulla", role: .cancel) { }
+            Button("button.cancel.label", role: .cancel) { }
         }, message: {
-            Text("Sei sicuro di voler cancellare il tracciamento delle assunzioni di \(reminder.medicineName ?? "")? Il promemoria rimarrà presente nell'elenco ma non riceverai più notifiche di assunzione")
+            Text("alert.stopTracking.message \(reminder.medicineName ?? "")")
         })
-        .alert("Eliminazione promemoria", isPresented: $showDeleteReminderAlert, actions: {
-            Button("Elimina promemoria", role: .destructive) {
+        .alert("alert.deleteReminder.title", isPresented: $showDeleteReminderAlert, actions: {
+            Button("alert.deleteReminder.deleteButton", role: .destructive) {
                 delete(reminder)
             }
-            Button("Annulla", role: .cancel) { }
+            Button("button.cancel.label", role: .cancel) { }
         }, message: {
-            Text("Sei sicuro di voler eliminare questo promemoria?")
+            Text("alert.deleteReminder.message")
         })
         .navigationBarTitleDisplayMode(.inline)
     }
