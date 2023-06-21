@@ -22,7 +22,7 @@ struct RunningLowSectionView: View {
             }
             
         } header: {
-            Text("Esaurimento Confezione")
+            Text("addEditReminderView.packageExhaustion.title")
         }
     }
 }

@@ -34,7 +34,7 @@ struct CalendarIntakeHeaderView: View {
                 }
             } label: {
                 Label(
-                    title: { Text("Previous") },
+                    title: { Text("label.previous") },
                     icon: { Image(systemName: "chevron.left") }
                 )
                 .labelStyle(IconOnlyLabelStyle())
@@ -54,7 +54,7 @@ struct CalendarIntakeHeaderView: View {
                 }
             } label: {
                 Label(
-                    title: { Text("Next") },
+                    title: { Text("label.next") },
                     icon: { Image(systemName: "chevron.right") }
                 )
                 .labelStyle(IconOnlyLabelStyle())

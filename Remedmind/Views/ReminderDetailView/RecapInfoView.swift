@@ -14,19 +14,19 @@ struct RecapInfoView: View {
     
     // MARK: - Body
     var body: some View {
-        DisclosureGroup("Informazioni generali", isExpanded: $isExpanded) {
+        DisclosureGroup("detailView.generalInfo.title", isExpanded: $isExpanded) {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Marca: \(reminder.medicineBrand ?? "No medicine brand")")
+                Text("detailView.generalInfo.label.medicineBrand \(reminder.medicineBrandString)")
                 .padding(.top, 8)
-                Text("Descrizione: \(reminder.medicineDescription ?? "No medicine description")")
-                Text("Note: \(reminder.notes ?? "No medicine notes")")
-                Text("Tipologia medicina: \(reminder.administrationType ?? "pill")")
-                Text("Quantità per ogni assunzione: \(reminder.administrationQuantity.formatted(.number))")
-                Text("Dosi giornaliere: \(reminder.numberOfAdministrations)")
-                Text("Frequenza di assunzione: \(reminder.administrationFrequency ?? "daily")")
-                Text("Data di inizio: \(DateFormatter.dayMonthYearFormatter.string(from: reminder.startDate ?? Date.now))")
+                Text("detailView.generalInfo.label.medicineDescription \(reminder.medicineDescriptionString)")
+                Text("detailView.generalInfo.label.notes \(reminder.notesString)")
+                Text("detailView.generalInfo.label.administrationType \(reminder.administrationTypeString)")
+                Text("detailView.generalInfo.label.administrationQuantity \(reminder.administrationQuantity.formatted(.number))")
+                Text("detailView.generalInfo.label.numberOfAdministrations \(reminder.numberOfAdministrations)")
+                Text(String(localized: "detailView.generalInfo.label.administrationFrequency \(reminder.administrationFrequencyString.capitalizedFirstLetter)") + String(localized: "detailView.generalInfo.label.additionalAdministrationFrequency \(reminder.additionalAdministrationFrequencyString)"))
+                Text("detailView.generalInfo.label.startDate \(reminder.startDateString)")
                 if reminder.endDate != Date.distantFuture {
-                    Text("Data di fine: \(DateFormatter.dayMonthYearFormatter.string(from:reminder.endDate ?? Date.distantFuture))")
+                    Text("detailView.generalInfo.label.endDate \(reminder.endDateString)")
                 }
             }
             .font(.subheadline)

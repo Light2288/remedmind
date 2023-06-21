@@ -30,10 +30,6 @@ struct WeekAdministrationView: View {
                     NoIntakeDayView(text: DateFormatter.weekDayFormatter.string(from: day), frameSize: 35, day: day)
                 }
             }
-//            ForEach(0..<7, id: \.self) { index in
-//                DailyAdministrationView(daySymbol: Calendar.localizedVeryShortWeekdaysSymbols[index], isCurrentDay: Calendar.customLocalizedCalendar.localizedIsCurrentDayArray[index], reminder: reminder, currentWeekday: Calendar.customLocalizedCalendar.currentWeekDays[index])
-//                    .environmentObject(self.themeSettings)
-//            }
         }
     }
 }

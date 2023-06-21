@@ -24,7 +24,7 @@ extension ReminderModel {
     mutating func update(from reminder: Reminder) {
         self.id = reminder.id ?? UUID()
         self.image = reminder.image ?? ""
-        self.notes = reminder.notes ?? "No notes"
+        self.notes = reminder.notes ?? ""
         self.startDate = reminder.startDate ?? Date.now
         self.activeAdministrationNotification = reminder.activeAdministrationNotification
         self.administrationNotificationTimes = reminder.administrationNotificationTimes ?? []

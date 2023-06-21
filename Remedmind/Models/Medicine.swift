@@ -24,12 +24,23 @@ struct MedicineModel {
 }
 
 extension MedicineModel {
+    var unlocalizedAdministrationDays: [Bool] { Array(self.administrationDays[Calendar.customLocalizedCalendar.veryShortWeekdaySymbols.count - Calendar.customLocalizedCalendar.firstWeekday + 1 ..< Calendar.customLocalizedCalendar.veryShortWeekdaySymbols.count] + self.administrationDays[0 ..< Calendar.customLocalizedCalendar.veryShortWeekdaySymbols.count - Calendar.customLocalizedCalendar.firstWeekday + 1])
+    }
+    
+    func administrationDaysFromUnlocalized(unlocalizedAdministrationDays: [Bool]) -> [Bool] {
+        return Array(unlocalizedAdministrationDays[Calendar.customLocalizedCalendar.firstWeekday - 1 ..< Calendar.customLocalizedCalendar.veryShortWeekdaySymbols.count] + unlocalizedAdministrationDays[0 ..< Calendar.customLocalizedCalendar.firstWeekday - 1])
+    }
+    
+    var administrationTypeString: String {
+        return AdministrationType(rawValue: administrationType.rawValue)?.administrationTypeDescription ?? String(localized: "administrationType.other")
+    }
+    
     mutating func update(from reminder: Reminder) {
-        self.name = reminder.medicineName ?? "No medicine name"
-        self.brand = reminder.medicineBrand ?? "No medicine brand"
-        self.description = reminder.medicineDescription ?? "No medicine description"
+        self.name = reminder.medicineName ?? ""
+        self.brand = reminder.medicineBrand ?? ""
+        self.description = reminder.medicineDescription ?? ""
         self.administrationFrequency = AdministrationFrequency(rawValue: reminder.administrationFrequency ?? "daily") ?? .daily
-        self.administrationDays = reminder.administrationDays
+        self.administrationDays = administrationDaysFromUnlocalized(unlocalizedAdministrationDays: reminder.administrationDays)
         self.numberOfAdministrations = reminder.numberOfAdministrations
         self.administrationQuantity = reminder.administrationQuantity
         self.administrationType = AdministrationType(rawValue: reminder.administrationType ?? "pill") ?? .pill

@@ -14,9 +14,9 @@ struct AdministrationFrequencyPickerView: View {
     
     // MARK: - Body
     var body: some View {
-        Picker("Frequenza somministrazione", selection: $reminder.medicine.administrationFrequency) {
+        Picker("addEditReminderView.administration.administrationFrequency.label", selection: $reminder.medicine.administrationFrequency) {
             ForEach(AdministrationFrequency.allCases, id: \.self) { frequency in
-                Text("\(frequency.rawValue)").tag(frequency)
+                Text("\(frequency.administrationFrequencyDescription.capitalizedFirstLetter)").tag(frequency)
             }
         }
         .onChange(of: reminder.medicine.administrationFrequency) { (value) in

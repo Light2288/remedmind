@@ -15,7 +15,7 @@ struct AdministrationDaysButtonsView: View {
     // MARK: - Body
     var body: some View {
         VStack {
-            Text("Seleziona i giorni di assunzione".uppercased())
+            Text(String(localized: "addEditReminderView.administration.selectAdministrationDays.label").uppercased())
                 .font(.footnote)
             HStack {
                 Spacer()

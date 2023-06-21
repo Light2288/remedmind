@@ -14,18 +14,10 @@ struct RunningLowNotificationSectionView: View {
     // MARK: - Body
     var body: some View {
         Toggle(isOn: $reminder.activeRunningLowNotification) {
-            Text("Ricevi una notifica quando la confezione sta per esaurirsi")
+            Text("addEditReminderView.packageExhaustion.runningLowNotifications.label")
         }
         if reminder.activeRunningLowNotification {
-            DatePicker("Orario della notifica", selection: $reminder.runningLowNotificationTime, displayedComponents: .hourAndMinute)
-            HStack {
-                Text("\(reminder.medicine.administrationType == .pill ? "Pillole" : "Bustine") in una confezione:")
-                Spacer()
-                TextField("", value: $reminder.medicine.packageQuantity, formatter: NumberFormatter())
-                    .keyboardType(.decimalPad)
-                    .fixedSize()
-                    .textFieldStyle(.roundedBorder)
-            }
+            DatePicker(String(localized: "addEditReminderView.packageExhaustion.runningLowNotifications.time.label"), selection: $reminder.runningLowNotificationTime, displayedComponents: .hourAndMinute)
         }
     }
 }

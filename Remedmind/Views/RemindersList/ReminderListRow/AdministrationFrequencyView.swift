@@ -9,40 +9,34 @@ import SwiftUI
 
 struct AdministrationFrequencyView: View {
     // MARK: - Properties
-    var administrationQuantity: Float
-    var administrationType: String
-    var numberOfAdministrations: Int32
-    var administrationFrequency: String
+    var reminder: Reminder
+    
+    var administrationFrequencyString: String {
+        switch reminder.administrationFrequencyEnumValue {
+        case .daily:
+            return String(localized: "administrationFrequency.daily")
+        case .everyOtherDay:
+            return String(localized: "administrationFrequency.everyOtherDay")
+        case .weekly:
+            return String(localized: "listView.row.administrationFrequency.weekly \(reminder.additionalAdministrationFrequencyString)")
+        case .none:
+            return ""
+        }
+    }
     
     // MARK: - Body
     var body: some View {
-        let frequency =
-        {
-          switch AdministrationFrequency(rawValue: administrationFrequency)
-          {
-            case .daily:
-              return "a day"
-            case .weekly:
-              return "a week"
-          case .everyOtherDay:
-              return "every other day"
-          case .none:
-              return "a day"
-          }
-        }()
-        
-        return VStack(alignment: .trailing) {
-            Text("\(administrationQuantity.formatted(.number)) \(administrationType )")
-            Text("\(numberOfAdministrations) times \(frequency)")
-        }
-        .font(.footnote)
+        Text("listView.row.administrationFrequency \(reminder.administrationQuantity.formatted(.number)) \(reminder.administrationTypeString) \(reminder.numberOfAdministrations) \(reminder.administrationFrequencyString)")
+            .font(.footnote)
+            .multilineTextAlignment(.center)
+    
     }
 }
 
 // MARK: - Preview
 struct AdministrationFrequencyView_Previews: PreviewProvider {
     static var previews: some View {
-        AdministrationFrequencyView(administrationQuantity: 2.55, administrationType: "pill", numberOfAdministrations: 4, administrationFrequency: "daily")
+        AdministrationFrequencyView(reminder: Reminder(context: PersistenceController.preview.container.viewContext))
             .previewLayout(.sizeThatFits)
     }
 }

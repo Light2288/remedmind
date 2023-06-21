@@ -13,7 +13,7 @@ extension DailyIntake : Identifiable {
         guard let administrationFrequency = reminder.administrationFrequencyEnumValue else
         { return 0 }
         
-        guard Calendar.customLocalizedCalendar.compare(date, to: reminder.endDate ?? Date.distantFuture, toGranularity: .day) == .orderedAscending else { print("\(reminder.medicineName) enter else");return 0 }
+        guard Calendar.customLocalizedCalendar.compare(date, to: reminder.endDate ?? Date.distantFuture, toGranularity: .day) == .orderedAscending else { return 0 }
         
         switch administrationFrequency {
         case .daily:
@@ -23,7 +23,7 @@ extension DailyIntake : Identifiable {
             return Calendar.customLocalizedCalendar.numberOfDaysBetween(reminder.startDate ?? Date.now, and: date) % 2 == 0 ? reminder.numberOfAdministrations : 0
         
         case .weekly:
-            return reminder.unlocalizedAdministrationDays[Calendar.customLocalizedCalendar.dateComponents([.weekday], from: date).weekday! - 1] ? reminder.numberOfAdministrations : 0
+            return reminder.administrationDays[Calendar.customLocalizedCalendar.dateComponents([.weekday], from: date).weekday! - 1] ? reminder.numberOfAdministrations : 0
         }
     }
     

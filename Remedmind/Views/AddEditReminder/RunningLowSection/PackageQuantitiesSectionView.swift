@@ -20,10 +20,18 @@ struct PackageQuantitiesSectionView: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Se hai una confezione già iniziata, indica qui quante \(reminder.medicine.administrationType == .pill ? "pillole" : "bustine") sono rimaste")
+            HStack {
+                Text("addEditReminderView.packageExhaustion.packageQuantity \(reminder.medicine.administrationTypeString.capitalizedFirstLetter)")
+                Spacer()
+                TextField("", value: $reminder.medicine.packageQuantity, formatter: NumberFormatter())
+                    .keyboardType(.decimalPad)
+                    .fixedSize()
+                    .textFieldStyle(.roundedBorder)
+            }
+            Text("addEditReminderView.packageExhaustion.currentPackageQuantity.label \(reminder.medicine.administrationTypeString) \(reminder.medicine.administrationTypeString)")
                 .font(.footnote)
             HStack {
-                Text("\(reminder.medicine.administrationType == .pill ? "Pillole" : "Bustine") rimaste nella confezione attuale:")
+                Text("addEditReminderView.packageExhaustion.currentPackageQuantity \(reminder.medicine.administrationTypeString.capitalizedFirstLetter)")
                 Spacer()
                 TextField("", value: $reminder.medicine.currentPackageQuantity, formatter: currentPackageQuantityFormatter)
                     .keyboardType(.decimalPad)

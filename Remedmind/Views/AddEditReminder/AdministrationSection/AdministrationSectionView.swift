@@ -28,7 +28,7 @@ struct AdministrationSectionView: View {
             
             AdministrationNotificationsSectionView(reminder: $reminder, focusedField: _focusedField)
         } header: {
-            Text("Frequenza somministrazione e dosaggio")
+            Text("addEditReminderView.administration.title")
         }
     }
 }

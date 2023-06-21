@@ -17,19 +17,19 @@ struct ReminderListRowView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack() {
+        VStack(alignment: .center, spacing: 15) {
             HStack {
                 MedicineImageView()
-                MedicineNameBrandView(medicineName: reminder.medicineName ?? "No medicine name", medicineBrand: reminder.medicineBrand ?? "No medicine brand")
-                Spacer()
-                AdministrationFrequencyView(administrationQuantity: reminder.administrationQuantity, administrationType: reminder.administrationType ?? "pill", numberOfAdministrations: reminder.numberOfAdministrations, administrationFrequency: reminder.administrationFrequency ?? "daily")
+                MedicineNameBrandView(medicineName: reminder.medicineNameString, medicineBrand: reminder.medicineBrandString)
             }
+            AdministrationFrequencyView(reminder: reminder)
             WeekAdministrationView(reminder: reminder, selectedDay: $selectedDay, selectedReminder: $selectedReminder, showAddIntakeOverlayView: $showAddIntakeOverlayView)
                 .environmentObject(self.themeSettings)
-                .padding(.vertical, 3)
-            PackageRemainderView(currentPackageQuantity: reminder.currentPackageQuantity, administrationType: reminder.administrationType ?? "pill")
+            if reminder.activeRunningLowNotification {
+                PackageRemainderView(currentPackageQuantity: reminder.currentPackageQuantity, administrationType: reminder.administrationTypeString)
+            }
         }
-        .padding()
+        .padding(.vertical)
     }
 }
 
