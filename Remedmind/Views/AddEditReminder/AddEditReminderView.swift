@@ -64,7 +64,7 @@ struct AddEditReminderView: View {
 
                     AdministrationSectionView(reminder: $reminder, focusedField: _focusedField)
                     
-                    if reminder.medicine.administrationType == .pill || reminder.medicine.administrationType == .sachet {
+                    if reminder.medicine.administrationType.canRunLow {
                         RunningLowSectionView(reminder: $reminder, focusedField: _focusedField)
                     }
                 }
