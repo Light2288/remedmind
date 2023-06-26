@@ -16,14 +16,33 @@
 "administrationFrequency.everyOtherDay" = "a giorni alterni";
 "administrationFrequency.weekly" = "ogni settimana";
 
-"administrationType.pill" = "pillola";
+"administrationType.genericDescription" = "assunzione tramite";
+"administrationType.capsule" = "capsula";
+"administrationType.tablet" = "compressa";
 "administrationType.sachet" = "bustina";
 "administrationType.drop" = "goccia";
+"administrationType.suppository" = "supposta";
+"administrationType.patch" = "cerotto";
+"administrationType.cream" = "crema";
+"administrationType.liquid" = "liquido";
+"administrationType.device" = "dispositivo";
+"administrationType.foam" = "schiuma";
+"administrationType.gel" = "gel";
+"administrationType.inhaler" = "inalatore";
+"administrationType.injection" = "iniezione";
+"administrationType.lotion" = "lozione";
+"administrationType.ointment" = "unguento";
+"administrationType.powder" = "polvere";
+"administrationType.spray" = "spray";
 "administrationType.other" = "altro";
 
-"administrationType.pills" = "pillole";
-"administrationType.sachets" = "bustine";
-"administrationType.drops" = "gocce";
+"administrationType.plural.genericDescription" = "assunzioni tramite";
+"administrationType.plural.capsule" = "capsule";
+"administrationType.plural.tablet" = "compresse";
+"administrationType.plural.sachet" = "bustine";
+"administrationType.plural.drop" = "gocce";
+"administrationType.plural.suppository" = "supposte";
+"administrationType.plural.patch" = "cerotti";
 
 "label.previous" = "Precedente";
 "label.next" = "Successivo";
@@ -93,7 +112,8 @@
 "addEditReminderView.administration.title" = "Frequenza somministrazione e dosaggio";
 "addEditReminderView.administration.administrationFrequency.label" = "Frequenza somministrazione";
 "addEditReminderView.administration.selectAdministrationDays.label" = "Seleziona i giorni di assunzione";
-"addEditReminderView.administration.numberOfAdministrations.label %d" = "Dosi per giorno di assuzione: %d";
+"addEditReminderView.administration.numberOfAdministrations.label %d" = "Assunzioni per giorno: %d";
+"addEditReminderView.administration.administrationType.label" = "Tipo di farmaco:";
 "addEditReminderView.administration.administrationQuantity.label %@" = "Dose: %@";
 "addEditReminderView.administration.administrationNotifications.label" = "Ricevi una notifica per ricordarti di assumere la medicina";
 "addEditReminderView.administration.administrationNotificationsTimes.label %@" = "Orario della notifica per la %@ dose";

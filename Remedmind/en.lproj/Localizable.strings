@@ -16,14 +16,33 @@
 "administrationFrequency.everyOtherDay" = "every other day";
 "administrationFrequency.weekly" = "every week";
 
-"administrationType.pill" = "pill";
+"administrationType.genericDescription" = "intake by";
+"administrationType.capsule" = "capsule";
+"administrationType.tablet" = "tablet";
 "administrationType.sachet" = "sachet";
 "administrationType.drop" = "drop";
+"administrationType.suppository" = "suppository";
+"administrationType.patch" = "patch";
+"administrationType.cream" = "cream";
+"administrationType.liquid" = "liquid";
+"administrationType.device" = "device";
+"administrationType.foam" = "foam";
+"administrationType.gel" = "gel";
+"administrationType.inhaler" = "inhaler";
+"administrationType.injection" = "injection";
+"administrationType.lotion" = "lotion";
+"administrationType.ointment" = "ointment";
+"administrationType.powder" = "powder";
+"administrationType.spray" = "spray";
 "administrationType.other" = "other";
 
-"administrationType.pills" = "pills";
-"administrationType.sachets" = "sachets";
-"administrationType.drops" = "drops";
+"administrationType.plural.genericDescription" = "intakes by";
+"administrationType.plural.capsule" = "capsule";
+"administrationType.plural.tablet" = "tablet";
+"administrationType.plural.sachet" = "sachet";
+"administrationType.plural.drop" = "drop";
+"administrationType.plural.suppository" = "suppositories";
+"administrationType.plural.patch" = "patches";
 
 "label.previous" = "Previous";
 "label.next" = "Next";
@@ -94,6 +113,7 @@
 "addEditReminderView.administration.administrationFrequency.label" = "Administration frequency";
 "addEditReminderView.administration.selectAdministrationDays.label" = "Select administration days";
 "addEditReminderView.administration.numberOfAdministrations.label %d" = "Intakes per day: %d";
+"addEditReminderView.administration.administrationType.label" = "Medicine type:";
 "addEditReminderView.administration.administrationQuantity.label %@" = "Dose: %@";
 "addEditReminderView.administration.administrationNotifications.label" = "Receive a notification to remember your medicine administration";
 "addEditReminderView.administration.administrationNotificationsTimes.label %@" = "Notification time for %@ dose";

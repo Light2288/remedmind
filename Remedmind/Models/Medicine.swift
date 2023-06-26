@@ -14,7 +14,7 @@ struct MedicineModel {
     
     var administrationFrequency: AdministrationFrequency = .daily
     var administrationQuantity: Float = 1.0
-    var administrationType: AdministrationType = .pill
+    var administrationType: AdministrationType = .capsule
     var numberOfAdministrations: Int32 = 1
     
     var administrationDays: Array<Bool> = Array.init(repeating: true, count: 7)
@@ -43,7 +43,7 @@ extension MedicineModel {
         self.administrationDays = administrationDaysFromUnlocalized(unlocalizedAdministrationDays: reminder.administrationDays)
         self.numberOfAdministrations = reminder.numberOfAdministrations
         self.administrationQuantity = reminder.administrationQuantity
-        self.administrationType = AdministrationType(rawValue: reminder.administrationType ?? "pill") ?? .pill
+        self.administrationType = AdministrationType(rawValue: reminder.administrationType ?? "capsule") ?? .capsule
         self.packageQuantity = reminder.packageQuantity
         self.currentPackageQuantity = reminder.currentPackageQuantity
     }

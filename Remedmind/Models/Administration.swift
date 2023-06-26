@@ -14,8 +14,22 @@ enum AdministrationFrequency: String, CaseIterable {
 }
 
 enum AdministrationType: String, CaseIterable {
-    case pill
+    case capsule
+    case tablet
     case sachet
     case drop
+    case suppository
+    case patch
+    case cream
+    case liquid
+    case device    
+    case foam
+    case gel
+    case inhaler
+    case injection
+    case lotion
+    case ointment
+    case powder
+    case spray
     case other
 }

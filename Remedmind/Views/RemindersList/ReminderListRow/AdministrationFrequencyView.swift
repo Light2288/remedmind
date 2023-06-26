@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AdministrationFrequencyView: View {
     // MARK: - Properties
-    var reminder: Reminder
+    @ObservedObject var reminder: Reminder
     
     var administrationFrequencyString: String {
         switch reminder.administrationFrequencyEnumValue {
@@ -26,7 +26,7 @@ struct AdministrationFrequencyView: View {
     
     // MARK: - Body
     var body: some View {
-        Text("listView.row.administrationFrequency \(reminder.administrationQuantity.formatted(.number)) \(reminder.administrationTypeString) \(reminder.numberOfAdministrations) \(reminder.administrationFrequencyString)")
+        Text("listView.row.administrationFrequency \(reminder.administrationTypeEnumValue?.hasIntakeQuantity ?? false ? reminder.administrationQuantity.formatted(.number) : "") \(reminder.administrationTypeString) \(reminder.numberOfAdministrations) \(reminder.administrationFrequencyString)")
             .font(.footnote)
             .multilineTextAlignment(.center)
     
