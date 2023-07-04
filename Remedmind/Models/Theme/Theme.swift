@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Theme: Identifiable {
     let id: Int
+    let iconsId: String
     let themeName: String
     let themeColors: ThemeColors
 }

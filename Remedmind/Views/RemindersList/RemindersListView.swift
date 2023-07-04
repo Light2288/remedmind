@@ -10,8 +10,9 @@ import CoreData
 
 struct RemindersListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject var iconSettings: IconNames
     @EnvironmentObject var themeSettings: ThemeSettings
+    @EnvironmentObject var appearanceSettings: AppearanceSettings
+    @EnvironmentObject var iconSettings: IconSettings
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Reminder.startDate, ascending: false)],
@@ -111,6 +112,8 @@ struct RemindersListView: View {
                     SettingsView(showSettingsModal: $isSettingsViewPresented)
                         .environmentObject(self.iconSettings)
                         .environmentObject(self.themeSettings)
+                        .environmentObject(self.appearanceSettings)
+                        .environmentObject(self.iconSettings)
                 }
                 //            }
                 .background(PositionReader(tag: 0, value: .bottomTrailing))

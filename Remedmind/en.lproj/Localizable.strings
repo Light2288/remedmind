@@ -124,9 +124,19 @@
 "addEditReminderView.generalInfo.label.medicineDescription" = "Description";
 "addEditReminderView.generalInfo.label.notes" = "Notes";
 
+"settingsView.style.title" = "Style";
+"settingsView.style.theme" = "Theme";
+"settingsView.style.appearance" = "Appearance";
+"settingsView.style.icons" = "App icon";
+
 "theme.name.default" = "Default";
 "theme.name.darkCyan" = "Mono Dark Cyan";
 "theme.name.princetonOrange" = "Mono Orange";
 "theme.name.monochrome" = "Monochrome";
 "theme.color.darkCyan" = "DarkCyan";
 "theme.color.princetonOrange" = "PrincetonOrange";
+
+"appearance.name.auto" = "System";
+"appearance.name.light" = "Light";
+"appearance.name.dark" = "Dark";
+

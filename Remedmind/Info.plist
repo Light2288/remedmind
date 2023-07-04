@@ -6,14 +6,80 @@
 	<dict>
 		<key>CFBundleAlternateIcons</key>
 		<dict>
-			<key>Orange</key>
+			<key>multicolor-dark</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>Orange</string>
+					<string>multicolor-dark</string>
 				</array>
 				<key>CFBundleIconName</key>
-				<string>Orange</string>
+				<string>multicolor-dark</string>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>cyan-light</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>cyan-light</string>
+				</array>
+				<key>CFBundleIconName</key>
+				<string>cyan-light</string>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>cyan-dark</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>cyan-dark</string>
+				</array>
+				<key>CFBundleIconName</key>
+				<string>cyan-dark</string>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>orange-light</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>orange-light</string>
+				</array>
+				<key>CFBundleIconName</key>
+				<string>orange-light</string>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>orange-dark</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>orange-dark</string>
+				</array>
+				<key>CFBundleIconName</key>
+				<string>orange-dark</string>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>gray-light</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>gray-light</string>
+				</array>
+				<key>CFBundleIconName</key>
+				<string>gray-light</string>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>gray-dark</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>gray-dark</string>
+				</array>
+				<key>CFBundleIconName</key>
+				<string>gray-dark</string>
 				<key>UIPrerenderedIcon</key>
 				<false/>
 			</dict>
@@ -22,10 +88,10 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>Multicolor</string>
+				<string>multicolor-light</string>
 			</array>
 			<key>CFBundleIconName</key>
-			<string>Multicolor</string>
+			<string>multicolor-light</string>
 			<key>UIPrerenderedIcon</key>
 			<false/>
 		</dict>
