@@ -26,6 +26,12 @@
 		6B4A4D8129AD6B3A0063D15E /* Date+StartOfMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A4D8029AD6B3A0063D15E /* Date+StartOfMonth.swift */; };
 		6B4A4D8329AD6B630063D15E /* DateFormatter+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A4D8229AD6B630063D15E /* DateFormatter+Init.swift */; };
 		6B4A4D8A29AD72610063D15E /* CalendarIntakeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A4D8929AD72610063D15E /* CalendarIntakeHeaderView.swift */; };
+		6B4ACF9D2A537DA100A04555 /* IconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4ACF9C2A537DA100A04555 /* IconData.swift */; };
+		6B4ACFA02A537DCC00A04555 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4ACF9F2A537DCC00A04555 /* Icon.swift */; };
+		6B4ACFA22A537EE300A04555 /* IconSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4ACFA12A537EE300A04555 /* IconSettings.swift */; };
+		6B4ACFA42A53814700A04555 /* AppearancePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4ACFA32A53814700A04555 /* AppearancePickerView.swift */; };
+		6B4ACFA62A53820F00A04555 /* ThemePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4ACFA52A53820F00A04555 /* ThemePickerView.swift */; };
+		6B4ACFA82A53828200A04555 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4ACFA72A53828200A04555 /* IconPickerView.swift */; };
 		6B5850942942A73200D561E8 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850932942A73200D561E8 /* Reminder.swift */; };
 		6B64D7B129B0097D00D87319 /* TitleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B029B0097D00D87319 /* TitleInfoView.swift */; };
 		6B64D7B429B00C5500D87319 /* DailyIntakeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B329B00C5500D87319 /* DailyIntakeButtonView.swift */; };
@@ -57,8 +63,6 @@
 		6BA7E774293D67BB00A3F3E4 /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7E773293D67BB00A3F3E4 /* Medicine.swift */; };
 		6BA7E776293D68F500A3F3E4 /* Administration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7E775293D68F500A3F3E4 /* Administration.swift */; };
 		6BB07BEF2981C9BE005A56D7 /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB07BEE2981C9BE005A56D7 /* IconNames.swift */; };
-		6BB07BF22981D2AD005A56D7 /* Multicolor.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB07BF02981D2AD005A56D7 /* Multicolor.png */; };
-		6BB07BF32981D2AD005A56D7 /* Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BB07BF12981D2AD005A56D7 /* Orange.png */; };
 		6BB296BF29774AA000152A7B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB296BE29774AA000152A7B /* SettingsView.swift */; };
 		6BC7BFD22987231F00E15743 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC7BFD12987231F00E15743 /* Theme.swift */; };
 		6BC7BFD62987239E00E15743 /* ThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC7BFD52987239E00E15743 /* ThemeData.swift */; };
@@ -91,6 +95,17 @@
 		6BFB269B2A2BA89500481BF3 /* AdministrationFrequency+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB269A2A2BA89400481BF3 /* AdministrationFrequency+Description.swift */; };
 		6BFB269D2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB269C2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift */; };
 		6BFB269F2A30CBB700481BF3 /* AdministrationType+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB269E2A30CBB700481BF3 /* AdministrationType+Description.swift */; };
+		6BFB26BD2A49CDA000481BF3 /* AppearanceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB26BC2A49CDA000481BF3 /* AppearanceSettings.swift */; };
+		6BFB26C02A49CE0B00481BF3 /* AppearanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB26BF2A49CE0B00481BF3 /* AppearanceData.swift */; };
+		6BFB26C22A49CE9400481BF3 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB26C12A49CE9400481BF3 /* Appearance.swift */; };
+		6BFB26CB2A4B94B300481BF3 /* cyan-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFB26C32A4B94B300481BF3 /* cyan-dark.png */; };
+		6BFB26CC2A4B94B300481BF3 /* multicolor-light.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFB26C42A4B94B300481BF3 /* multicolor-light.png */; };
+		6BFB26CD2A4B94B300481BF3 /* gray-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFB26C52A4B94B300481BF3 /* gray-dark.png */; };
+		6BFB26CE2A4B94B300481BF3 /* cyan-light.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFB26C62A4B94B300481BF3 /* cyan-light.png */; };
+		6BFB26CF2A4B94B300481BF3 /* orange-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFB26C72A4B94B300481BF3 /* orange-dark.png */; };
+		6BFB26D02A4B94B300481BF3 /* gray-light.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFB26C82A4B94B300481BF3 /* gray-light.png */; };
+		6BFB26D12A4B94B300481BF3 /* orange-light.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFB26C92A4B94B300481BF3 /* orange-light.png */; };
+		6BFB26D22A4B94B300481BF3 /* multicolor-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFB26CA2A4B94B300481BF3 /* multicolor-dark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +145,12 @@
 		6B4A4D8029AD6B3A0063D15E /* Date+StartOfMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+StartOfMonth.swift"; sourceTree = "<group>"; };
 		6B4A4D8229AD6B630063D15E /* DateFormatter+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Init.swift"; sourceTree = "<group>"; };
 		6B4A4D8929AD72610063D15E /* CalendarIntakeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarIntakeHeaderView.swift; sourceTree = "<group>"; };
+		6B4ACF9C2A537DA100A04555 /* IconData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconData.swift; sourceTree = "<group>"; };
+		6B4ACF9F2A537DCC00A04555 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		6B4ACFA12A537EE300A04555 /* IconSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSettings.swift; sourceTree = "<group>"; };
+		6B4ACFA32A53814700A04555 /* AppearancePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePickerView.swift; sourceTree = "<group>"; };
+		6B4ACFA52A53820F00A04555 /* ThemePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerView.swift; sourceTree = "<group>"; };
+		6B4ACFA72A53828200A04555 /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		6B5850932942A73200D561E8 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		6B64D7B029B0097D00D87319 /* TitleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInfoView.swift; sourceTree = "<group>"; };
 		6B64D7B329B00C5500D87319 /* DailyIntakeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeButtonView.swift; sourceTree = "<group>"; };
@@ -165,8 +186,6 @@
 		6BA7E773293D67BB00A3F3E4 /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
 		6BA7E775293D68F500A3F3E4 /* Administration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administration.swift; sourceTree = "<group>"; };
 		6BB07BEE2981C9BE005A56D7 /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
-		6BB07BF02981D2AD005A56D7 /* Multicolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Multicolor.png; sourceTree = "<group>"; };
-		6BB07BF12981D2AD005A56D7 /* Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orange.png; sourceTree = "<group>"; };
 		6BB296BE29774AA000152A7B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6BC7BFD12987231F00E15743 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6BC7BFD52987239E00E15743 /* ThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeData.swift; sourceTree = "<group>"; };
@@ -200,6 +219,17 @@
 		6BFB269A2A2BA89400481BF3 /* AdministrationFrequency+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdministrationFrequency+Description.swift"; sourceTree = "<group>"; };
 		6BFB269C2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizeFirstLetter.swift"; sourceTree = "<group>"; };
 		6BFB269E2A30CBB700481BF3 /* AdministrationType+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdministrationType+Description.swift"; sourceTree = "<group>"; };
+		6BFB26BC2A49CDA000481BF3 /* AppearanceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettings.swift; sourceTree = "<group>"; };
+		6BFB26BF2A49CE0B00481BF3 /* AppearanceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceData.swift; sourceTree = "<group>"; };
+		6BFB26C12A49CE9400481BF3 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		6BFB26C32A4B94B300481BF3 /* cyan-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cyan-dark.png"; sourceTree = "<group>"; };
+		6BFB26C42A4B94B300481BF3 /* multicolor-light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "multicolor-light.png"; sourceTree = "<group>"; };
+		6BFB26C52A4B94B300481BF3 /* gray-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-dark.png"; sourceTree = "<group>"; };
+		6BFB26C62A4B94B300481BF3 /* cyan-light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cyan-light.png"; sourceTree = "<group>"; };
+		6BFB26C72A4B94B300481BF3 /* orange-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange-dark.png"; sourceTree = "<group>"; };
+		6BFB26C82A4B94B300481BF3 /* gray-light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-light.png"; sourceTree = "<group>"; };
+		6BFB26C92A4B94B300481BF3 /* orange-light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange-light.png"; sourceTree = "<group>"; };
+		6BFB26CA2A4B94B300481BF3 /* multicolor-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "multicolor-dark.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +323,15 @@
 				6B4A4D8929AD72610063D15E /* CalendarIntakeHeaderView.swift */,
 			);
 			path = CalendarIntake;
+			sourceTree = "<group>";
+		};
+		6B4ACF9E2A537DC000A04555 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				6B4ACF9F2A537DCC00A04555 /* Icon.swift */,
+				6B4ACFA12A537EE300A04555 /* IconSettings.swift */,
+			);
+			path = Icon;
 			sourceTree = "<group>";
 		};
 		6B64D7BB29B7F53700D87319 /* ViewModifiers */ = {
@@ -418,6 +457,9 @@
 			children = (
 				6BB296BE29774AA000152A7B /* SettingsView.swift */,
 				6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */,
+				6B4ACFA32A53814700A04555 /* AppearancePickerView.swift */,
+				6B4ACFA52A53820F00A04555 /* ThemePickerView.swift */,
+				6B4ACFA72A53828200A04555 /* IconPickerView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -439,8 +481,14 @@
 		6BB07BE1297F52ED005A56D7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				6BB07BF02981D2AD005A56D7 /* Multicolor.png */,
-				6BB07BF12981D2AD005A56D7 /* Orange.png */,
+				6BFB26C62A4B94B300481BF3 /* cyan-light.png */,
+				6BFB26C32A4B94B300481BF3 /* cyan-dark.png */,
+				6BFB26C82A4B94B300481BF3 /* gray-light.png */,
+				6BFB26C52A4B94B300481BF3 /* gray-dark.png */,
+				6BFB26C42A4B94B300481BF3 /* multicolor-light.png */,
+				6BFB26CA2A4B94B300481BF3 /* multicolor-dark.png */,
+				6BFB26C92A4B94B300481BF3 /* orange-light.png */,
+				6BFB26C72A4B94B300481BF3 /* orange-dark.png */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -475,6 +523,8 @@
 			isa = PBXGroup;
 			children = (
 				6BC7BFD52987239E00E15743 /* ThemeData.swift */,
+				6BFB26BF2A49CE0B00481BF3 /* AppearanceData.swift */,
+				6B4ACF9C2A537DA100A04555 /* IconData.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -503,6 +553,8 @@
 		6BCA9617293D62CB00C815E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6B4ACF9E2A537DC000A04555 /* Icon */,
+				6BFB26BE2A49CDA600481BF3 /* Appearance */,
 				6B827FA429E4A144008FC8EC /* Positions */,
 				6BB07BED2981C9AC005A56D7 /* IconChange */,
 				6BC7BFD02987230B00E15743 /* Theme */,
@@ -559,6 +611,15 @@
 				6BE3E6E62A0C3452006849FF /* Notifications.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		6BFB26BE2A49CDA600481BF3 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				6BFB26BC2A49CDA000481BF3 /* AppearanceSettings.swift */,
+				6BFB26C12A49CE9400481BF3 /* Appearance.swift */,
+			);
+			path = Appearance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -666,11 +727,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BFB26D12A4B94B300481BF3 /* orange-light.png in Resources */,
+				6BFB26D02A4B94B300481BF3 /* gray-light.png in Resources */,
 				6BFB268E2A24C6FD00481BF3 /* Localizable.strings in Resources */,
+				6BFB26CE2A4B94B300481BF3 /* cyan-light.png in Resources */,
 				6B6A2C4F29356CFB00E72834 /* Preview Assets.xcassets in Resources */,
-				6BB07BF32981D2AD005A56D7 /* Orange.png in Resources */,
+				6BFB26CD2A4B94B300481BF3 /* gray-dark.png in Resources */,
+				6BFB26CB2A4B94B300481BF3 /* cyan-dark.png in Resources */,
+				6BFB26D22A4B94B300481BF3 /* multicolor-dark.png in Resources */,
+				6BFB26CC2A4B94B300481BF3 /* multicolor-light.png in Resources */,
+				6BFB26CF2A4B94B300481BF3 /* orange-dark.png in Resources */,
 				6B6A2C4C29356CFB00E72834 /* Assets.xcassets in Resources */,
-				6BB07BF22981D2AD005A56D7 /* Multicolor.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +769,7 @@
 				6BE3E6BF2A01B0C2006849FF /* NoIntakeDayView.swift in Sources */,
 				6BA7E774293D67BB00A3F3E4 /* Medicine.swift in Sources */,
 				6B827FB529E60184008FC8EC /* DailyIntake+CoreDataClass.swift in Sources */,
+				6B4ACFA22A537EE300A04555 /* IconSettings.swift in Sources */,
 				6BEB791629ED8ADF00E0B20E /* OuterCircleEmpty.swift in Sources */,
 				6B0BEF3D29D3885C00B823DA /* AdministrationQuantityStepperView.swift in Sources */,
 				6BCA83F12995A77A0090EB86 /* PackageRemainderView.swift in Sources */,
@@ -713,10 +781,12 @@
 				6B0BEF3F29D3894800B823DA /* AdministrationNotificationsSectionView.swift in Sources */,
 				6B64D7B829B1072300D87319 /* DailyIntakeButtonsView.swift in Sources */,
 				6B0BEF4629D38B5100B823DA /* PackageQuantitiesSectionView.swift in Sources */,
+				6BFB26BD2A49CDA000481BF3 /* AppearanceSettings.swift in Sources */,
 				6BFB269F2A30CBB700481BF3 /* AdministrationType+Description.swift in Sources */,
 				6BB296BF29774AA000152A7B /* SettingsView.swift in Sources */,
 				6BE3E6BD2A01B0B2006849FF /* IntakeDayView.swift in Sources */,
 				6BF6859329CA7A0E0019E707 /* Reminder+CoreDataProperties.swift in Sources */,
+				6B4ACFA42A53814700A04555 /* AppearancePickerView.swift in Sources */,
 				6B11D8C02994600E003BD412 /* AdministrationFrequencyView.swift in Sources */,
 				6B4A4D8A29AD72610063D15E /* CalendarIntakeHeaderView.swift in Sources */,
 				6BB07BEF2981C9BE005A56D7 /* IconNames.swift in Sources */,
@@ -732,13 +802,17 @@
 				6B6A2C4A29356CFA00E72834 /* RemindersListView.swift in Sources */,
 				6BE3E6F42A1D6DE8006849FF /* DailyIntake+GetTotalIntakes.swift in Sources */,
 				6B6A2C4829356CFA00E72834 /* RemedmindApp.swift in Sources */,
+				6BFB26C22A49CE9400481BF3 /* Appearance.swift in Sources */,
 				6B08C45E299EED290050EBFF /* CalendarIntakeView.swift in Sources */,
 				6B827FAF29E4AFCE008FC8EC /* View+GetPosition.swift in Sources */,
 				6BD15A672993060100576DD4 /* ReminderListRowView.swift in Sources */,
 				6B827FA329DF5C00008FC8EC /* AddReminderButton.swift in Sources */,
+				6B4ACFA82A53828200A04555 /* IconPickerView.swift in Sources */,
 				6BFB24EC299C4E990092837A /* RecapInfoView.swift in Sources */,
 				6BE3E6C12A02AE72006849FF /* ReminderListAddIntakeOverlayView.swift in Sources */,
 				6B0BEF4829D38FC400B823DA /* Reminder+ReminderModel.swift in Sources */,
+				6B4ACFA62A53820F00A04555 /* ThemePickerView.swift in Sources */,
+				6BFB26C02A49CE0B00481BF3 /* AppearanceData.swift in Sources */,
 				6BE3E69829F883DE006849FF /* Reminder+Enums.swift in Sources */,
 				6B0BEF4429D38AD700B823DA /* RunningLowNotificationSectionView.swift in Sources */,
 				6BEB791429ED7C8D00E0B20E /* OuterCirclePieChart.swift in Sources */,
@@ -767,7 +841,9 @@
 				6B64D7BF29B7F5C000D87319 /* View+SaveSize.swift in Sources */,
 				6B5850942942A73200D561E8 /* Reminder.swift in Sources */,
 				6B827FAB29E4A243008FC8EC /* PositionReader.swift in Sources */,
+				6B4ACFA02A537DCC00A04555 /* Icon.swift in Sources */,
 				6B0BEF3929D385AF00B823DA /* AdministrationDaysButtonsView.swift in Sources */,
+				6B4ACF9D2A537DA100A04555 /* IconData.swift in Sources */,
 				6B64D7B429B00C5500D87319 /* DailyIntakeButtonView.swift in Sources */,
 				6B827FAD29E4AFB5008FC8EC /* View+If.swift in Sources */,
 				6BFB269D2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift in Sources */,

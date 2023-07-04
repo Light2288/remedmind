@@ -8,14 +8,15 @@
 import SwiftUI
 
 class IconNames: ObservableObject {
-    var iconNames: [String?] = [nil]
+    var iconNames: [String?] = ["multicolor-light"]
 
     @Published var currentIndex = 0
     
     init() {
         getAlternateIconNames()
+        print(iconNames)
         
-        if let currentIcon = UIApplication.shared.alternateIconName{
+        if let currentIcon = UIApplication.shared.alternateIconName {
             self.currentIndex = iconNames.firstIndex(of: currentIcon) ?? 0
         }
     }

@@ -14,6 +14,10 @@ class ThemeSettings: ObservableObject {
         }
     }
     
+    var selectedIconsId: String {
+        themeData[self.selectedThemeIndex].iconsId
+    }
+    
     var selectedThemePrimaryColor: Color {
         themeData[self.selectedThemeIndex].themeColors.primaryColor
     }
