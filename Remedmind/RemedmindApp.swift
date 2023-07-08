@@ -15,6 +15,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         
         GADMobileAds.sharedInstance().start()
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "15ae5098c7653ad4e07a03d06697e44d" ]
         
         return true
     }
