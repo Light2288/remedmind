@@ -32,8 +32,10 @@ struct DailyIntakeView: View {
                 defer {
                     if drag.translation.width < -maxLateralTranslation {
                         reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: -1, context: viewContext)
+                        reminder.updateCurrentPackageQuantity(by: -reminder.administrationQuantity, context: viewContext)
                     } else if drag.translation.width > maxLateralTranslation {
                         reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: +1, context: viewContext)
+                        reminder.updateCurrentPackageQuantity(by: reminder.administrationQuantity, context: viewContext)
                     }
                 }
                 withAnimation(.spring()) {
@@ -46,9 +48,15 @@ struct DailyIntakeView: View {
                 .saveSize(in: $dailyIntakeCapsuleViewSize)
             DailyIntakeButtonsView(
                 minusButtonAction: {
-                    return reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: -1, context: viewContext)
+                    reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: -1, context: viewContext)
+                    reminder.updateCurrentPackageQuantity(by: -reminder.administrationQuantity, context: viewContext)
+                    return
                 },
-                plusButtonAction: { return reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: +1, context: viewContext)
+                plusButtonAction: {
+                    reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: +1, context: viewContext)
+                    reminder.updateCurrentPackageQuantity(by: reminder.administrationQuantity, context: viewContext)
+                    return
+                    
                 }
             )
             DailyIntakeDetailView(height: height, reminder: reminder, selectedDay: $selectedDay)

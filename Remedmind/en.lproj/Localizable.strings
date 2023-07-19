@@ -10,7 +10,9 @@
 
 "error.coredata.saving %@ %@" = "Unresolved error %@, %@";
 
-"notification.body.content" = "Remember to register your intake for %@";
+"notification.administration.body.content" = "Remember to register your intake for %@";
+"notification.runningLow.body.content" = "Your %@ package is almost empty, in the next administration day you will no longer have enough %@ for your daily doses";
+
 
 "administrationFrequency.daily" = "every day";
 "administrationFrequency.everyOtherDay" = "every other day";

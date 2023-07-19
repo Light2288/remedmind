@@ -10,7 +10,8 @@
 
 "error.coredata.saving %@ %@" = "Errore non risolvibile %@, %@";
 
-"notification.body.content" = "Ricordati di registrare la tua assunzione di %@";
+"notification.administration.body.content" = "Ricordati di registrare la tua assunzione di %@";
+"notification.runningLow.body.content" = "La tua confezione di %@ sta per esaurirsi, nel prossimo giorno di assunzione non avrai più abbastanza %@ per le dosi giornaliere";
 
 "administrationFrequency.daily" = "ogni giorno";
 "administrationFrequency.everyOtherDay" = "a giorni alterni";

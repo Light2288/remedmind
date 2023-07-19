@@ -34,14 +34,14 @@ class LocalNotifications {
         }
     }
     
-    func createNotificationDays(for reminder: Reminder) -> [Date] {
+    func createAdministrationNotificationDays(for reminder: Reminder) -> [Date] {
         let endDate = Calendar.customLocalizedCalendar.date(byAdding: .day, value: 7, to: Date.now)!
         return reminder.getFutureIntakeDates(to: endDate)
     }
     
-    func createTriggers(for reminder: Reminder) -> [UNCalendarNotificationTrigger] {
+    func createAdministrationNotificationTriggers(for reminder: Reminder) -> [UNCalendarNotificationTrigger] {
         var triggers: [UNCalendarNotificationTrigger] = []
-        let notificationDays = createNotificationDays(for: reminder)
+        let notificationDays = createAdministrationNotificationDays(for: reminder)
         guard let administrationTimes = reminder.administrationNotificationTimes else { return [] }
         
         for notificationDay in notificationDays {
@@ -60,6 +60,23 @@ class LocalNotifications {
         }
         
         return triggers
+    }
+    
+    func createRunningLowNotificationTriggers(for reminder: Reminder) -> UNCalendarNotificationTrigger? {
+        let notificationDay = reminder.getRunningLowNotificationDate()
+        guard let runningLowNotificationTime = reminder.runningLowNotificationTime else { return nil }
+
+        var date = DateComponents()
+        date.calendar = Calendar.customLocalizedCalendar
+        date.year = Calendar.customLocalizedCalendar.component(.year, from: notificationDay)
+        date.month = Calendar.customLocalizedCalendar.component(.month, from: notificationDay)
+        date.day = Calendar.customLocalizedCalendar.component(.day, from: notificationDay)
+        date.hour = Calendar.customLocalizedCalendar.component(.hour, from: runningLowNotificationTime)
+        date.minute = Calendar.customLocalizedCalendar.component(.minute, from: runningLowNotificationTime)
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+        
+        return trigger
     }
     
     func getRequestIdentifiersToDelete(for reminder: Reminder, requests: [UNNotificationRequest]) -> [String] {
@@ -92,18 +109,18 @@ class LocalNotifications {
         }
     }
     
-    func createNotificationRequests(for reminder: Reminder) {
+    func createAdministrationNotificationRequests(for reminder: Reminder) {
         userNotificationCenter.getNotificationSettings { settings in
             let content = UNMutableNotificationContent()
             content.title = "Remedmind"
-            content.body = NSString.localizedUserNotificationString(forKey: "notification.body.content", arguments: [reminder.medicineName ?? "unknown medicine"])
+            content.body = NSString.localizedUserNotificationString(forKey: "notification.administration.body.content", arguments: [reminder.medicineName ?? "unknown medicine"])
             content.userInfo = ["reminderId": reminder.id?.uuidString as Any]
             
             if settings.soundSetting == .enabled {
                 content.sound = UNNotificationSound.default
             }
             
-            let triggers = self.createTriggers(for: reminder)
+            let triggers = self.createAdministrationNotificationTriggers(for: reminder)
             
             for trigger in triggers {
                 let notificationRequest = UNNotificationRequest(
@@ -111,9 +128,43 @@ class LocalNotifications {
                     content: content,
                     trigger: trigger
                 )
-                self.userNotificationCenter.add(notificationRequest)
             }
         }
+    }
+    
+    func createRunningLowNotificationRequests(for reminder: Reminder) {
+        userNotificationCenter.getNotificationSettings { settings in
+            let content = UNMutableNotificationContent()
+            content.title = "Remedmind"
+            content.body = NSString.localizedUserNotificationString(forKey: "notification.runningLow.body.content", arguments: [reminder.medicineName ?? "unknown medicine", reminder.administrationTypeString])
+            content.userInfo = ["reminderId": reminder.id?.uuidString as Any]
+            
+            if settings.soundSetting == .enabled {
+                content.sound = UNNotificationSound.default
+            }
+            
+            let trigger = self.createRunningLowNotificationTriggers(for: reminder)
+            
+            let notificationRequest = UNNotificationRequest(
+                identifier: UUID().uuidString,
+                content: content,
+                trigger: trigger
+            )
+            self.userNotificationCenter.add(notificationRequest)
+
+        }
+    }
+    
+    func createNotificationRequests(for reminder: Reminder) {
+        if reminder.activeAdministrationNotification {
+            createAdministrationNotificationRequests(for: reminder)
+            
+        }
+        
+        if reminder.activeRunningLowNotification {
+            createRunningLowNotificationRequests(for: reminder)
+        }
+        
     }
     
     func deleteAndCreateNewNotificationRequests(for reminder: Reminder) {
@@ -121,25 +172,25 @@ class LocalNotifications {
             self.createNotificationRequests(for: reminder)
         }
     }
-
-func requestLocalNotificationPermission(completion: @escaping (_ granted: Bool) -> Void) {
-    let options: UNAuthorizationOptions = [.alert, .sound]
     
-    userNotificationCenter.requestAuthorization(options: options) { granted, error in
-        DispatchQueue.main.async {
-            if let error = error {
-                print(error)
-                completion(false)
-                return
+    func requestLocalNotificationPermission(completion: @escaping (_ granted: Bool) -> Void) {
+        let options: UNAuthorizationOptions = [.alert, .sound]
+        
+        userNotificationCenter.requestAuthorization(options: options) { granted, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                    completion(false)
+                    return
+                }
+                
+                guard granted else {
+                    completion(false)
+                    return
+                }
+                
+                completion(true)
             }
-            
-            guard granted else {
-                completion(false)
-                return
-            }
-            
-            completion(true)
         }
     }
-}
 }

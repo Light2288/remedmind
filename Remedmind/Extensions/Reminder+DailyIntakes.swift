@@ -100,6 +100,25 @@ extension Reminder {
         }
     }
     
+    func updateCurrentPackageQuantity(by administrationQuantity: Float, context: NSManagedObjectContext) {
+        switch self.currentPackageQuantity - administrationQuantity {
+        case let difference where difference > Float(self.packageQuantity):
+            self.currentPackageQuantity = difference - Float(self.packageQuantity)
+        case let difference where difference <= 0:
+            self.currentPackageQuantity = Float(self.packageQuantity) + difference
+        case let difference where difference > 0:
+            self.currentPackageQuantity -= administrationQuantity
+        default:
+            break
+        }
+        do {
+            try context.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
+        }
+    }
+    
     func getFutureIntakeDates(from startDate: Date = Date.now, to endDate: Date) -> [Date] {
         var futureIntakeDates: [Date] = []
         var date = startDate
