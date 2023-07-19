@@ -29,7 +29,7 @@ extension Reminder {
         self.activeRunningLowNotification =  reminderModel.activeRunningLowNotification
         self.runningLowNotificationTime = reminderModel.runningLowNotificationTime
         self.packageQuantity = reminderModel.medicine.packageQuantity
-        self.currentPackageQuantity = reminderModel.medicine.currentPackageQuantity
+        self.currentPackageQuantity = reminderModel.medicine.currentPackageQuantity == 0 ? Float(reminderModel.medicine.packageQuantity) : reminderModel.medicine.currentPackageQuantity
         self.endDate = reminderModel.endDate
     }
 }

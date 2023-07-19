@@ -45,7 +45,7 @@ struct AddEditReminderView: View {
         updateAndAddDailyIntakes(for: newReminder, from: reminderModel)
         do {
             try viewContext.save()
-            if reminderToEdit == nil && newReminder.activeAdministrationNotification {
+            if reminderToEdit == nil && (newReminder.activeAdministrationNotification || newReminder.activeRunningLowNotification) {
                 addNotifications(for: newReminder)
             }
             showModal = false
