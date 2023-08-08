@@ -33,6 +33,11 @@
 		6B4ACFA62A53820F00A04555 /* ThemePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4ACFA52A53820F00A04555 /* ThemePickerView.swift */; };
 		6B4ACFA82A53828200A04555 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4ACFA72A53828200A04555 /* IconPickerView.swift */; };
 		6B5850942942A73200D561E8 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850932942A73200D561E8 /* Reminder.swift */; };
+		6B6371F92A68882D00679D8A /* AddReminderStepOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6371F82A68882D00679D8A /* AddReminderStepOneView.swift */; };
+		6B6371FC2A688CC200679D8A /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6371FB2A688CC200679D8A /* AddReminderView.swift */; };
+		6B6371FE2A688F6500679D8A /* AddReminderStepTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6371FD2A688F6500679D8A /* AddReminderStepTwoView.swift */; };
+		6B6372002A81930C00679D8A /* AddReminderStepThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6371FF2A81930C00679D8A /* AddReminderStepThreeView.swift */; };
+		6B6372022A82E23E00679D8A /* SaveReminderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6372012A82E23E00679D8A /* SaveReminderButtonView.swift */; };
 		6B64D7B129B0097D00D87319 /* TitleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B029B0097D00D87319 /* TitleInfoView.swift */; };
 		6B64D7B429B00C5500D87319 /* DailyIntakeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B329B00C5500D87319 /* DailyIntakeButtonView.swift */; };
 		6B64D7B629B1068C00D87319 /* DailyIntakeCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64D7B529B1068C00D87319 /* DailyIntakeCapsuleView.swift */; };
@@ -73,7 +78,7 @@
 		6BC7BFDA2987263800E15743 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC7BFD92987263800E15743 /* ThemeSettings.swift */; };
 		6BCA83F12995A77A0090EB86 /* PackageRemainderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA83F02995A77A0090EB86 /* PackageRemainderView.swift */; };
 		6BCA83F42995AF240090EB86 /* WeekAdministrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA83F32995AF240090EB86 /* WeekAdministrationView.swift */; };
-		6BCA9616293D5FE000C815E8 /* AddEditReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA9615293D5FE000C815E8 /* AddEditReminderView.swift */; };
+		6BCA9616293D5FE000C815E8 /* EditReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA9615293D5FE000C815E8 /* EditReminderView.swift */; };
 		6BD15A672993060100576DD4 /* ReminderListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD15A662993060100576DD4 /* ReminderListRowView.swift */; };
 		6BD38B7929D341A4009C1754 /* GeneralInfoSectionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD38B7829D341A4009C1754 /* GeneralInfoSectionInfoView.swift */; };
 		6BE3E69629F88079006849FF /* Calendar+CustomLocalizedCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E69529F88079006849FF /* Calendar+CustomLocalizedCalendar.swift */; };
@@ -155,6 +160,11 @@
 		6B4ACFA52A53820F00A04555 /* ThemePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerView.swift; sourceTree = "<group>"; };
 		6B4ACFA72A53828200A04555 /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		6B5850932942A73200D561E8 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		6B6371F82A68882D00679D8A /* AddReminderStepOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderStepOneView.swift; sourceTree = "<group>"; };
+		6B6371FB2A688CC200679D8A /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
+		6B6371FD2A688F6500679D8A /* AddReminderStepTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderStepTwoView.swift; sourceTree = "<group>"; };
+		6B6371FF2A81930C00679D8A /* AddReminderStepThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderStepThreeView.swift; sourceTree = "<group>"; };
+		6B6372012A82E23E00679D8A /* SaveReminderButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveReminderButtonView.swift; sourceTree = "<group>"; };
 		6B64D7B029B0097D00D87319 /* TitleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInfoView.swift; sourceTree = "<group>"; };
 		6B64D7B329B00C5500D87319 /* DailyIntakeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeButtonView.swift; sourceTree = "<group>"; };
 		6B64D7B529B1068C00D87319 /* DailyIntakeCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeCapsuleView.swift; sourceTree = "<group>"; };
@@ -198,7 +208,7 @@
 		6BC7BFD92987263800E15743 /* ThemeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettings.swift; sourceTree = "<group>"; };
 		6BCA83F02995A77A0090EB86 /* PackageRemainderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageRemainderView.swift; sourceTree = "<group>"; };
 		6BCA83F32995AF240090EB86 /* WeekAdministrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekAdministrationView.swift; sourceTree = "<group>"; };
-		6BCA9615293D5FE000C815E8 /* AddEditReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditReminderView.swift; sourceTree = "<group>"; };
+		6BCA9615293D5FE000C815E8 /* EditReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReminderView.swift; sourceTree = "<group>"; };
 		6BD15A662993060100576DD4 /* ReminderListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListRowView.swift; sourceTree = "<group>"; };
 		6BD38B7829D341A4009C1754 /* GeneralInfoSectionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfoSectionInfoView.swift; sourceTree = "<group>"; };
 		6BE3E69529F88079006849FF /* Calendar+CustomLocalizedCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+CustomLocalizedCalendar.swift"; sourceTree = "<group>"; };
@@ -341,6 +351,17 @@
 			path = Icon;
 			sourceTree = "<group>";
 		};
+		6B6371FA2A68885400679D8A /* AddReminder */ = {
+			isa = PBXGroup;
+			children = (
+				6B6371F82A68882D00679D8A /* AddReminderStepOneView.swift */,
+				6B6371FB2A688CC200679D8A /* AddReminderView.swift */,
+				6B6371FD2A688F6500679D8A /* AddReminderStepTwoView.swift */,
+				6B6371FF2A81930C00679D8A /* AddReminderStepThreeView.swift */,
+			);
+			path = AddReminder;
+			sourceTree = "<group>";
+		};
 		6B64D7BB29B7F53700D87319 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,7 +476,9 @@
 				6B0BEF4029D389C400B823DA /* RunningLowSection */,
 				6B0BEF3329D3452B00B823DA /* AdministrationSection */,
 				6BD38B7729D3418A009C1754 /* GeneralInfoSection */,
-				6BCA9615293D5FE000C815E8 /* AddEditReminderView.swift */,
+				6BCA9615293D5FE000C815E8 /* EditReminderView.swift */,
+				6B6371FA2A68885400679D8A /* AddReminder */,
+				6B6372012A82E23E00679D8A /* SaveReminderButtonView.swift */,
 			);
 			path = AddEditReminder;
 			sourceTree = "<group>";
@@ -794,6 +817,7 @@
 				6BFB26992A262A1800481BF3 /* Reminder+OptionalProperties.swift in Sources */,
 				6BCA83F42995AF240090EB86 /* WeekAdministrationView.swift in Sources */,
 				6B0BEF3F29D3894800B823DA /* AdministrationNotificationsSectionView.swift in Sources */,
+				6B6371F92A68882D00679D8A /* AddReminderStepOneView.swift in Sources */,
 				6B64D7B829B1072300D87319 /* DailyIntakeButtonsView.swift in Sources */,
 				6B0BEF4629D38B5100B823DA /* PackageQuantitiesSectionView.swift in Sources */,
 				6B653DD12A58C09300E6AE8F /* BannerView.swift in Sources */,
@@ -842,9 +866,11 @@
 				6B4A4D8129AD6B3A0063D15E /* Date+StartOfMonth.swift in Sources */,
 				6BE3E6E72A0C3452006849FF /* Notifications.swift in Sources */,
 				6B4A4D8329AD6B630063D15E /* DateFormatter+Init.swift in Sources */,
+				6B6371FC2A688CC200679D8A /* AddReminderView.swift in Sources */,
 				6B4A4D7F29AD6B0A0063D15E /* Calendar+Generate.swift in Sources */,
 				6B64D7B129B0097D00D87319 /* TitleInfoView.swift in Sources */,
 				6B64D7BD29B7F58300D87319 /* SizeCalculatorViewModifier.swift in Sources */,
+				6B6371FE2A688F6500679D8A /* AddReminderStepTwoView.swift in Sources */,
 				6B827FA629E4A157008FC8EC /* PositionData.swift in Sources */,
 				6BD38B7929D341A4009C1754 /* GeneralInfoSectionInfoView.swift in Sources */,
 				6BC7BFD22987231F00E15743 /* Theme.swift in Sources */,
@@ -852,7 +878,8 @@
 				6BC7BFD82987241E00E15743 /* ThemeColors.swift in Sources */,
 				6BC7BFDA2987263800E15743 /* ThemeSettings.swift in Sources */,
 				6B0BEF3B29D3877D00B823DA /* NumberOfAdministrationsStepperView.swift in Sources */,
-				6BCA9616293D5FE000C815E8 /* AddEditReminderView.swift in Sources */,
+				6B6372022A82E23E00679D8A /* SaveReminderButtonView.swift in Sources */,
+				6BCA9616293D5FE000C815E8 /* EditReminderView.swift in Sources */,
 				6B827FA829E4A16F008FC8EC /* Positions.swift in Sources */,
 				6B64D7BF29B7F5C000D87319 /* View+SaveSize.swift in Sources */,
 				6B5850942942A73200D561E8 /* Reminder.swift in Sources */,
@@ -862,6 +889,7 @@
 				6B4ACF9D2A537DA100A04555 /* IconData.swift in Sources */,
 				6B64D7B429B00C5500D87319 /* DailyIntakeButtonView.swift in Sources */,
 				6B827FAD29E4AFB5008FC8EC /* View+If.swift in Sources */,
+				6B6372002A81930C00679D8A /* AddReminderStepThreeView.swift in Sources */,
 				6BFB269D2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

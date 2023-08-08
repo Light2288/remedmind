@@ -106,7 +106,7 @@ struct RemindersListView: View {
                             reminder.addMissingDailyIntakes(context: viewContext)
                         }
                     }) {
-                        AddEditReminderView(showModal: $isAddReminderViewPresented)
+                        AddReminderView(showModal: $isAddReminderViewPresented)
                             .environment(\.managedObjectContext, viewContext)
                             .environmentObject(self.themeSettings)
                     }

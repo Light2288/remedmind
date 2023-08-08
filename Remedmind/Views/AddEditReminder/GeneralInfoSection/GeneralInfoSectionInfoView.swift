@@ -11,6 +11,7 @@ struct GeneralInfoSectionView: View {
     // MARK: - Properties
     @Binding var reminder: ReminderModel
     @FocusState var focusedField: Field?
+    var hasTitle: Bool
     
     // MARK: - Body
     var body: some View {
@@ -24,7 +25,7 @@ struct GeneralInfoSectionView: View {
             TextField("addEditReminderView.generalInfo.label.notes", text: $reminder.notes)
                 .focused($focusedField, equals: .notes)
         } header: {
-            Text("addEditReminderView.generalInfo.title")
+            Text(hasTitle ? "addEditReminderView.generalInfo.title" : "")
         }
         .onSubmit {
             switch focusedField {
@@ -47,7 +48,7 @@ struct GeneralInfoSectionView: View {
 struct GeneralInfoSectionInfoView_Previews: PreviewProvider {
     static var previews: some View {
         Form {
-            GeneralInfoSectionView(reminder: .constant(ReminderModel()))
+            GeneralInfoSectionView(reminder: .constant(ReminderModel()), hasTitle: true)
         }
     }
 }

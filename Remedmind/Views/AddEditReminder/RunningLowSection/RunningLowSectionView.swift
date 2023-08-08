@@ -11,6 +11,7 @@ struct RunningLowSectionView: View {
     // MARK: - Properties
     @Binding var reminder: ReminderModel
     @FocusState var focusedField: Field?
+    var hasTitle: Bool
     
     // MARK: - Body
     var body: some View {
@@ -22,7 +23,7 @@ struct RunningLowSectionView: View {
             }
             
         } header: {
-            Text("addEditReminderView.packageExhaustion.title")
+            Text(hasTitle ? "addEditReminderView.packageExhaustion.title" : "")
         }
     }
 }
@@ -31,7 +32,7 @@ struct RunningLowSectionView: View {
 struct RunningLowSectionView_Previews: PreviewProvider {
     static var previews: some View {
         Form {
-            RunningLowSectionView(reminder: .constant(ReminderModel()))
+            RunningLowSectionView(reminder: .constant(ReminderModel()), hasTitle: true)
         }
     }
 }

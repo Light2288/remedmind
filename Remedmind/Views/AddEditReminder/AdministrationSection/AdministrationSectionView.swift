@@ -10,8 +10,8 @@ import SwiftUI
 struct AdministrationSectionView: View {
     // MARK: - Properties
     @Binding var reminder: ReminderModel
-    @EnvironmentObject var themeSettings: ThemeSettings
     @FocusState var focusedField: Field?
+    var hasTitle: Bool
     
     // MARK: - Body
     var body: some View {
@@ -28,7 +28,7 @@ struct AdministrationSectionView: View {
             
             AdministrationNotificationsSectionView(reminder: $reminder, focusedField: _focusedField)
         } header: {
-            Text("addEditReminderView.administration.title")
+            Text(hasTitle ? "addEditReminderView.administration.title" : "")
         }
     }
 }
@@ -37,7 +37,7 @@ struct AdministrationSectionView: View {
 struct AdministrationSectionView_Previews: PreviewProvider {
     static var previews: some View {
         Form {
-            AdministrationSectionView(reminder: .constant(ReminderModel()))
+            AdministrationSectionView(reminder: .constant(ReminderModel()), hasTitle: true)
         }
     }
 }
