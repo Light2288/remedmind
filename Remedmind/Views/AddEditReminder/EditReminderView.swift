@@ -30,6 +30,8 @@ struct EditReminderView: View {
                         RunningLowSectionView(reminder: $reminder, focusedField: _focusedField, hasTitle: true)
                     }
                 }
+                .scrollContentBackground(.hidden)
+                .background(Color(.systemBackground))
                 SaveReminderButtonView(reminder: $reminder, showConfirmationModal: $showConfirmationModal, showModal: $showModal, focusedField: _focusedField, reminderToEdit: $reminderToEdit)
 
             }

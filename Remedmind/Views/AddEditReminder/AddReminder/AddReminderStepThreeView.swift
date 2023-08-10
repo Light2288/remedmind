@@ -19,6 +19,8 @@ struct AddReminderStepThreeView: View {
                 List {
                     RunningLowSectionView(reminder: $reminder, hasTitle: false)
                 }
+                .scrollContentBackground(.hidden)
+                .background(Color(.systemBackground))
                 SaveReminderButtonView(reminder: $reminder, showModal: $showModal)
             }
             .toolbar{

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AdministrationSectionView: View {
     // MARK: - Properties
+    @Environment(\.colorScheme) var colorScheme
     @Binding var reminder: ReminderModel
     @FocusState var focusedField: Field?
     var hasTitle: Bool
@@ -30,6 +31,7 @@ struct AdministrationSectionView: View {
         } header: {
             Text(hasTitle ? "addEditReminderView.administration.title" : "")
         }
+        .listRowBackground(colorScheme == .dark ? Color(.systemGray5) : Color(.systemGray6))
     }
 }
 

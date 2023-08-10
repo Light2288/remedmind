@@ -19,9 +19,15 @@ struct AddReminderStepOneView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Image("step-1-icon-default")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
                 List {
                     GeneralInfoSectionView(reminder: $reminder, hasTitle: false)
                 }
+                .scrollContentBackground(.hidden)
+                .background(Color(.systemBackground))
                 Button {
                     guard reminder.medicine.name != "" else {
                         showConfirmationModal = true

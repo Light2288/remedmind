@@ -19,6 +19,8 @@ struct AddReminderStepTwoView: View {
                 List {
                     AdministrationSectionView(reminder: $reminder, hasTitle: false)
                 }
+                .scrollContentBackground(.hidden)
+                .background(Color(.systemBackground))
                 if reminder.medicine.administrationType.canRunLow {
                     NavigationLink(destination: AddReminderStepThreeView(reminder: $reminder, showModal: $showModal)) {
                         Text("label.next")
