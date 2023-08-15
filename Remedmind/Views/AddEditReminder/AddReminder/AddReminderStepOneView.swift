@@ -19,10 +19,7 @@ struct AddReminderStepOneView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image("step-1-icon-default")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
+                AddReminderStepImageView(imageName: "step-1-icon-default")
                 List {
                     GeneralInfoSectionView(reminder: $reminder, hasTitle: false)
                 }
@@ -50,6 +47,9 @@ struct AddReminderStepOneView: View {
                         showModal = false
                     } label: {
                         Label("button.close.label", systemImage: "xmark.circle")
+                    }
+                    .transaction { transaction in
+                        transaction.animation = nil
                     }
                 }
             }

@@ -16,6 +16,7 @@ struct AddReminderStepTwoView: View {
     // MARK: - Body
     var body: some View {
             VStack {
+                AddReminderStepImageView(imageName: "step-1-icon-default")
                 List {
                     AdministrationSectionView(reminder: $reminder, hasTitle: false)
                 }

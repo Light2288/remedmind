@@ -65,6 +65,7 @@
 		6B827FB229E600DC008FC8EC /* Remedmind.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B827FB029E600DC008FC8EC /* Remedmind.xcdatamodeld */; };
 		6B827FB529E60184008FC8EC /* DailyIntake+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B827FB329E60184008FC8EC /* DailyIntake+CoreDataClass.swift */; };
 		6B827FB629E60184008FC8EC /* DailyIntake+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B827FB429E60184008FC8EC /* DailyIntake+CoreDataProperties.swift */; };
+		6B91B4812A8C22F70098D14D /* AddReminderStepImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4802A8C22F70098D14D /* AddReminderStepImageView.swift */; };
 		6B9FB1A929BE0F8800D39B7F /* NotificationsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9FB1A829BE0F8800D39B7F /* NotificationsInfoView.swift */; };
 		6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */; };
 		6BA19A3B299AED4F00F8CF9E /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */; };
@@ -195,6 +196,7 @@
 		6B827FB129E600DC008FC8EC /* Remedmind.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Remedmind.xcdatamodel; sourceTree = "<group>"; };
 		6B827FB329E60184008FC8EC /* DailyIntake+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyIntake+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6B827FB429E60184008FC8EC /* DailyIntake+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyIntake+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6B91B4802A8C22F70098D14D /* AddReminderStepImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderStepImageView.swift; sourceTree = "<group>"; };
 		6B9FB1A829BE0F8800D39B7F /* NotificationsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInfoView.swift; sourceTree = "<group>"; };
 		6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
 		6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailView.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				6B6371FB2A688CC200679D8A /* AddReminderView.swift */,
 				6B6371FD2A688F6500679D8A /* AddReminderStepTwoView.swift */,
 				6B6371FF2A81930C00679D8A /* AddReminderStepThreeView.swift */,
+				6B91B4802A8C22F70098D14D /* AddReminderStepImageView.swift */,
 			);
 			path = AddReminder;
 			sourceTree = "<group>";
@@ -890,6 +893,7 @@
 				6B64D7B429B00C5500D87319 /* DailyIntakeButtonView.swift in Sources */,
 				6B827FAD29E4AFB5008FC8EC /* View+If.swift in Sources */,
 				6B6372002A81930C00679D8A /* AddReminderStepThreeView.swift in Sources */,
+				6B91B4812A8C22F70098D14D /* AddReminderStepImageView.swift in Sources */,
 				6BFB269D2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

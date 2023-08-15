@@ -98,7 +98,9 @@ struct RemindersListView: View {
                             } label: {
                                 Image(systemName: "gear")
                             }
-                            
+                            .transaction { transaction in
+                                transaction.animation = nil
+                            }
                         }
                     }
                     .sheet(isPresented: $isAddReminderViewPresented, onDismiss: {
