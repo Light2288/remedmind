@@ -38,7 +38,7 @@ struct DailyIntakeView: View {
                         reminder.updateCurrentPackageQuantity(by: reminder.administrationQuantity, context: viewContext)
                     }
                 }
-                withAnimation(.spring()) {
+                withAnimation(.interpolatingSpring(stiffness: 170, damping: 13)) {
                     offset = .zero
                 }
             }

@@ -98,7 +98,9 @@ struct RemindersListView: View {
                             } label: {
                                 Image(systemName: "gear")
                             }
-                            
+                            .transaction { transaction in
+                                transaction.animation = nil
+                            }
                         }
                     }
                     .sheet(isPresented: $isAddReminderViewPresented, onDismiss: {
@@ -106,7 +108,7 @@ struct RemindersListView: View {
                             reminder.addMissingDailyIntakes(context: viewContext)
                         }
                     }) {
-                        AddEditReminderView(showModal: $isAddReminderViewPresented)
+                        AddReminderView(showModal: $isAddReminderViewPresented)
                             .environment(\.managedObjectContext, viewContext)
                             .environmentObject(self.themeSettings)
                     }

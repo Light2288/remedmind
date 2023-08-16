@@ -128,6 +128,7 @@ class LocalNotifications {
                     content: content,
                     trigger: trigger
                 )
+                self.userNotificationCenter.add(notificationRequest)
             }
         }
     }
