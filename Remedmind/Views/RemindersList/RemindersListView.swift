@@ -46,7 +46,6 @@ struct RemindersListView: View {
                                     .environmentObject(self.themeSettings)
                             }
                         }
-                        .onDelete(perform: deleteItems)
                     }
                     .onAppear(perform: {
                         reminders.forEach { reminder in
@@ -141,34 +140,6 @@ struct RemindersListView: View {
         }
         BannerView()
             .frame(maxWidth: .infinity, maxHeight: 60, alignment: .bottomTrailing)
-    }
-    
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { reminders[$0] }.forEach { reminder in
-                if reminder.activeAdministrationNotification || reminder.activeRunningLowNotification {
-                    LocalNotifications.shared.deleteAllNotificationRequests(for: reminder, { reminder in
-                        DispatchQueue.main.async{
-                            viewContext.delete(reminder)
-                            do {
-                                try viewContext.save()
-                            } catch {
-                                let nsError = error as NSError
-                                fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
-                            }
-                        }
-                    })
-                } else {
-                    viewContext.delete(reminder)
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        let nsError = error as NSError
-                        fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
-                    }
-                }
-            }
-        }
     }
 }
 

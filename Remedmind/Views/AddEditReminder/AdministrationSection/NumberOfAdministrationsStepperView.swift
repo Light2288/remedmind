@@ -14,7 +14,7 @@ struct NumberOfAdministrationsStepperView: View {
     
     // MARK: - Body
     var body: some View {
-        Stepper("addEditReminderView.administration.numberOfAdministrations.label \(reminder.medicine.numberOfAdministrations)", value: $reminder.medicine.numberOfAdministrations)
+        Stepper("addEditReminderView.administration.numberOfAdministrations.label \(reminder.medicine.numberOfAdministrations)", value: $reminder.medicine.numberOfAdministrations, in: 1 ... Int32.max)
             .onChange(of: reminder.medicine.numberOfAdministrations) { newValue in
                 if reminder.administrationNotificationTimes.count < newValue {
                     let newNotificationTimes = Array(repeating: Date.now, count: Int(newValue) - reminder.administrationNotificationTimes.count)

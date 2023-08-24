@@ -66,6 +66,18 @@
 		6B827FB529E60184008FC8EC /* DailyIntake+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B827FB329E60184008FC8EC /* DailyIntake+CoreDataClass.swift */; };
 		6B827FB629E60184008FC8EC /* DailyIntake+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B827FB429E60184008FC8EC /* DailyIntake+CoreDataProperties.swift */; };
 		6B91B4812A8C22F70098D14D /* AddReminderStepImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4802A8C22F70098D14D /* AddReminderStepImageView.swift */; };
+		6B91B4832A8EBB950098D14D /* StyleSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4822A8EBB950098D14D /* StyleSectionView.swift */; };
+		6B91B4852A8EBE200098D14D /* AboutThisAppSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4842A8EBE200098D14D /* AboutThisAppSectionView.swift */; };
+		6B91B4A82A93FE180098D14D /* NotificationsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4A72A93FE180098D14D /* NotificationsSectionView.swift */; };
+		6B91B4AA2A93FF2A0098D14D /* IntakeNotificationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4A92A93FF2A0098D14D /* IntakeNotificationsSettingsView.swift */; };
+		6B91B4AD2A9408880098D14D /* IntakeNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4AC2A9408880098D14D /* IntakeNotificationType.swift */; };
+		6B91B4AF2A940AC00098D14D /* IntakeNotificationType+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4AE2A940AC00098D14D /* IntakeNotificationType+Description.swift */; };
+		6B91B4B12A95580F0098D14D /* IntakeNotificationsModePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4B02A95580F0098D14D /* IntakeNotificationsModePickerView.swift */; };
+		6B91B4B32A9558C80098D14D /* IntakeNotificationModeLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4B22A9558C80098D14D /* IntakeNotificationModeLabelView.swift */; };
+		6B91B4B52A95636B0098D14D /* IntakeNotificationTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4B42A95636B0098D14D /* IntakeNotificationTimePickerView.swift */; };
+		6B91B4B72A95651B0098D14D /* PackageExhaustionNotificationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4B62A95651B0098D14D /* PackageExhaustionNotificationsSettingsView.swift */; };
+		6B91B4B92A95659F0098D14D /* PackageExhaustionNotificationTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4B82A95659F0098D14D /* PackageExhaustionNotificationTimePickerView.swift */; };
+		6B91B4BB2A96A9760098D14D /* Date+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91B4BA2A96A9760098D14D /* Date+RawValue.swift */; };
 		6B9FB1A929BE0F8800D39B7F /* NotificationsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9FB1A829BE0F8800D39B7F /* NotificationsInfoView.swift */; };
 		6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */; };
 		6BA19A3B299AED4F00F8CF9E /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */; };
@@ -197,6 +209,18 @@
 		6B827FB329E60184008FC8EC /* DailyIntake+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyIntake+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6B827FB429E60184008FC8EC /* DailyIntake+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyIntake+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6B91B4802A8C22F70098D14D /* AddReminderStepImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderStepImageView.swift; sourceTree = "<group>"; };
+		6B91B4822A8EBB950098D14D /* StyleSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSectionView.swift; sourceTree = "<group>"; };
+		6B91B4842A8EBE200098D14D /* AboutThisAppSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutThisAppSectionView.swift; sourceTree = "<group>"; };
+		6B91B4A72A93FE180098D14D /* NotificationsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSectionView.swift; sourceTree = "<group>"; };
+		6B91B4A92A93FF2A0098D14D /* IntakeNotificationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeNotificationsSettingsView.swift; sourceTree = "<group>"; };
+		6B91B4AC2A9408880098D14D /* IntakeNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeNotificationType.swift; sourceTree = "<group>"; };
+		6B91B4AE2A940AC00098D14D /* IntakeNotificationType+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntakeNotificationType+Description.swift"; sourceTree = "<group>"; };
+		6B91B4B02A95580F0098D14D /* IntakeNotificationsModePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeNotificationsModePickerView.swift; sourceTree = "<group>"; };
+		6B91B4B22A9558C80098D14D /* IntakeNotificationModeLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeNotificationModeLabelView.swift; sourceTree = "<group>"; };
+		6B91B4B42A95636B0098D14D /* IntakeNotificationTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeNotificationTimePickerView.swift; sourceTree = "<group>"; };
+		6B91B4B62A95651B0098D14D /* PackageExhaustionNotificationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageExhaustionNotificationsSettingsView.swift; sourceTree = "<group>"; };
+		6B91B4B82A95659F0098D14D /* PackageExhaustionNotificationTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageExhaustionNotificationTimePickerView.swift; sourceTree = "<group>"; };
+		6B91B4BA2A96A9760098D14D /* Date+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+RawValue.swift"; sourceTree = "<group>"; };
 		6B9FB1A829BE0F8800D39B7F /* NotificationsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInfoView.swift; sourceTree = "<group>"; };
 		6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
 		6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailView.swift; sourceTree = "<group>"; };
@@ -332,6 +356,8 @@
 				6BFB269E2A30CBB700481BF3 /* AdministrationType+Description.swift */,
 				6BFB269C2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift */,
 				6B653DD22A6033C100E6AE8F /* Reminder+RunningLow.swift */,
+				6B91B4AE2A940AC00098D14D /* IntakeNotificationType+Description.swift */,
+				6B91B4BA2A96A9760098D14D /* Date+RawValue.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +520,15 @@
 				6B4ACFA32A53814700A04555 /* AppearancePickerView.swift */,
 				6B4ACFA52A53820F00A04555 /* ThemePickerView.swift */,
 				6B4ACFA72A53828200A04555 /* IconPickerView.swift */,
+				6B91B4822A8EBB950098D14D /* StyleSectionView.swift */,
+				6B91B4842A8EBE200098D14D /* AboutThisAppSectionView.swift */,
+				6B91B4A72A93FE180098D14D /* NotificationsSectionView.swift */,
+				6B91B4A92A93FF2A0098D14D /* IntakeNotificationsSettingsView.swift */,
+				6B91B4B02A95580F0098D14D /* IntakeNotificationsModePickerView.swift */,
+				6B91B4B22A9558C80098D14D /* IntakeNotificationModeLabelView.swift */,
+				6B91B4B42A95636B0098D14D /* IntakeNotificationTimePickerView.swift */,
+				6B91B4B62A95651B0098D14D /* PackageExhaustionNotificationsSettingsView.swift */,
+				6B91B4B82A95659F0098D14D /* PackageExhaustionNotificationTimePickerView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -596,6 +631,7 @@
 				6BA7E773293D67BB00A3F3E4 /* Medicine.swift */,
 				6BA7E775293D68F500A3F3E4 /* Administration.swift */,
 				6B5850932942A73200D561E8 /* Reminder.swift */,
+				6B91B4AC2A9408880098D14D /* IntakeNotificationType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -828,8 +864,10 @@
 				6BFB269F2A30CBB700481BF3 /* AdministrationType+Description.swift in Sources */,
 				6BB296BF29774AA000152A7B /* SettingsView.swift in Sources */,
 				6BE3E6BD2A01B0B2006849FF /* IntakeDayView.swift in Sources */,
+				6B91B4BB2A96A9760098D14D /* Date+RawValue.swift in Sources */,
 				6BF6859329CA7A0E0019E707 /* Reminder+CoreDataProperties.swift in Sources */,
 				6B4ACFA42A53814700A04555 /* AppearancePickerView.swift in Sources */,
+				6B91B4B12A95580F0098D14D /* IntakeNotificationsModePickerView.swift in Sources */,
 				6B11D8C02994600E003BD412 /* AdministrationFrequencyView.swift in Sources */,
 				6B4A4D8A29AD72610063D15E /* CalendarIntakeHeaderView.swift in Sources */,
 				6BB07BEF2981C9BE005A56D7 /* IconNames.swift in Sources */,
@@ -844,10 +882,14 @@
 				6BEB790D29E8091900E0B20E /* Reminder+DailyIntakes.swift in Sources */,
 				6B6A2C4A29356CFA00E72834 /* RemindersListView.swift in Sources */,
 				6BE3E6F42A1D6DE8006849FF /* DailyIntake+GetTotalIntakes.swift in Sources */,
+				6B91B4AF2A940AC00098D14D /* IntakeNotificationType+Description.swift in Sources */,
 				6B6A2C4829356CFA00E72834 /* RemedmindApp.swift in Sources */,
 				6BFB26C22A49CE9400481BF3 /* Appearance.swift in Sources */,
 				6B08C45E299EED290050EBFF /* CalendarIntakeView.swift in Sources */,
 				6B827FAF29E4AFCE008FC8EC /* View+GetPosition.swift in Sources */,
+				6B91B4852A8EBE200098D14D /* AboutThisAppSectionView.swift in Sources */,
+				6B91B4AA2A93FF2A0098D14D /* IntakeNotificationsSettingsView.swift in Sources */,
+				6B91B4A82A93FE180098D14D /* NotificationsSectionView.swift in Sources */,
 				6BD15A672993060100576DD4 /* ReminderListRowView.swift in Sources */,
 				6B827FA329DF5C00008FC8EC /* AddReminderButton.swift in Sources */,
 				6B4ACFA82A53828200A04555 /* IconPickerView.swift in Sources */,
@@ -865,10 +907,12 @@
 				6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */,
 				6B64D7BA29B10AF200D87319 /* DailyIntakeDetailView.swift in Sources */,
 				6BE3E6F22A157EB5006849FF /* AddEditReminderViewFields.swift in Sources */,
+				6B91B4B32A9558C80098D14D /* IntakeNotificationModeLabelView.swift in Sources */,
 				6B827FB229E600DC008FC8EC /* Remedmind.xcdatamodeld in Sources */,
 				6B4A4D8129AD6B3A0063D15E /* Date+StartOfMonth.swift in Sources */,
 				6BE3E6E72A0C3452006849FF /* Notifications.swift in Sources */,
 				6B4A4D8329AD6B630063D15E /* DateFormatter+Init.swift in Sources */,
+				6B91B4AD2A9408880098D14D /* IntakeNotificationType.swift in Sources */,
 				6B6371FC2A688CC200679D8A /* AddReminderView.swift in Sources */,
 				6B4A4D7F29AD6B0A0063D15E /* Calendar+Generate.swift in Sources */,
 				6B64D7B129B0097D00D87319 /* TitleInfoView.swift in Sources */,
@@ -876,10 +920,12 @@
 				6B6371FE2A688F6500679D8A /* AddReminderStepTwoView.swift in Sources */,
 				6B827FA629E4A157008FC8EC /* PositionData.swift in Sources */,
 				6BD38B7929D341A4009C1754 /* GeneralInfoSectionInfoView.swift in Sources */,
+				6B91B4832A8EBB950098D14D /* StyleSectionView.swift in Sources */,
 				6BC7BFD22987231F00E15743 /* Theme.swift in Sources */,
 				6B11D8BE29945ADF003BD412 /* MedicineNameBrandView.swift in Sources */,
 				6BC7BFD82987241E00E15743 /* ThemeColors.swift in Sources */,
 				6BC7BFDA2987263800E15743 /* ThemeSettings.swift in Sources */,
+				6B91B4B52A95636B0098D14D /* IntakeNotificationTimePickerView.swift in Sources */,
 				6B0BEF3B29D3877D00B823DA /* NumberOfAdministrationsStepperView.swift in Sources */,
 				6B6372022A82E23E00679D8A /* SaveReminderButtonView.swift in Sources */,
 				6BCA9616293D5FE000C815E8 /* EditReminderView.swift in Sources */,
@@ -892,9 +938,11 @@
 				6B4ACF9D2A537DA100A04555 /* IconData.swift in Sources */,
 				6B64D7B429B00C5500D87319 /* DailyIntakeButtonView.swift in Sources */,
 				6B827FAD29E4AFB5008FC8EC /* View+If.swift in Sources */,
+				6B91B4B72A95651B0098D14D /* PackageExhaustionNotificationsSettingsView.swift in Sources */,
 				6B6372002A81930C00679D8A /* AddReminderStepThreeView.swift in Sources */,
 				6B91B4812A8C22F70098D14D /* AddReminderStepImageView.swift in Sources */,
 				6BFB269D2A30B38600481BF3 /* String+CapitalizeFirstLetter.swift in Sources */,
+				6B91B4B92A95659F0098D14D /* PackageExhaustionNotificationTimePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

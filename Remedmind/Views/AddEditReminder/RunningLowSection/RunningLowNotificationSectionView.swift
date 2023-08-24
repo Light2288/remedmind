@@ -10,6 +10,7 @@ import SwiftUI
 struct RunningLowNotificationSectionView: View {
     // MARK: - Properties
     @Binding var reminder: ReminderModel
+    @AppStorage("packageExhaustionNotificationDefaultTime") var packageExhaustionNotificationDefaultTimeShadow: Double = 0
     
     // MARK: - Body
     var body: some View {
@@ -18,6 +19,9 @@ struct RunningLowNotificationSectionView: View {
         }
         if reminder.activeRunningLowNotification {
             DatePicker(String(localized: "addEditReminderView.packageExhaustion.runningLowNotifications.time.label"), selection: $reminder.runningLowNotificationTime, displayedComponents: .hourAndMinute)
+                .onAppear {
+                    reminder.runningLowNotificationTime = Date(rawValue: packageExhaustionNotificationDefaultTimeShadow)
+                }
         }
     }
 }

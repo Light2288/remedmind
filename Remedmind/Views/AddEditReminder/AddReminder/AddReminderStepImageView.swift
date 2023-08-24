@@ -21,7 +21,7 @@ struct AddReminderStepImageView: View {
             .padding(.top, 16)
             .scaleEffect(scale)
             .onAppear {
-                withAnimation(.interpolatingSpring(stiffness: 170, damping: 15)) {
+                withAnimation(.interpolatingSpring(stiffness: 170, damping: 15).delay(0.1)) {
                     scale = 1.0
                 }
             }

@@ -11,6 +11,7 @@ struct DailyIntakeView: View {
     // MARK: - Properties
     let height: CGFloat = 120
     let maxWidth: CGFloat = 450
+    let hapticFeedback = UINotificationFeedbackGenerator()
     
     @Binding var selectedDay: Date
     @Binding var reminder: Reminder
@@ -28,14 +29,23 @@ struct DailyIntakeView: View {
                 offset = CGSize(width: maxTranslation, height: 0)
             }
             .onEnded { drag in
-                let maxLateralTranslation = dailyIntakeCapsuleViewSize.width/2 - height/2 - 15
+                guard let takenIntakes = reminder.getTakenIntakes(for: selectedDay) else { return }
+                let maxRightLateralTranslation = dailyIntakeCapsuleViewSize.width/2 - height/2 - 15
+                let maxLeftLateralTranslation = -maxRightLateralTranslation
                 defer {
-                    if drag.translation.width < -maxLateralTranslation {
-                        reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: -1, context: viewContext)
-                        reminder.updateCurrentPackageQuantity(by: -reminder.administrationQuantity, context: viewContext)
-                    } else if drag.translation.width > maxLateralTranslation {
+                    if drag.translation.width < maxLeftLateralTranslation {
+                        if takenIntakes > 0 {
+                            reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: -1, context: viewContext)
+                            reminder.updateCurrentPackageQuantity(by: -reminder.administrationQuantity, context: viewContext)
+                            hapticFeedback.notificationOccurred(.success)
+                        }
+                        else {
+                            hapticFeedback.notificationOccurred(.error)
+                        }
+                    } else if drag.translation.width > maxRightLateralTranslation {
                         reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: +1, context: viewContext)
                         reminder.updateCurrentPackageQuantity(by: reminder.administrationQuantity, context: viewContext)
+                        hapticFeedback.notificationOccurred(.success)
                     }
                 }
                 withAnimation(.interpolatingSpring(stiffness: 170, damping: 13)) {
@@ -50,11 +60,13 @@ struct DailyIntakeView: View {
                 minusButtonAction: {
                     reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: -1, context: viewContext)
                     reminder.updateCurrentPackageQuantity(by: -reminder.administrationQuantity, context: viewContext)
+                    hapticFeedback.notificationOccurred(.success)
                     return
                 },
                 plusButtonAction: {
                     reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: +1, context: viewContext)
                     reminder.updateCurrentPackageQuantity(by: reminder.administrationQuantity, context: viewContext)
+                    hapticFeedback.notificationOccurred(.success)
                     return
                     
                 }

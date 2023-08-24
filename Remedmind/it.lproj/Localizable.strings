@@ -106,7 +106,7 @@
 "addEditReminderView.packageExhaustion.title" = "Esaurimento confezione";
 "addEditReminderView.packageExhaustion.runningLowNotifications.label" = "Ricevi una notifica quando la confezione sta per esaurirsi";
 "addEditReminderView.packageExhaustion.runningLowNotifications.time.label" = "Orario della notifica";
-"addEditReminderView.packageExhaustion.packageQuantity %@" = "%@ in una confezione";
+"addEditReminderView.packageExhaustion.packageQuantity %@" = "%@ in una nuova confezione";
 "addEditReminderView.packageExhaustion.currentPackageQuantity.label %@ %@" = "Se hai una confezione già utilizzata, inserisci nel prossimo campo quante %@ sono rimaste nella confezione. Se stai iniziando una nuova confezione, lascia 0 nel prossimo campo o inserisci il numero totale di %@ in una confezione nuova.";
 "addEditReminderView.packageExhaustion.currentPackageQuantity %@" = "%@ rimanenti nella confezione attuale";
 
@@ -140,3 +140,22 @@
 "appearance.name.auto" = "Sistema";
 "appearance.name.light" = "Chiaro";
 "appearance.name.dark" = "Scuro";
+
+"settingsView.notifications.intakeNotificationsTitle" = "Notifiche di assunzione";
+"settingsView.notifications.intakeNotification.label" = "Modalità orario";
+"settingsView.notifications.intakeNotification.autoMode.label" = "In modalità automatica, quando viene creato un nuovo promemoria, gli orari predefiniti delle notifiche saranno calcolati sulla base del numero di assunzioni giornaliere, dividendo la giornata in intervalli uguali, partendo dalla mezzanotte (ad esempio, se le assuzioni giornaliere sono 3, verrà proposto 08:00, 16:00, 00:00); puoi comunque cambiare questi orari in fase di creazione";
+"settingsView.notifications.intakeNotification.customMode.label" = "In modalità personalizzata, quando viene creato un nuovo promemoria, gli orari predefiniti delle notifiche saranno calcolati sulla base del numero di assunzioni giornaliere, dividendo la giornata in intervalli uguali, partendo dall'orario definito nel prossimo campo (ad esempio, se le assuzioni giornaliere sono 3 e hai indicato come orario di inizio le 10:00, verrà proposto 10:00, 18:00, 02:00); puoi comunque cambiare questi orari in fase di creazione";
+"settingsView.notifications.intakeNotification.timePicker.label" = "Orario predefinito";
+
+"intakeNotificationType.automatic" = "Automatico";
+"intakeNotificationType.custom" = "Personalizzato";
+
+"settingsView.notifications.packageExhaustionNotificationsTitle" = "Notifiche esaurimento confezione";
+"settingsView.notifications.packageExhaustionNotification.timePicker.label" = "Orario predefinito";
+
+"settingsView.aboutThisApp.title" = "Informazioni";
+"settingsView.aboutThisApp.application" = "Applicazione";
+"settingsView.aboutThisApp.version" = "Versione";
+"settingsView.aboutThisApp.availableOn" = "Disponibile per";
+"settingsView.aboutThisApp.developedBy" = "Sviluppata da";
+"settingsView.aboutThisApp.developerWebsite" = "Sito web dello sviluppatore";

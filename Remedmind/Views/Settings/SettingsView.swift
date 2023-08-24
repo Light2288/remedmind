@@ -11,8 +11,6 @@ struct SettingsView: View {
     // MARK: - Properties
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeSettings: ThemeSettings
-    @EnvironmentObject var appearanceSettings: AppearanceSettings
-    @EnvironmentObject var iconSettings: IconSettings
     @Binding var showSettingsModal: Bool
     
     // MARK: - Body
@@ -20,38 +18,9 @@ struct SettingsView: View {
         NavigationView {
             VStack(alignment: .center, spacing: 0) {
                 Form {
-                    Section {
-  
-                        AppearancePickerView()
-                            .environmentObject(self.appearanceSettings)
-                            .environmentObject(self.themeSettings)
-                        
-                        ThemePickerView()
-                            .environmentObject(self.themeSettings)
-                        
-                        IconPickerView()
-                            .environmentObject(self.themeSettings)
-                            .environmentObject(self.iconSettings)
-                        
-                    } header: {
-                        Text("settingsView.style.title")
-                    }
-                    .padding(.vertical, 3)
-                    
-                    Section("About this application", content: {
-                        SettingsFormRow(icon: "app.badge", title: "Application", content: "Remedminder")
-                            .environmentObject(self.themeSettings)
-                        SettingsFormRow(icon: "flag", title: "Version", content: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0")
-                            .environmentObject(self.themeSettings)
-                        SettingsFormRow(icon: "ipad.and.iphone", title: "Available on", content: "iPhone, iPad")
-                            .environmentObject(self.themeSettings)
-                        SettingsFormRow(icon: "pc", title: "Developed by", content: "Light Stimulus (Davide Aliti)")
-                            .environmentObject(self.themeSettings)
-                        SettingsFormRow(icon: "link", title: "Developer website", link: "https://github.com/Light2288")
-                            .environmentObject(self.themeSettings)
-                    })
-                    .padding(.vertical, 3)
-                    
+                    StyleSectionView()
+                    NotificationsSectionView()
+                    AboutThisAppSectionView()
                 }
                 .listStyle(.grouped)
                 .environment(\.horizontalSizeClass, .regular)

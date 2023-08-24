@@ -39,10 +39,10 @@
 "administrationType.other" = "other";
 
 "administrationType.plural.genericDescription" = "intakes by";
-"administrationType.plural.capsule" = "capsule";
-"administrationType.plural.tablet" = "tablet";
-"administrationType.plural.sachet" = "sachet";
-"administrationType.plural.drop" = "drop";
+"administrationType.plural.capsule" = "capsules";
+"administrationType.plural.tablet" = "tablets";
+"administrationType.plural.sachet" = "sachets";
+"administrationType.plural.drop" = "drops";
 "administrationType.plural.suppository" = "suppositories";
 "administrationType.plural.patch" = "patches";
 
@@ -107,7 +107,7 @@
 "addEditReminderView.packageExhaustion.title" = "Package exhaustion";
 "addEditReminderView.packageExhaustion.runningLowNotifications.label" = "Receive a notification when package is about to run out";
 "addEditReminderView.packageExhaustion.runningLowNotifications.time.label" = "Notification time";
-"addEditReminderView.packageExhaustion.packageQuantity %@" = "%@ in a package";
+"addEditReminderView.packageExhaustion.packageQuantity %@" = "%@ in a new package";
 "addEditReminderView.packageExhaustion.currentPackageQuantity.label %@ %@" = "If you have a package that has already been used, enter in the following field how many %@ are left in the package. If you are starting a new package, leave 0 in the following field or enter the total amount of %@ in a new package.";
 "addEditReminderView.packageExhaustion.currentPackageQuantity %@" = "%@ left in current package";
 
@@ -142,3 +142,21 @@
 "appearance.name.light" = "Light";
 "appearance.name.dark" = "Dark";
 
+"settingsView.notifications.intakeNotificationsTitle" = "Intake notifications";
+"settingsView.notifications.intakeNotification.label" = "Time mode";
+"settingsView.notifications.intakeNotification.autoMode.label" = "In automatic mode, when a new reminder is created, the default notification times will be calculated based on the number of daily intakes, dividing the day into equal intervals (for example, if there are 3 daily intakes, 8:00 am, 4:00 pm, 0:00 am); you can always change these times during creation";
+"settingsView.notifications.intakeNotification.customMode.label" = "In custom mode, when a new reminder is created, the default notification times will be calculated based on the number of daily intakes, dividing the day into equal intervals, starting from the time defined in the next field (for example, if the daily intakes are 3 and you have indicated 10:00 as the starting time, 10:00 am, 6:00 pm, 2:00 am); you can always change these times during creation";
+"settingsView.notifications.intakeNotification.timePicker.label" = "Default time";
+
+"intakeNotificationType.automatic" = "Auto";
+"intakeNotificationType.custom" = "Custom";
+
+"settingsView.notifications.packageExhaustionNotificationsTitle" = "Package exhaustion notifications";
+"settingsView.notifications.packageExhaustionNotification.timePicker.label" = "Default time";
+
+"settingsView.aboutThisApp.title" = "About this app";
+"settingsView.aboutThisApp.application" = "Application";
+"settingsView.aboutThisApp.version" = "Version";
+"settingsView.aboutThisApp.availableOn" = "Available on";
+"settingsView.aboutThisApp.developedBy" = "Developed by";
+"settingsView.aboutThisApp.developerWebsite" = "Developer website";
