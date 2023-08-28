@@ -21,13 +21,11 @@ struct RemindersListView: View {
     
     @State var isAddReminderViewPresented: Bool = false
     @State var isSettingsViewPresented: Bool = false
-    @State var addButtonOffset = CGSize(width: 100, height: -50)
+    @State var addButtonOffset = CGSize(width: 100, height: -10)
     @State var addButtonOpacity = 1.0
     @State var addButtonPlusSymbolOpacity = 1.0
-    @State var navigationBarAddButtonOpacity = 0.0
     @State var addButtonPlusSymbolColor = Color(.systemBackground)
     @State var addButtonPlusSymbolScale = CGSize(width: 0.75, height: 0.75)
-    @State var tag = 0
     @State var selectedDay: Date = Date.now
     @State var selectedReminder: Reminder?
     @State var showAddIntakeOverlayView: Bool = false
@@ -55,42 +53,7 @@ struct RemindersListView: View {
                             }
                         }
                     })
-                    .simultaneousGesture(
-                        DragGesture(minimumDistance: 25).onChanged { value in
-                            withAnimation(.easeOut(duration: 0.8)) {
-                                self.tag = 1
-                                addButtonOffset = CGSize(
-                                    width: 0,
-                                    height: 0)
-                                addButtonOpacity = 0.0
-                                addButtonPlusSymbolColor = ThemeSettings().selectedThemePrimaryColor
-                                addButtonPlusSymbolScale = CGSize(width: 0.66, height: 0.66)
-                                
-                            }
-                            
-                            withAnimation(.easeIn(duration: 0.1).delay(0.7)) {
-                                addButtonPlusSymbolOpacity = 0.0
-                            }
-                            
-                            withAnimation(.default.delay(0.7)) {
-                                navigationBarAddButtonOpacity = 1.0
-                            }
-                        }
-                    )
                     .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button {
-                                isAddReminderViewPresented.toggle()
-                            } label: {
-                                Image(systemName: "plus")
-                            }
-                            .background(PositionReader(tag: 1, value: .center))
-                            .opacity(navigationBarAddButtonOpacity)
-                            .onAppear {
-                                _ = self.tag(1)
-                            }
-                            
-                        }
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
                                 isSettingsViewPresented.toggle()
@@ -122,13 +85,16 @@ struct RemindersListView: View {
                     .background(PositionReader(tag: 0, value: .bottomTrailing))
                     .navigationTitle("reminder.list.title")
                     .navigationBarTitleDisplayMode(.large)
-                    .overlayPreferenceValue(Positions.self) { preferences in
-                        GeometryReader { proxy in
-                            let position = self.getPosition(proxy: proxy, tag: self.tag, preferences: preferences)
-                            AddReminderButton(isAddReminderViewPresented: $isAddReminderViewPresented, offset: $addButtonOffset, buttonOpacity: $addButtonOpacity, plusSymbolColor: $addButtonPlusSymbolColor, plusSymbolScale: $addButtonPlusSymbolScale, plusSymbolOpacity: $addButtonPlusSymbolOpacity)
-                                .position( x: position.x - 2, y: position.y + 3)
-                            
-                        }
+//                    .overlayPreferenceValue(Positions.self) { preferences in
+//                        GeometryReader { proxy in
+//                            let position = self.getPosition(proxy: proxy, tag: self.tag, preferences: preferences)
+//                            AddReminderButton(isAddReminderViewPresented: $isAddReminderViewPresented, offset: $addButtonOffset, buttonOpacity: $addButtonOpacity, plusSymbolColor: $addButtonPlusSymbolColor, plusSymbolScale: $addButtonPlusSymbolScale, plusSymbolOpacity: $addButtonPlusSymbolOpacity)
+//                                .position( x: position.x - 2, y: position.y + 3)
+//
+//                        }
+//                    }
+                    .overlay(alignment: .bottomTrailing) {
+                        AddReminderButton(isAddReminderViewPresented: $isAddReminderViewPresented, offset: $addButtonOffset, buttonOpacity: $addButtonOpacity, plusSymbolColor: $addButtonPlusSymbolColor, plusSymbolScale: $addButtonPlusSymbolScale, plusSymbolOpacity: $addButtonPlusSymbolOpacity)
                     }
                     
                 }
