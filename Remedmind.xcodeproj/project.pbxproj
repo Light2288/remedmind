@@ -22,6 +22,7 @@
 		6B11D8BC29945853003BD412 /* MedicineImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11D8BB29945853003BD412 /* MedicineImageView.swift */; };
 		6B11D8BE29945ADF003BD412 /* MedicineNameBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11D8BD29945ADF003BD412 /* MedicineNameBrandView.swift */; };
 		6B11D8C02994600E003BD412 /* AdministrationFrequencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11D8BF2994600E003BD412 /* AdministrationFrequencyView.swift */; };
+		6B25E4672A9A992F00C3F9B5 /* ReminderModel+IntakeNotificationTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25E4662A9A992F00C3F9B5 /* ReminderModel+IntakeNotificationTimes.swift */; };
 		6B4A4D7F29AD6B0A0063D15E /* Calendar+Generate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A4D7E29AD6B0A0063D15E /* Calendar+Generate.swift */; };
 		6B4A4D8129AD6B3A0063D15E /* Date+StartOfMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A4D8029AD6B3A0063D15E /* Date+StartOfMonth.swift */; };
 		6B4A4D8329AD6B630063D15E /* DateFormatter+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A4D8229AD6B630063D15E /* DateFormatter+Init.swift */; };
@@ -162,6 +163,7 @@
 		6B11D8BB29945853003BD412 /* MedicineImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineImageView.swift; sourceTree = "<group>"; };
 		6B11D8BD29945ADF003BD412 /* MedicineNameBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineNameBrandView.swift; sourceTree = "<group>"; };
 		6B11D8BF2994600E003BD412 /* AdministrationFrequencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrationFrequencyView.swift; sourceTree = "<group>"; };
+		6B25E4662A9A992F00C3F9B5 /* ReminderModel+IntakeNotificationTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderModel+IntakeNotificationTimes.swift"; sourceTree = "<group>"; };
 		6B4A4D7E29AD6B0A0063D15E /* Calendar+Generate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Generate.swift"; sourceTree = "<group>"; };
 		6B4A4D8029AD6B3A0063D15E /* Date+StartOfMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+StartOfMonth.swift"; sourceTree = "<group>"; };
 		6B4A4D8229AD6B630063D15E /* DateFormatter+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Init.swift"; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				6B653DD22A6033C100E6AE8F /* Reminder+RunningLow.swift */,
 				6B91B4AE2A940AC00098D14D /* IntakeNotificationType+Description.swift */,
 				6B91B4BA2A96A9760098D14D /* Date+RawValue.swift */,
+				6B25E4662A9A992F00C3F9B5 /* ReminderModel+IntakeNotificationTimes.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 				6BE3E69629F88079006849FF /* Calendar+CustomLocalizedCalendar.swift in Sources */,
 				6BFB269B2A2BA89500481BF3 /* AdministrationFrequency+Description.swift in Sources */,
 				6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */,
+				6B25E4672A9A992F00C3F9B5 /* ReminderModel+IntakeNotificationTimes.swift in Sources */,
 				6B64D7BA29B10AF200D87319 /* DailyIntakeDetailView.swift in Sources */,
 				6BE3E6F22A157EB5006849FF /* AddEditReminderViewFields.swift in Sources */,
 				6B91B4B32A9558C80098D14D /* IntakeNotificationModeLabelView.swift in Sources */,

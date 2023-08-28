@@ -13,7 +13,7 @@ struct ReminderModel: Identifiable {
     var image: String = ""
     var notes: String = ""
     var activeAdministrationNotification: Bool = false
-    var administrationNotificationTimes: [Date] = [Date.now]
+    var administrationNotificationTimes: [Date] = []
     var activeRunningLowNotification: Bool = false
     var runningLowNotificationTime: Date = Date.now
     var startDate: Date = Date.now
