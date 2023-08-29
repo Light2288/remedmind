@@ -113,7 +113,7 @@ class LocalNotifications {
         userNotificationCenter.getNotificationSettings { settings in
             let content = UNMutableNotificationContent()
             content.title = "Remedmind"
-            content.body = NSString.localizedUserNotificationString(forKey: "notification.administration.body.content", arguments: [reminder.medicineName ?? "unknown medicine"])
+            content.body = NSString.localizedUserNotificationString(forKey: "notification.administration.body.content", arguments: [reminder.medicineNameString])
             content.userInfo = ["reminderId": reminder.id?.uuidString as Any]
             
             if settings.soundSetting == .enabled {
@@ -137,7 +137,7 @@ class LocalNotifications {
         userNotificationCenter.getNotificationSettings { settings in
             let content = UNMutableNotificationContent()
             content.title = "Remedmind"
-            content.body = NSString.localizedUserNotificationString(forKey: "notification.runningLow.body.content", arguments: [reminder.medicineName ?? "unknown medicine", reminder.administrationTypeString])
+            content.body = NSString.localizedUserNotificationString(forKey: "notification.runningLow.body.content", arguments: [reminder.medicineNameString, reminder.administrationTypeString])
             content.userInfo = ["reminderId": reminder.id?.uuidString as Any]
             
             if settings.soundSetting == .enabled {
