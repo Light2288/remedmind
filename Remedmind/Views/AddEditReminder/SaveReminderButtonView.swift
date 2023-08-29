@@ -51,6 +51,7 @@ struct SaveReminderButtonView: View {
                 addNotifications(for: newReminder)
             }
             showModal = false
+            playSound(soundName: "save-reminder", type: "mp3")
             hapticFeedback.notificationOccurred(.success)
         } catch {
             let nsError = error as NSError

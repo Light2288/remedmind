@@ -85,14 +85,6 @@ struct RemindersListView: View {
                     .background(PositionReader(tag: 0, value: .bottomTrailing))
                     .navigationTitle("reminder.list.title")
                     .navigationBarTitleDisplayMode(.large)
-//                    .overlayPreferenceValue(Positions.self) { preferences in
-//                        GeometryReader { proxy in
-//                            let position = self.getPosition(proxy: proxy, tag: self.tag, preferences: preferences)
-//                            AddReminderButton(isAddReminderViewPresented: $isAddReminderViewPresented, offset: $addButtonOffset, buttonOpacity: $addButtonOpacity, plusSymbolColor: $addButtonPlusSymbolColor, plusSymbolScale: $addButtonPlusSymbolScale, plusSymbolOpacity: $addButtonPlusSymbolOpacity)
-//                                .position( x: position.x - 2, y: position.y + 3)
-//
-//                        }
-//                    }
                     .overlay(alignment: .bottomTrailing) {
                         AddReminderButton(isAddReminderViewPresented: $isAddReminderViewPresented, offset: $addButtonOffset, buttonOpacity: $addButtonOpacity, plusSymbolColor: $addButtonPlusSymbolColor, plusSymbolScale: $addButtonPlusSymbolScale, plusSymbolOpacity: $addButtonPlusSymbolOpacity)
                     }

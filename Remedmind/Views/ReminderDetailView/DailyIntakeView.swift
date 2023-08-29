@@ -38,14 +38,17 @@ struct DailyIntakeView: View {
                             reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: -1, context: viewContext)
                             reminder.updateCurrentPackageQuantity(by: -reminder.administrationQuantity, context: viewContext)
                             hapticFeedback.notificationOccurred(.success)
+                            playSound(soundName: "add-remove-success", type: "mp3")
                         }
                         else {
                             hapticFeedback.notificationOccurred(.error)
+                            playSound(soundName: "add-remove-error", type: "wav")
                         }
                     } else if drag.translation.width > maxRightLateralTranslation {
                         reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: +1, context: viewContext)
                         reminder.updateCurrentPackageQuantity(by: reminder.administrationQuantity, context: viewContext)
                         hapticFeedback.notificationOccurred(.success)
+                        playSound(soundName: "add-remove-success", type: "mp3")
                     }
                 }
                 withAnimation(.interpolatingSpring(stiffness: 170, damping: 13)) {
@@ -58,15 +61,23 @@ struct DailyIntakeView: View {
                 .saveSize(in: $dailyIntakeCapsuleViewSize)
             DailyIntakeButtonsView(
                 minusButtonAction: {
-                    reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: -1, context: viewContext)
-                    reminder.updateCurrentPackageQuantity(by: -reminder.administrationQuantity, context: viewContext)
-                    hapticFeedback.notificationOccurred(.success)
+                    guard let takenIntakes = reminder.getTakenIntakes(for: selectedDay) else { return }
+                    if takenIntakes > 0 {
+                        reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: -1, context: viewContext)
+                        reminder.updateCurrentPackageQuantity(by: -reminder.administrationQuantity, context: viewContext)
+                        hapticFeedback.notificationOccurred(.success)
+                        playSound(soundName: "add-remove-success", type: "mp3")
+                    } else {
+                        hapticFeedback.notificationOccurred(.error)
+                        playSound(soundName: "add-remove-error", type: "wav")
+                    }
                     return
                 },
                 plusButtonAction: {
                     reminder.updateTakenDailyIntakes(for: selectedDay, intakesToAdd: +1, context: viewContext)
                     reminder.updateCurrentPackageQuantity(by: reminder.administrationQuantity, context: viewContext)
                     hapticFeedback.notificationOccurred(.success)
+                    playSound(soundName: "add-remove-success", type: "mp3")
                     return
                     
                 }
