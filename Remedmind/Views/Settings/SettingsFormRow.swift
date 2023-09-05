@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsFormRow: View {
     // MARK: - Properties
     var icon: String
-    var title: String
+    var title: String.LocalizationValue
     var content: String?
     var link: String?
     
@@ -29,7 +29,7 @@ struct SettingsFormRow: View {
                     .foregroundColor(Color(.systemBackground))
             }
             .frame(width: 46, height: 46, alignment: .center)
-            Text(title)
+            Text(String(localized: title))
                 .foregroundColor(Color(.systemGray))
             Spacer()
             if let content = self.content {

@@ -32,7 +32,7 @@ struct AdministrationQuantityStepperView: View {
             }
         }
         if reminder.medicine.administrationType.hasIntakeQuantity {
-            Stepper(value: $reminder.medicine.administrationQuantity, in: 0 ... .infinity, step: 0.5) {
+            Stepper(value: $reminder.medicine.administrationQuantity, in: 0.5 ... .infinity, step: 0.5) {
                 HStack(spacing: 0) {
                     Text("addEditReminderView.administration.administrationQuantity.label \(reminder.medicine.administrationQuantity.description)")
                     Text(" " + (reminder.medicine.administrationQuantity <= 1.0 ? reminder.medicine.administrationType.administrationTypeShortDescription : reminder.medicine.administrationType.administrationTypeDescriptionPlural))

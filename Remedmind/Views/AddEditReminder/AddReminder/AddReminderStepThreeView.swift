@@ -16,7 +16,7 @@ struct AddReminderStepThreeView: View {
     // MARK: - Body
     var body: some View {
             VStack {
-                AddReminderStepImageView(imageName: "step-1-icon-default")
+                AddReminderStepImageView(imageName: "step-3-icon-\(themeSettings.selectedIconsId)")
                 List {
                     RunningLowSectionView(reminder: $reminder, hasTitle: false)
                 }

@@ -19,8 +19,8 @@ struct MedicineModel {
     
     var administrationDays: Array<Bool> = Array.init(repeating: true, count: 7)
     
-    var packageQuantity: Int32 = 0
-    var currentPackageQuantity: Float = 0.0
+    var packageQuantity: Int32 = 1
+    var currentPackageQuantity: Float = 1.0
 }
 
 extension MedicineModel {

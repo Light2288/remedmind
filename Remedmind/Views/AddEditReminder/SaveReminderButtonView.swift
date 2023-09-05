@@ -16,6 +16,7 @@ struct SaveReminderButtonView: View {
     @Binding var showModal: Bool
     @FocusState var focusedField: Field?
     var reminderToEdit: Binding<Reminder>? = nil
+    let hapticFeedback = UINotificationFeedbackGenerator()
     
     
     func addCurrentDayIntakes(for newReminder: Reminder) {
@@ -50,6 +51,8 @@ struct SaveReminderButtonView: View {
                 addNotifications(for: newReminder)
             }
             showModal = false
+            playSound(soundName: "save-reminder", type: "mp3")
+            hapticFeedback.notificationOccurred(.success)
         } catch {
             let nsError = error as NSError
             fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")

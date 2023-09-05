@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "step-1-icon-default.svg",
+      "filename" : "step-1-icon-cyan-light.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "step-1-icon-default 1.svg",
+      "filename" : "step-1-icon-cyan-light 1.svg",
       "idiom" : "universal"
     },
     {
@@ -21,7 +21,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "step-1-icon-default 2.svg",
+      "filename" : "step-1-icon-cyan-dark.svg",
       "idiom" : "universal"
     }
   ],

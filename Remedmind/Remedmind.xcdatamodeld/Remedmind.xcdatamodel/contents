@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="DailyIntake" representedClassName="DailyIntake" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -12,7 +12,7 @@
         <attribute name="activeRunningLowNotification" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="administrationDays" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
         <attribute name="administrationFrequency" attributeType="String" defaultValueString=""/>
-        <attribute name="administrationNotificationTimes" optional="YES" attributeType="Transformable"/>
+        <attribute name="administrationNotificationTimes" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer"/>
         <attribute name="administrationQuantity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="administrationType" optional="YES" attributeType="String"/>
         <attribute name="currentPackageQuantity" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>

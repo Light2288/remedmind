@@ -19,7 +19,7 @@ struct AddReminderStepOneView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                AddReminderStepImageView(imageName: "step-1-icon-default")
+                AddReminderStepImageView(imageName: "step-1-icon-\(themeSettings.selectedIconsId)")
                 List {
                     GeneralInfoSectionView(reminder: $reminder, hasTitle: false)
                 }

@@ -71,7 +71,7 @@ struct AddReminderButton: View {
             let pulsatingAnimation = Animation.easeOut(duration: 2.0).repeatForever(autoreverses: true).delay(3)
             
             withAnimation(slideAnimation) {
-                offset = CGSize(width: -50, height: -50)
+                offset = CGSize(width: -10, height: -10)
             }
             
             

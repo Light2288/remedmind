@@ -21,17 +21,17 @@ struct PackageQuantitiesSectionView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("addEditReminderView.packageExhaustion.packageQuantity \(reminder.medicine.administrationTypeString.capitalizedFirstLetter)")
+                Text("addEditReminderView.packageExhaustion.packageQuantity \(reminder.medicine.administrationType.administrationTypeDescriptionPlural.capitalizedFirstLetter)")
                 Spacer()
                 TextField("", value: $reminder.medicine.packageQuantity, formatter: NumberFormatter())
                     .keyboardType(.decimalPad)
                     .fixedSize()
                     .textFieldStyle(.roundedBorder)
             }
-            Text("addEditReminderView.packageExhaustion.currentPackageQuantity.label \(reminder.medicine.administrationTypeString) \(reminder.medicine.administrationTypeString)")
+            Text("addEditReminderView.packageExhaustion.currentPackageQuantity.label \(reminder.medicine.administrationType.administrationTypeDescriptionPlural) \(reminder.medicine.administrationType.administrationTypeDescriptionPlural)")
                 .font(.footnote)
             HStack {
-                Text("addEditReminderView.packageExhaustion.currentPackageQuantity \(reminder.medicine.administrationTypeString.capitalizedFirstLetter)")
+                Text("addEditReminderView.packageExhaustion.currentPackageQuantity \(reminder.medicine.administrationType.administrationTypeDescriptionPlural.capitalizedFirstLetter)")
                 Spacer()
                 TextField("", value: $reminder.medicine.currentPackageQuantity, formatter: currentPackageQuantityFormatter)
                     .keyboardType(.decimalPad)
