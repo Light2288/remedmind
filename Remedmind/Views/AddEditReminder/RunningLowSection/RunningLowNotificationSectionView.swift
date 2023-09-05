@@ -20,6 +20,13 @@ struct RunningLowNotificationSectionView: View {
         if reminder.activeRunningLowNotification {
             DatePicker(String(localized: "addEditReminderView.packageExhaustion.runningLowNotifications.time.label"), selection: $reminder.runningLowNotificationTime, displayedComponents: .hourAndMinute)
                 .onAppear {
+                    guard packageExhaustionNotificationDefaultTimeShadow != 0 else {
+                        var dateComponents = DateComponents()
+                        dateComponents.hour = 18
+                        dateComponents.minute = 00
+                        reminder.runningLowNotificationTime = Calendar.customLocalizedCalendar.date(from: dateComponents) ?? Date.now
+                        return
+                    }
                     reminder.runningLowNotificationTime = Date(rawValue: packageExhaustionNotificationDefaultTimeShadow)
                 }
         }
