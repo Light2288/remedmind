@@ -33,7 +33,7 @@ struct RemindersListView: View {
     var body: some View {
         VStack {
             ZStack {
-                NavigationView {
+                NavigationStack {
                     
                     List {
                         ForEach(reminders) { reminder in
