@@ -30,7 +30,7 @@ struct IconPickerView: View {
                         Button {
                             iconSettings.selectedIconId = icon.id
                         } label: {
-                            Image(uiImage: UIImage(named: icon.iconName ) ?? UIImage())
+                            Image(uiImage: UIImage(named: "\(icon.iconName)-image") ?? UIImage())
                                 .renderingMode(.original)
                                 .resizable()
                                 .scaledToFit()
