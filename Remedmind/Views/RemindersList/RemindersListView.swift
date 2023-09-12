@@ -31,73 +31,69 @@ struct RemindersListView: View {
     @State var showAddIntakeOverlayView: Bool = false
     
     var body: some View {
-        VStack {
-            ZStack {
-                NavigationStack {
-                    
-                    List {
-                        ForEach(reminders) { reminder in
-                            NavigationLink {
-                                ReminderDetailView(reminder: reminder)
-                            } label: {
-                                ReminderListRowView(reminder: reminder, selectedReminder: $selectedReminder, selectedDay: $selectedDay, showAddIntakeOverlayView: $showAddIntakeOverlayView)
-                                    .environmentObject(self.themeSettings)
-                            }
+        ZStack {
+            NavigationStack {
+                
+                List {
+                    ForEach(reminders) { reminder in
+                        NavigationLink {
+                            ReminderDetailView(reminder: reminder)
+                        } label: {
+                            ReminderListRowView(reminder: reminder, selectedReminder: $selectedReminder, selectedDay: $selectedDay, showAddIntakeOverlayView: $showAddIntakeOverlayView)
+                                .environmentObject(self.themeSettings)
                         }
                     }
-                    .onAppear(perform: {
-                        reminders.forEach { reminder in
-                            reminder.addMissingDailyIntakes(context: viewContext)
-                            if reminder.activeAdministrationNotification || reminder.activeRunningLowNotification {
-                                LocalNotifications.shared.deleteAndCreateNewNotificationRequests(for: reminder)
-                            }
-                        }
-                    })
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                isSettingsViewPresented.toggle()
-                            } label: {
-                                Image(systemName: "gear")
-                            }
-                            .transaction { transaction in
-                                transaction.animation = nil
-                            }
-                        }
-                    }
-                    .sheet(isPresented: $isAddReminderViewPresented, onDismiss: {
-                        reminders.forEach { reminder in
-                            reminder.addMissingDailyIntakes(context: viewContext)
-                        }
-                    }) {
-                        AddReminderView(showModal: $isAddReminderViewPresented)
-                            .environment(\.managedObjectContext, viewContext)
-                            .environmentObject(self.themeSettings)
-                    }
-                    .sheet(isPresented: $isSettingsViewPresented) {
-                        SettingsView(showSettingsModal: $isSettingsViewPresented)
-                            .environmentObject(self.iconSettings)
-                            .environmentObject(self.themeSettings)
-                            .environmentObject(self.appearanceSettings)
-                            .environmentObject(self.iconSettings)
-                    }
-                    //            }
-                    .background(PositionReader(tag: 0, value: .bottomTrailing))
-                    .navigationTitle("reminder.list.title")
-                    .navigationBarTitleDisplayMode(.large)
-                    .overlay(alignment: .bottomTrailing) {
-                        AddReminderButton(isAddReminderViewPresented: $isAddReminderViewPresented, offset: $addButtonOffset, buttonOpacity: $addButtonOpacity, plusSymbolColor: $addButtonPlusSymbolColor, plusSymbolScale: $addButtonPlusSymbolScale, plusSymbolOpacity: $addButtonPlusSymbolOpacity)
-                    }
-                    
                 }
-                if let _ = $selectedReminder.wrappedValue, showAddIntakeOverlayView {
-                    ReminderListAddIntakeOverlayView(selectedReminder: $selectedReminder, selectedDay: $selectedDay, showAddIntakeOverlayView: $showAddIntakeOverlayView)
+                .onAppear(perform: {
+                    reminders.forEach { reminder in
+                        reminder.addMissingDailyIntakes(context: viewContext)
+                        if reminder.activeAdministrationNotification || reminder.activeRunningLowNotification {
+                            LocalNotifications.shared.deleteAndCreateNewNotificationRequests(for: reminder)
+                        }
+                    }
+                })
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isSettingsViewPresented.toggle()
+                        } label: {
+                            Image(systemName: "gear")
+                        }
+                        .transaction { transaction in
+                            transaction.animation = nil
+                        }
+                    }
                 }
+                .sheet(isPresented: $isAddReminderViewPresented, onDismiss: {
+                    reminders.forEach { reminder in
+                        reminder.addMissingDailyIntakes(context: viewContext)
+                    }
+                }) {
+                    AddReminderView(showModal: $isAddReminderViewPresented)
+                        .environment(\.managedObjectContext, viewContext)
+                        .environmentObject(self.themeSettings)
+                }
+                .sheet(isPresented: $isSettingsViewPresented) {
+                    SettingsView(showSettingsModal: $isSettingsViewPresented)
+                        .environmentObject(self.iconSettings)
+                        .environmentObject(self.themeSettings)
+                        .environmentObject(self.appearanceSettings)
+                        .environmentObject(self.iconSettings)
+                }
+                //            }
+                .background(PositionReader(tag: 0, value: .bottomTrailing))
+                .navigationTitle("reminder.list.title")
+                .navigationBarTitleDisplayMode(.large)
+                .overlay(alignment: .bottomTrailing) {
+                    AddReminderButton(isAddReminderViewPresented: $isAddReminderViewPresented, offset: $addButtonOffset, buttonOpacity: $addButtonOpacity, plusSymbolColor: $addButtonPlusSymbolColor, plusSymbolScale: $addButtonPlusSymbolScale, plusSymbolOpacity: $addButtonPlusSymbolOpacity)
+                }
+                
             }
-            .tint(themeSettings.selectedThemePrimaryColor)
+            if let _ = $selectedReminder.wrappedValue, showAddIntakeOverlayView {
+                ReminderListAddIntakeOverlayView(selectedReminder: $selectedReminder, selectedDay: $selectedDay, showAddIntakeOverlayView: $showAddIntakeOverlayView)
+            }
         }
-        BannerView()
-            .frame(maxWidth: .infinity, maxHeight: 60, alignment: .bottomTrailing)
+        .tint(themeSettings.selectedThemePrimaryColor)
     }
 }
 
