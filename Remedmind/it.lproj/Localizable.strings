@@ -101,6 +101,7 @@
 "listView.row.administrationFrequency %@ %@ %d %@" = "%@ %@, %d volte al giorno, %@";
 "listView.row.administrationFrequency.weekly %@" = "ogni %@";
 "listView.row.packageRemaining %@ %@" = "%@ %@ restanti nella confezione corrente";
+"listView.emptyListText" = "Nessun promemoria, aggiungine uno con il tasto +";
 
 "addEditReminderView.navigation.title" = "Nuovo Promemoria Medicina";
 "addEditReminderView.packageExhaustion.title" = "Esaurimento confezione";

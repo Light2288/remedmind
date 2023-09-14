@@ -84,6 +84,7 @@
 		6B9FB1A929BE0F8800D39B7F /* NotificationsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9FB1A829BE0F8800D39B7F /* NotificationsInfoView.swift */; };
 		6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */; };
 		6BA19A3B299AED4F00F8CF9E /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */; };
+		6BA1DA962AB3A81C001F9408 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA1DA952AB3A81C001F9408 /* EmptyListView.swift */; };
 		6BA7E774293D67BB00A3F3E4 /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7E773293D67BB00A3F3E4 /* Medicine.swift */; };
 		6BA7E776293D68F500A3F3E4 /* Administration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7E775293D68F500A3F3E4 /* Administration.swift */; };
 		6BB07BEF2981C9BE005A56D7 /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB07BEE2981C9BE005A56D7 /* IconNames.swift */; };
@@ -231,6 +232,7 @@
 		6B9FB1A829BE0F8800D39B7F /* NotificationsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInfoView.swift; sourceTree = "<group>"; };
 		6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
 		6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailView.swift; sourceTree = "<group>"; };
+		6BA1DA952AB3A81C001F9408 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		6BA7E773293D67BB00A3F3E4 /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
 		6BA7E775293D68F500A3F3E4 /* Administration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administration.swift; sourceTree = "<group>"; };
 		6BB07BEE2981C9BE005A56D7 /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				6B11D8BA299457CF003BD412 /* ReminderListRow */,
 				6B827FA229DF5C00008FC8EC /* AddReminderButton.swift */,
 				6BE3E6C02A02AE72006849FF /* ReminderListAddIntakeOverlayView.swift */,
+				6BA1DA952AB3A81C001F9408 /* EmptyListView.swift */,
 			);
 			path = RemindersList;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				6BE3E6BD2A01B0B2006849FF /* IntakeDayView.swift in Sources */,
 				6B91B4BB2A96A9760098D14D /* Date+RawValue.swift in Sources */,
 				6BF6859329CA7A0E0019E707 /* Reminder+CoreDataProperties.swift in Sources */,
+				6BA1DA962AB3A81C001F9408 /* EmptyListView.swift in Sources */,
 				6B4ACFA42A53814700A04555 /* AppearancePickerView.swift in Sources */,
 				6B91B4B12A95580F0098D14D /* IntakeNotificationsModePickerView.swift in Sources */,
 				6B11D8C02994600E003BD412 /* AdministrationFrequencyView.swift in Sources */,
@@ -1144,14 +1148,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"Remedmind/Preview Content\"";
 				DEVELOPMENT_TEAM = R36C94X925;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Remedmind/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Remedmind;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1178,14 +1182,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"Remedmind/Preview Content\"";
 				DEVELOPMENT_TEAM = R36C94X925;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Remedmind/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Remedmind;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

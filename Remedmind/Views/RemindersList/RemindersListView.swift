@@ -33,25 +33,29 @@ struct RemindersListView: View {
     var body: some View {
         ZStack {
             NavigationStack {
-                
-                List {
-                    ForEach(reminders) { reminder in
-                        NavigationLink {
-                            ReminderDetailView(reminder: reminder)
-                        } label: {
-                            ReminderListRowView(reminder: reminder, selectedReminder: $selectedReminder, selectedDay: $selectedDay, showAddIntakeOverlayView: $showAddIntakeOverlayView)
-                                .environmentObject(self.themeSettings)
+                ZStack {
+                    List {
+                        ForEach(reminders) { reminder in
+                            NavigationLink {
+                                ReminderDetailView(reminder: reminder)
+                            } label: {
+                                ReminderListRowView(reminder: reminder, selectedReminder: $selectedReminder, selectedDay: $selectedDay, showAddIntakeOverlayView: $showAddIntakeOverlayView)
+                                    .environmentObject(self.themeSettings)
+                            }
                         }
+                    }
+                    .onAppear(perform: {
+                        reminders.forEach { reminder in
+                            reminder.addMissingDailyIntakes(context: viewContext)
+                            if reminder.activeAdministrationNotification || reminder.activeRunningLowNotification {
+                                LocalNotifications.shared.deleteAndCreateNewNotificationRequests(for: reminder)
+                            }
+                        }
+                    })
+                    if reminders.count == 0 {
+                        EmptyListView()
                     }
                 }
-                .onAppear(perform: {
-                    reminders.forEach { reminder in
-                        reminder.addMissingDailyIntakes(context: viewContext)
-                        if reminder.activeAdministrationNotification || reminder.activeRunningLowNotification {
-                            LocalNotifications.shared.deleteAndCreateNewNotificationRequests(for: reminder)
-                        }
-                    }
-                })
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {

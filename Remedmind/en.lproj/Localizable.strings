@@ -102,6 +102,7 @@
 "listView.row.administrationFrequency %@ %@ %d %@" = "%@ %@, %d times a day, %@";
 "listView.row.administrationFrequency.weekly %@" = "every %@";
 "listView.row.packageRemaining %@ %@" = "%@ %@ remaining in current package";
+"listView.emptyListText" = "No reminders, add one with the + button";
 
 "addEditReminderView.navigation.title" = "New medicine reminder";
 "addEditReminderView.packageExhaustion.title" = "Package exhaustion";
