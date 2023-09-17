@@ -174,6 +174,35 @@ class LocalNotifications {
         }
     }
     
+    func updateValidNotificationRequests(for reminders: [Reminder]) {
+        let remindersIds = reminders.map { $0.id?.uuidString }
+        
+        var deliveredNotificationsIdentifiers: [String] = []
+        userNotificationCenter.getDeliveredNotifications { [weak self] notifications in
+            for notification in notifications {
+                if !remindersIds.contains(notification.request.content.userInfo["reminderId"] as? String) {
+                    deliveredNotificationsIdentifiers.append(notification.request.content.userInfo["reminderId"] as! String)
+                }
+            }
+            self?.userNotificationCenter.removeDeliveredNotifications(withIdentifiers: deliveredNotificationsIdentifiers)
+        }
+        
+        var pendingNotificationRequestsIdentifiers: [String] = []
+        userNotificationCenter.getPendingNotificationRequests { [weak self] requests in
+            for request in requests {
+                if !remindersIds.contains(request.content.userInfo["reminderId"] as? String) {
+                    pendingNotificationRequestsIdentifiers.append(request.content.userInfo["reminderId"] as! String)
+                }
+            }
+            self?.userNotificationCenter.removePendingNotificationRequests(withIdentifiers: pendingNotificationRequestsIdentifiers)
+        }
+    }
+    
+    func deleteAllNotifications() {
+        self.userNotificationCenter.removeAllDeliveredNotifications()
+        self.userNotificationCenter.removeAllPendingNotificationRequests()
+    }
+    
     func requestLocalNotificationPermission(completion: @escaping (_ granted: Bool) -> Void) {
         let options: UNAuthorizationOptions = [.alert, .sound]
         
