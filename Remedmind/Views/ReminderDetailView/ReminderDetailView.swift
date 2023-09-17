@@ -40,7 +40,7 @@ struct ReminderDetailView: View {
                 viewContext.delete(reminder)
                 do {
                     try viewContext.save()
-                }catch{
+                } catch {
                     let nsError = error as NSError
                     fatalError("error.coredata.saving \(nsError) \(nsError.userInfo)")
                 }

@@ -51,9 +51,13 @@ struct RemindersListView: View {
                                 LocalNotifications.shared.deleteAndCreateNewNotificationRequests(for: reminder)
                             }
                         }
+                        LocalNotifications.shared.updateValidNotificationRequests(for: Array(reminders))
                     })
                     if reminders.count == 0 {
                         EmptyListView()
+                            .onAppear {
+                                LocalNotifications.shared.deleteAllNotifications()
+                            }
                     }
                 }
                 .toolbar {
