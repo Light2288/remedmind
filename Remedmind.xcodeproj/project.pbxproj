@@ -85,6 +85,7 @@
 		6BA00608297DE8CA00435EAF /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */; };
 		6BA19A3B299AED4F00F8CF9E /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */; };
 		6BA1DA962AB3A81C001F9408 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA1DA952AB3A81C001F9408 /* EmptyListView.swift */; };
+		6BA1DA982AB8E9AD001F9408 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA1DA972AB8E9AD001F9408 /* SplashScreenView.swift */; };
 		6BA7E774293D67BB00A3F3E4 /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7E773293D67BB00A3F3E4 /* Medicine.swift */; };
 		6BA7E776293D68F500A3F3E4 /* Administration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7E775293D68F500A3F3E4 /* Administration.swift */; };
 		6BB07BEF2981C9BE005A56D7 /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB07BEE2981C9BE005A56D7 /* IconNames.swift */; };
@@ -233,6 +234,7 @@
 		6BA00607297DE8CA00435EAF /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
 		6BA19A3A299AED4F00F8CF9E /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailView.swift; sourceTree = "<group>"; };
 		6BA1DA952AB3A81C001F9408 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		6BA1DA972AB8E9AD001F9408 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		6BA7E773293D67BB00A3F3E4 /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
 		6BA7E775293D68F500A3F3E4 /* Administration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administration.swift; sourceTree = "<group>"; };
 		6BB07BEE2981C9BE005A56D7 /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				6B827FAA29E4A243008FC8EC /* PositionReader.swift */,
+				6BA1DA972AB8E9AD001F9408 /* SplashScreenView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -915,6 +918,7 @@
 				6B91B4AF2A940AC00098D14D /* IntakeNotificationType+Description.swift in Sources */,
 				6B6A2C4829356CFA00E72834 /* RemedmindApp.swift in Sources */,
 				6BFB26C22A49CE9400481BF3 /* Appearance.swift in Sources */,
+				6BA1DA982AB8E9AD001F9408 /* SplashScreenView.swift in Sources */,
 				6B08C45E299EED290050EBFF /* CalendarIntakeView.swift in Sources */,
 				6B827FAF29E4AFCE008FC8EC /* View+GetPosition.swift in Sources */,
 				6B91B4852A8EBE200098D14D /* AboutThisAppSectionView.swift in Sources */,
