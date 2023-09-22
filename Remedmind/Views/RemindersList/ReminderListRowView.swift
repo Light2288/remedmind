@@ -19,7 +19,7 @@ struct ReminderListRowView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 15) {
             HStack {
-                MedicineImageView()
+                MedicineImageView(administrationType: reminder.administrationType)
                 MedicineNameBrandView(medicineName: reminder.medicineNameString, medicineBrand: reminder.medicineBrandString)
             }
             AdministrationFrequencyView(reminder: reminder)
