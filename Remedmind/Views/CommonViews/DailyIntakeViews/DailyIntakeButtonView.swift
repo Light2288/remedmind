@@ -9,10 +9,11 @@ import SwiftUI
 
 struct DailyIntakeButtonView: View {
     // MARK: - Properties
-    let buttonHeight: CGFloat = 40
+    var buttonHeight: CGFloat = 40
     
     var action: () -> Void
     var icon: String
+    var font: Font = .body
     
     @EnvironmentObject var themeSettings: ThemeSettings
     
@@ -20,9 +21,10 @@ struct DailyIntakeButtonView: View {
     var body: some View {
         Button(action: action) {
             Image(systemName: icon)
+                .font(font)
                 .frame(width: buttonHeight, height: buttonHeight)
                 .foregroundColor(themeSettings.selectedThemeSecondaryColor)
-                .overlay(Capsule(style: .continuous)
+                .overlay(Circle()
                     .stroke(themeSettings.selectedThemeSecondaryColor, style: StrokeStyle(lineWidth: 2)))
                 
         }

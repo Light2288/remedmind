@@ -12,6 +12,7 @@ struct NoIntakeDayView: View {
     let text: String
     let frameSize: CGFloat
     var day: Date
+    var font: Font = .body
     
     @EnvironmentObject var themeSettings: ThemeSettings
     
@@ -19,6 +20,7 @@ struct NoIntakeDayView: View {
     var body: some View {
         ZStack {
             Text(text)
+                .font(font)
                 .foregroundColor(.secondary)
                 .frame(width: frameSize, height: frameSize)
             if Calendar.customLocalizedCalendar.isDateInToday(day) {

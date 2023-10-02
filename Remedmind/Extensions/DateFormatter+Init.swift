@@ -31,6 +31,10 @@ extension DateFormatter {
         DateFormatter(dateFormat: "EEEEE")
     }
     
+    static var longWeekDayFormatter: DateFormatter {
+        DateFormatter(dateFormat: "EEE")
+    }
+    
     static var hourMinuteFormatter: DateFormatter {
         DateFormatter(dateFormat: "HH:mm")
     }

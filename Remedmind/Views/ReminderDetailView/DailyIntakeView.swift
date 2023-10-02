@@ -79,7 +79,6 @@ struct DailyIntakeView: View {
                     hapticFeedback.notificationOccurred(.success)
                     playSound(soundName: "add-remove-success", type: "mp3")
                     return
-                    
                 }
             )
             DailyIntakeDetailView(height: height, reminder: reminder, selectedDay: $selectedDay)
