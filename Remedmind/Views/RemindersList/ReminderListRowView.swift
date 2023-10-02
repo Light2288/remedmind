@@ -11,9 +11,6 @@ struct ReminderListRowView: View {
     // MARK: - Properties
     @EnvironmentObject var themeSettings: ThemeSettings
     @ObservedObject var reminder: Reminder
-    @Binding var selectedReminder: Reminder?
-    @Binding var selectedDay: Date
-    @Binding var showAddIntakeOverlayView: Bool
     
     // MARK: - Body
     var body: some View {
@@ -23,7 +20,7 @@ struct ReminderListRowView: View {
                 MedicineNameBrandView(medicineName: reminder.medicineNameString, medicineBrand: reminder.medicineBrandString)
             }
             AdministrationFrequencyView(reminder: reminder)
-            WeekAdministrationView(reminder: reminder, selectedDay: $selectedDay, selectedReminder: $selectedReminder, showAddIntakeOverlayView: $showAddIntakeOverlayView)
+            WeekAdministrationView(reminder: reminder)
                 .environmentObject(self.themeSettings)
             if reminder.activeRunningLowNotification {
                 PackageRemainderView(currentPackageQuantity: reminder.currentPackageQuantity, administrationType: reminder.administrationTypeString)
@@ -36,7 +33,7 @@ struct ReminderListRowView: View {
 // MARK: - Preview
 struct ReminderListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderListRowView(reminder: Reminder(context: PersistenceController.preview.container.viewContext), selectedReminder: .constant(Reminder(context: PersistenceController.preview.container.viewContext)), selectedDay: .constant(Date.now), showAddIntakeOverlayView: .constant(false))
+        ReminderListRowView(reminder: Reminder(context: PersistenceController.preview.container.viewContext))
             .environmentObject(ThemeSettings())
             .previewLayout(.sizeThatFits)
             .padding()

@@ -26,9 +26,6 @@ struct RemindersListView: View {
     @State var addButtonPlusSymbolOpacity = 1.0
     @State var addButtonPlusSymbolColor = Color(.systemBackground)
     @State var addButtonPlusSymbolScale = CGSize(width: 0.75, height: 0.75)
-    @State var selectedDay: Date = Date.now
-    @State var selectedReminder: Reminder?
-    @State var showAddIntakeOverlayView: Bool = false
     
     @State private var isListViewVisible: Bool = false
     
@@ -42,7 +39,7 @@ struct RemindersListView: View {
                                 NavigationLink {
                                     ReminderDetailView(reminder: reminder)
                                 } label: {
-                                    ReminderListRowView(reminder: reminder, selectedReminder: $selectedReminder, selectedDay: $selectedDay, showAddIntakeOverlayView: $showAddIntakeOverlayView)
+                                    ReminderListRowView(reminder: reminder)
                                         .environmentObject(self.themeSettings)
                                 }
                             }
@@ -99,9 +96,6 @@ struct RemindersListView: View {
                         AddReminderButton(isAddReminderViewPresented: $isAddReminderViewPresented, offset: $addButtonOffset, buttonOpacity: $addButtonOpacity, plusSymbolColor: $addButtonPlusSymbolColor, plusSymbolScale: $addButtonPlusSymbolScale, plusSymbolOpacity: $addButtonPlusSymbolOpacity)
                     }
                     
-                }
-                if let _ = $selectedReminder.wrappedValue, showAddIntakeOverlayView {
-                    ReminderListAddIntakeOverlayView(selectedReminder: $selectedReminder, selectedDay: $selectedDay, showAddIntakeOverlayView: $showAddIntakeOverlayView)
                 }
             }
             .tint(themeSettings.selectedThemePrimaryColor)

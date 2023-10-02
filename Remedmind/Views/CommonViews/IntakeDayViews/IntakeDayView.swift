@@ -15,6 +15,8 @@ struct IntakeDayView: View {
     var day: Date
     var onButtonTap: () -> Void
     var selectedDayTextColor: Color
+    var font: Font = .body
+    var displayCurrentDayIndicator: Bool = true
     
     @Binding var selectedDay: Date
     @ObservedObject var reminder: Reminder
@@ -50,11 +52,12 @@ struct IntakeDayView: View {
                         .frame(width: innerCircleDiameter, height: innerCircleDiameter, alignment: .center)
                 }
                 Text(text)
+                    .font(font)
                     .foregroundColor(
                         Calendar.customLocalizedCalendar.isDate(day, inSameDayAs: selectedDay) ? selectedDayTextColor
                         : Color(.label)
                     )
-                if Calendar.customLocalizedCalendar.isDateInToday(day) {
+                if displayCurrentDayIndicator &&  Calendar.customLocalizedCalendar.isDateInToday(day) {
                     Circle()
                         .foregroundColor(themeSettings.selectedThemePrimaryColor)
                         .frame(width: 4, height: 4)
