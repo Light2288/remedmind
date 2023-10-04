@@ -12,6 +12,7 @@ struct WeekAdministrationView: View {
     @EnvironmentObject var themeSettings: ThemeSettings
     @ObservedObject var reminder: Reminder
     @State var selectedDay: Date = Date.now
+    @Namespace var weekAdministrationNamespace
     
     // MARK: - Body
     var body: some View {
@@ -23,10 +24,13 @@ struct WeekAdministrationView: View {
                             .onTapGesture {
                                 // empty onTapGesture to prevent navigation when tapping
                             }
+                            .matchedGeometryEffect(id: reminder.id, in: weekAdministrationNamespace, anchor: .center)
                     } else {
                         IntakeDayView(text: DateFormatter.weekDayFormatter.string(from: day), outerCircleDiameter: 25, innerCircleDiameter: 20, day: day, onButtonTap: {}, selectedDayTextColor: Color(.label), font: .footnote, displayCurrentDayIndicator: false, selectedDay: $selectedDay, reminder: reminder)
                             .onTapGesture {
-                                selectedDay = day
+                                withAnimation(.bouncy(duration: 0.4, extraBounce: 0.18)) {
+                                    selectedDay = day
+                                }
                             }
                     }
                 } else {
