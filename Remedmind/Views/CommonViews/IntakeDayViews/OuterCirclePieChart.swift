@@ -26,7 +26,7 @@ struct OuterCirclePieChart: View {
                 pieChart.addArc(center: center, radius: radius, startAngle: .degrees(startAngle), endAngle: .degrees(endAngle), clockwise: true)
                 pieChart.closeSubpath()
             }
-            .fill(fillColor, strokeBorder: strokeBorder, lineWidth: strokeWidth)
+            .fillWithBorder(fillColor, strokeBorder: strokeBorder, lineWidth: strokeWidth)
             .rotationEffect(.degrees(-90 + 360 * fraction))
         }
     }

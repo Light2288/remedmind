@@ -16,7 +16,7 @@ struct OuterCircleEmpty: View {
     // MARK: - Body
     var body: some View {
         Circle()
-            .fill(fillColor, strokeBorder: strokeBorder, lineWidth: strokeWidth)
+            .fillWithBorder(fillColor, strokeBorder: strokeBorder, lineWidth: strokeWidth)
     }
 }
 
