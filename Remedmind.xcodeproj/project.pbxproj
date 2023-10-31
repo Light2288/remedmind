@@ -92,6 +92,7 @@
 		6BA7E776293D68F500A3F3E4 /* Administration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7E775293D68F500A3F3E4 /* Administration.swift */; };
 		6BB07BEF2981C9BE005A56D7 /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB07BEE2981C9BE005A56D7 /* IconNames.swift */; };
 		6BB296BF29774AA000152A7B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB296BE29774AA000152A7B /* SettingsView.swift */; };
+		6BBEC8BC2AF1A9EA000720FF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6BBEC8BB2AF1A9EA000720FF /* index.html */; };
 		6BC7BFD22987231F00E15743 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC7BFD12987231F00E15743 /* Theme.swift */; };
 		6BC7BFD62987239E00E15743 /* ThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC7BFD52987239E00E15743 /* ThemeData.swift */; };
 		6BC7BFD82987241E00E15743 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC7BFD72987241E00E15743 /* ThemeColors.swift */; };
@@ -242,6 +243,7 @@
 		6BA7E775293D68F500A3F3E4 /* Administration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administration.swift; sourceTree = "<group>"; };
 		6BB07BEE2981C9BE005A56D7 /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
 		6BB296BE29774AA000152A7B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6BBEC8BB2AF1A9EA000720FF /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		6BC7BFD12987231F00E15743 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6BC7BFD52987239E00E15743 /* ThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeData.swift; sourceTree = "<group>"; };
 		6BC7BFD72987241E00E15743 /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 		6B6A2C3B29356CFA00E72834 = {
 			isa = PBXGroup;
 			children = (
+				6BBEC8BA2AF1A903000720FF /* docs */,
 				6B827FB329E60184008FC8EC /* DailyIntake+CoreDataClass.swift */,
 				6B827FB429E60184008FC8EC /* DailyIntake+CoreDataProperties.swift */,
 				6BF6859029CA7A0E0019E707 /* Reminder+CoreDataClass.swift */,
@@ -602,6 +605,14 @@
 				6BB07BEE2981C9BE005A56D7 /* IconNames.swift */,
 			);
 			path = IconChange;
+			sourceTree = "<group>";
+		};
+		6BBEC8BA2AF1A903000720FF /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				6BBEC8BB2AF1A9EA000720FF /* index.html */,
+			);
+			path = docs;
 			sourceTree = "<group>";
 		};
 		6BC7BFD02987230B00E15743 /* Theme */ = {
@@ -836,6 +847,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BBEC8BC2AF1A9EA000720FF /* index.html in Resources */,
 				6BFB26D12A4B94B300481BF3 /* orange-light.png in Resources */,
 				6BFB26D02A4B94B300481BF3 /* gray-light.png in Resources */,
 				6BFB268E2A24C6FD00481BF3 /* Localizable.strings in Resources */,
